@@ -6,4 +6,5 @@ public class ActionTriggerData
     public int MinBattery;
     public int MaxBattery;
     public string ActionName;
+    public float TriggerCD;
 }

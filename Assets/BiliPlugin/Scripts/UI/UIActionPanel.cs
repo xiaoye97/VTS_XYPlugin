@@ -143,6 +143,7 @@ public class UIActionPanel : MonoBehaviour
     public void DeleteActionBind(int index)
     {
         ActionTriggerDatas.datas.RemoveAt(index);
+        ES3.Save<ActionTriggerDatas>("ActionTriggerDatas", ActionTriggerDatas);
         ListView.SetListItemCount(ActionTriggerDatas.datas.Count);
     }
 }

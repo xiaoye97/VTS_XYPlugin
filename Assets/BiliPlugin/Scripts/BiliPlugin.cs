@@ -13,6 +13,7 @@ public class BiliPlugin : VTSPlugin
 {
     public static BiliPlugin Instance;
     public BiliPython BiliPython;
+    public DropItemManager DropItemManager;
     private ConnectState connectState;
     /// <summary>
     /// 连接状态
@@ -31,6 +32,7 @@ public class BiliPlugin : VTSPlugin
     }
     // 等待播放的动作
     public Queue<string> ActionQueue = new Queue<string>();
+    public Dictionary<string, float> ActionCDDict = new Dictionary<string, float>();
     public float ActionCD;
     public float ActionDuration = 5f;
 
@@ -40,6 +42,9 @@ public class BiliPlugin : VTSPlugin
     public UIGiftPanel UIGiftPanel;
     public UILogPanel UILogPanel;
     public UIActionPanel UIActionPanel;
+    public UIDropItemMiniPanel UIDropItemMiniPanel;
+    public UIDropItemPanel UIDropItemPanel;
+    public UIDropItemSettingPanel UIDropItemSettingPanel;
     #endregion
 
     void Start()
@@ -48,6 +53,7 @@ public class BiliPlugin : VTSPlugin
         Application.targetFrameRate = 30;
         ConnectToVTS();
         BiliPython = new BiliPython();
+        DropItemManager = new DropItemManager();
     }
 
     void Update()
@@ -61,9 +67,20 @@ public class BiliPlugin : VTSPlugin
                 OnRecvData(data);
             }
         }
+        // 动作CD
         if (ActionCD >= 0)
         {
             ActionCD -= Time.deltaTime;
+        }
+        //  动作触发CD
+        List<string> keys = new List<string>();
+        foreach (var key in ActionCDDict.Keys)
+        {
+            keys.Add(key);
+        }
+        for (int i = 0; i < keys.Count; i++)
+        {
+            ActionCDDict[keys[i]] -= Time.deltaTime;
         }
         if (ActionCD < 0)
         {
@@ -79,6 +96,7 @@ public class BiliPlugin : VTSPlugin
     public string TriggerAction(GiftData gift)
     {
         string result = "";
+        ActionTriggerData resultData = null;
         foreach (var data in UIActionPanel.ActionTriggerDatas.datas)
         {
             switch (data.TriggerType)
@@ -87,7 +105,10 @@ public class BiliPlugin : VTSPlugin
                     if (gift.GiftType == GiftType.Gift)
                     {
                         if (gift.GiftName == data.GiftName)
+                        {
                             result = data.ActionName;
+                            resultData = data;
+                        }
                     }
                     break;
                 case ActionTriggerType.收到礼物金额满足条件时触发:
@@ -95,28 +116,56 @@ public class BiliPlugin : VTSPlugin
                     {
                         int battery = (int)(gift.Money * 10);
                         if (battery >= data.MinBattery && battery <= data.MaxBattery)
+                        {
                             result = data.ActionName;
+                            resultData = data;
+                        }
                     }
                     break;
                 case ActionTriggerType.收到SC时触发:
                     if (gift.GiftType == GiftType.SC)
                     {
                         result = data.ActionName;
+                        resultData = data;
                     }
                     break;
                 case ActionTriggerType.收到舰长时触发:
                     if (gift.GiftType == GiftType.Jian)
                     {
                         result = data.ActionName;
+                        resultData = data;
                     }
                     break;
             }
         }
+
         if (!string.IsNullOrWhiteSpace(result))
         {
-            ActionQueue.Enqueue(result);
+            // 如果没有冷却，则直接跳过
+            if (IsCDCooling(result))
+            {
+                ActionQueue.Enqueue(result);
+                ActionCDDict[result] = resultData.TriggerCD;
+            }
         }
         return result;
+    }
+
+    /// <summary>
+    /// 检查是否结束冷却
+    /// </summary>
+    /// <param name="action"></param>
+    /// <returns></returns>
+    private bool IsCDCooling(string action)
+    {
+        if (ActionCDDict.ContainsKey(action))
+        {
+            return ActionCDDict[action] <= 0;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     // 人气  f'R[{client.room_id}] 当前人气: {message.popularity}'
@@ -150,6 +199,10 @@ public class BiliPlugin : VTSPlugin
                     log += $" (￥{yuan})";
                 }
                 g.ActionName = TriggerAction(g);
+                if (DropItemManager.DropItemDataDict.ContainsKey(g.GiftName))
+                {
+                    SendDropItem(g.GiftName, g.GiftCount, (v) => { }, (e) => { });
+                }
                 UIGiftPanel.OnGift(g);
                 break;
             // 有人上舰
@@ -159,6 +212,10 @@ public class BiliPlugin : VTSPlugin
                 j.UserName = danmu_msg[1];
                 j.GiftName = danmu_msg[2];
                 j.ActionName = TriggerAction(j);
+                if (DropItemManager.DropItemDataDict.ContainsKey("舰长"))
+                {
+                    SendDropItem("舰长", 1, (v) => { }, (e) => { });
+                }
                 UIGiftPanel.OnGift(j);
                 log = $"{danmu_msg[1]} 开通了 {danmu_msg[2]}";
                 break;
@@ -230,6 +287,8 @@ public class BiliPlugin : VTSPlugin
         {
             Debug.Log("已连接!");
             ConnectState = ConnectState.Connected;
+            // 连接成功后，发送数据
+            DropItemManager.SaveAndSendCollider();
         },
         () =>
         {

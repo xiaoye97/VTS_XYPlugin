@@ -15,6 +15,7 @@ public class UICreateActionBindPanel : MonoBehaviour
     public TMP_InputField MinBatteryInputField;
     public GameObject MaxBatteryTitle;
     public TMP_InputField MaxBatteryInputField;
+    public TMP_InputField TriggerCDInputField;
     public TMP_Dropdown SelectActionDP;
 
     void Start()
@@ -44,6 +45,11 @@ public class UICreateActionBindPanel : MonoBehaviour
     private bool CanFinishCreate()
     {
         bool isCanFinish = true;
+        float cd;
+        if (!float.TryParse(TriggerCDInputField.text, out cd))
+            isCanFinish = false;
+        if (cd < 0)
+            isCanFinish = false;
         ActionTriggerType TriggerType = (ActionTriggerType)SelectTriggerTypeDP.value;
         switch (TriggerType)
         {
@@ -80,6 +86,7 @@ public class UICreateActionBindPanel : MonoBehaviour
             TriggerData.ActionName = SelectActionDP.options[SelectActionDP.value].text;
             int.TryParse(MinBatteryInputField.text, out TriggerData.MinBattery);
             int.TryParse(MaxBatteryInputField.text, out TriggerData.MaxBattery);
+            float.TryParse(TriggerCDInputField.text, out TriggerData.TriggerCD);
             BiliPlugin.Instance.UIActionPanel.AddActionBind(TriggerData);
             OnClickCloseBtn();
         }

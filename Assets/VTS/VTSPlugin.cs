@@ -543,6 +543,31 @@ namespace VTS {
         }
 
         #endregion
-        
+
+        #region 宵夜自定义API
+        public void SendDropItem(string GiftName, int Count, Action<VTSDropItemData> onSuccess, Action<VTSErrorData> onError)
+        {
+            Debug.Log($"向VTS发送礼物掉落请求，{GiftName}x{Count}");
+            VTSDropItemData request = new VTSDropItemData();
+            request.data.ImageName = GiftName;
+            request.data.DropCount = Count;
+            this._socket.Send<VTSDropItemData>(request, onSuccess, onError);
+        }
+
+        public void SendRefreshDropItem(Action<VTSRefreshDropItemData> onSuccess, Action<VTSErrorData> onError)
+        {
+            Debug.Log($"向VTS发送刷新礼物掉落数据请求");
+            VTSRefreshDropItemData request = new VTSRefreshDropItemData();
+            this._socket.Send<VTSRefreshDropItemData>(request, onSuccess, onError);
+        }
+
+        public void SendSetModelCollider(VTSSetModelColliderData.Data data, Action<VTSSetModelColliderData> onSuccess, Action<VTSErrorData> onError)
+        {
+            Debug.Log($"向VTS发送设置碰撞体数据请求");
+            VTSSetModelColliderData request = new VTSSetModelColliderData();
+            request.data = data;
+            this._socket.Send<VTSSetModelColliderData>(request, onSuccess, onError);
+        }
+        #endregion
     }
 }

@@ -35,7 +35,11 @@ public class BiliPython
 
     public void EndPy()
     {
-        p.Close();
+        if (p != null)
+        {
+            p.Kill();
+            p.Close();
+        }
         BiliPlugin.Log($"停止连接直播间{RoomID}");
     }
 
@@ -87,6 +91,9 @@ public class BiliPython
     public void OnApplicationQuit()
     {
         if (p != null)
+        {
+            p.Kill();
             p.Close();
+        }
     }
 }

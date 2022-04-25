@@ -5,10 +5,10 @@ using UnityEngine;
 public class UIBG : MonoBehaviour
 {
     public RectTransform MoveRT;
-    private Vector2 startPos = new Vector2(-1161, -1283);
-    private Vector2 endPos = new Vector2(-2235, -1283);
+    private Vector2 startPos = new Vector2(0, 0);
+    private Vector2 endPos = new Vector2(-106, 0);
     private float process = 0;
-    private float moveTime = 10f;
+    private float moveTime = 4f;
 
     void Update()
     {

@@ -212,10 +212,7 @@ public class BiliPlugin : VTSPlugin
                 j.UserName = danmu_msg[1];
                 j.GiftName = danmu_msg[2];
                 j.ActionName = TriggerAction(j);
-                if (DropItemManager.DropItemDataDict.ContainsKey("舰长"))
-                {
-                    SendDropItem("舰长", 1, (v) => { }, (e) => { });
-                }
+                SendDropItem(j.GiftName, 1, (v) => { }, (e) => { });
                 UIGiftPanel.OnGift(j);
                 log = $"{danmu_msg[1]} 开通了 {danmu_msg[2]}";
                 break;
@@ -289,6 +286,7 @@ public class BiliPlugin : VTSPlugin
             ConnectState = ConnectState.Connected;
             // 连接成功后，发送数据
             DropItemManager.SaveAndSendCollider();
+            DropItemManager.SaveDropSetting();
         },
         () =>
         {

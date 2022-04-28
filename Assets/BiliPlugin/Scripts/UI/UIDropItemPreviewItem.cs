@@ -25,6 +25,7 @@ public class UIDropItemPreviewItem : MonoBehaviour
         info += $"图片缩放:{data.Scale}\n";
         info += $"碰撞半径:{data.ColliderRadius}\n";
         info += $"每次触发掉落数量:{data.PerTriggerDropCount}\n";
+        info += $"层级:{data.Order}";
         InfoText.text = info;
     }
 

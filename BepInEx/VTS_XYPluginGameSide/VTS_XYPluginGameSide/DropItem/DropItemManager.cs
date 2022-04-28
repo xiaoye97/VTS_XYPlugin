@@ -20,12 +20,17 @@ namespace VTS_XYPluginGameSide
         public DirectoryInfo ImageDataDirectory;
         public List<WaitDropItemData> WaitList = new List<WaitDropItemData>();
         private GameObject dropItemPrefab;
-        public CircleCollider2D Liv2DCollider;
+        public L2DModelCtl Liv2DModelCtl;
+        public DropSettingData DropSettingData;
 
         public DropItemManager()
         {
             ImageDirectory = new DirectoryInfo($"{BepInEx.Paths.GameRootPath}/VTS_XYPlugin/礼物掉落/图片");
             ImageDataDirectory = new DirectoryInfo($"{BepInEx.Paths.GameRootPath}/VTS_XYPlugin/礼物掉落/图片数据");
+
+            GlobalVar.Data.SetField("DropSettingData", JsonUtility.ToJson(DropSettingData.CreateDefault()));
+            SetDropSettingData();
+            GlobalVar.RecvDataActions["DropSettingData"] = SetDropSettingData;
             CreatePrefab();
             CreateItemCollider();
             CreateLive2DCollider();
@@ -63,6 +68,16 @@ namespace VTS_XYPluginGameSide
             }
         }
 
+        public void SetDropSettingData()
+        {
+            DropSettingData data = JsonUtility.FromJson<DropSettingData>(GlobalVar.Data["DropSettingData"].str);
+            DropSettingData = data;
+            XYPlugin.Instance.Log($"当前DropSettingData:{JsonUtility.ToJson(DropSettingData)}");
+            DropItem.StartDropPoint = new Vector3(data.DropPosX, data.DropPosY, 100);
+            DropItem.HighSpeed = data.HighSpeed;
+            DropItem.BaseSpeed = data.BaseSpeed;
+        }
+
         /// <summary>
         /// 创建掉落物预制体
         /// </summary>
@@ -76,6 +91,9 @@ namespace VTS_XYPluginGameSide
             drop.gameObject.layer = 8;
             drop.Rigi = prefab.AddComponent<Rigidbody2D>();
             drop.Rigi.gravityScale = 3f;
+            drop.Rigi.sharedMaterial = new PhysicsMaterial2D();
+            drop.Rigi.sharedMaterial.bounciness = 0.5f;
+            drop.Rigi.sharedMaterial.friction = 0.4f;
             prefab.SetActive(false);
             dropItemPrefab = prefab;
         }
@@ -105,19 +123,26 @@ namespace VTS_XYPluginGameSide
         /// </summary>
         private void CreateLive2DCollider()
         {
-            var modelRoot = GameObject.Find("Live2DModel/ModelScaleTranslateRotate");
-            Liv2DCollider = modelRoot.AddComponent<CircleCollider2D>();
-            Liv2DCollider.radius = 8;
-            Liv2DCollider.offset = new Vector2(0, 5);
+            var modelRoot = GameObject.Find("Live2DModel/ModelScaleTranslateRotate/ModeRotationPivot");
+            Liv2DModelCtl = modelRoot.AddComponent<L2DModelCtl>();
+            
+            Liv2DModelCtl.collider = modelRoot.AddComponent<CircleCollider2D>();
+            Liv2DModelCtl.collider.radius = 8;
+            Liv2DModelCtl.collider.offset = new Vector2(0, 5);
+
+            //Liv2DModelCtl.rigi = modelRoot.AddComponent<Rigidbody2D>();
+            //Liv2DModelCtl.rigi.gravityScale = 0;
+            //Liv2DModelCtl.rigi.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         }
 
         public void SetModelCollider(XYSetModelColliderRequest data)
         {
-            if (Liv2DCollider != null)
+            if(Liv2DModelCtl != null && Liv2DModelCtl.collider != null)
             {
-                Liv2DCollider.enabled = data.Enable;
-                Liv2DCollider.radius = data.Radius;
-                Liv2DCollider.offset = new Vector2(data.OffsetX, data.OffsetY);
+                Liv2DModelCtl.collider.enabled = data.Enable;
+                Liv2DModelCtl.collider.radius = data.Radius;
+                Liv2DModelCtl.collider.offset = new Vector2(data.OffsetX, data.OffsetY);
             }
         }
 
@@ -137,7 +162,7 @@ namespace VTS_XYPluginGameSide
         /// </summary>
         /// <param name="name">物品名字</param>
         /// <param name="count">触发次数</param>
-        public void DropItem(string name, int count)
+        public void StartDropItem(string name, int count)
         {
             if (!DropItemDataDict.ContainsKey(name) || !SpriteDict.ContainsKey(name))
             {
@@ -157,7 +182,7 @@ namespace VTS_XYPluginGameSide
             data.ItemData = DropItemDataDict[name];
             data.Sprite = SpriteDict[name];
             data.WaitCount = count * data.ItemData.PerTriggerDropCount;
-            data.HighSpeed = data.WaitCount >= 20;
+            data.HighSpeed = data.WaitCount >= DropSettingData.ChangeSpeedCount;
             WaitList.Add(data);
         }
 

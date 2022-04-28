@@ -545,6 +545,15 @@ namespace VTS {
         #endregion
 
         #region 宵夜自定义API
+        public void SendGlobalVar(string Key, string Json, Action<VTSGlobalVarData> onSuccess, Action<VTSErrorData> onError)
+        {
+            Debug.Log($"向VTS发送全局变量数据，Key:{Key} Json:{Json}");
+            VTSGlobalVarData request = new VTSGlobalVarData();
+            request.data.Key = Key;
+            request.data.Json = Json;
+            this._socket.Send<VTSGlobalVarData>(request, onSuccess, onError);
+        }
+
         public void SendDropItem(string GiftName, int Count, Action<VTSDropItemData> onSuccess, Action<VTSErrorData> onError)
         {
             Debug.Log($"向VTS发送礼物掉落请求，{GiftName}x{Count}");

@@ -14,15 +14,17 @@ namespace VTS_XYPluginCommon
         public float ColliderRadius;
         public float LifeTime;
         public int PerTriggerDropCount;
+        public int Order;
 
         public static DropItemData CreateDefault()
         {
             DropItemData data = new DropItemData();
             data.ImageFileSize = 0;
-            data.Scale = 1;
-            data.ColliderRadius = 1;
-            data.LifeTime = 3;
+            data.Scale = 10;
+            data.ColliderRadius = 0.3f;
+            data.LifeTime = 5;
             data.PerTriggerDropCount = 1;
+            data.Order = 20000;
             return data;
         }
     }

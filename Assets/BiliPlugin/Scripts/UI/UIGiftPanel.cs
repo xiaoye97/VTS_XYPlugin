@@ -19,19 +19,11 @@ public class UIGiftPanel : MonoBehaviour
     public int GiftMoneyLimit;
     public bool OnlyShowAction;
 
-
-    public int LogCount
-    {
-        get
-        {
-            return giftDatas.Count;
-        }
-    }
-
     void Start()
     {
         giftDatas = new List<GiftData>();
-        ListView.InitListView(LogCount, OnGetItemByIndex);
+        ListView.InitListView(giftDatas.Count, OnGetItemByIndex);
+
         GiftCountLimit = ES3.Load<int>("GiftCountLimit", 100);
         CountLimitInput.text = GiftCountLimit.ToString();
         CountLimitInput.onEndEdit.AddListener(OnEndEditCountLimitInput);
@@ -103,10 +95,10 @@ public class UIGiftPanel : MonoBehaviour
         {
             giftDatas.RemoveAt(0);
         }
-        ListView.SetListItemCount(LogCount);
-        if (LogCount > 10)
+        ListView.SetListItemCount(giftDatas.Count);
+        if (giftDatas.Count > 10)
         {
-            ListView.MovePanelToItemIndex(LogCount - 1, 0);
+            ListView.MovePanelToItemIndex(giftDatas.Count - 1, 0);
         }
     }
 
@@ -125,12 +117,12 @@ public class UIGiftPanel : MonoBehaviour
                 giftDatas.RemoveAt(0);
             }
         }
-        ListView.SetListItemCount(LogCount);
+        ListView.SetListItemCount(giftDatas.Count);
     }
 
     LoopListViewItem2 OnGetItemByIndex(LoopListView2 listView, int index)
     {
-        if (index < 0 || index >= LogCount)
+        if (index < 0 || index >= giftDatas.Count)
         {
             return null;
         }

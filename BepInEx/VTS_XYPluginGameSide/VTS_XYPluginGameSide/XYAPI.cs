@@ -13,6 +13,7 @@ namespace VTS_XYPluginGameSide
         /// </summary>
         public static List<string> PluginAPINameList = new List<string>()
         {
+            "XYGlobalVarRequest",
             "XYDropItemRequest",
             "XYRefreshDropItemRequest",
             "XYSetModelColliderRequest"
@@ -32,6 +33,9 @@ namespace VTS_XYPluginGameSide
                     {
                         switch (messageType)
                         {
+                            case "XYGlobalVarRequest":
+                                XYGlobalVar(wholePayloadAsString);
+                                break;
                             case "XYDropItemRequest":
                                 XYDropItem(wholePayloadAsString);
                                 break;
@@ -47,13 +51,21 @@ namespace VTS_XYPluginGameSide
             }
         }
 
+        private static void XYGlobalVar(string data)
+        {
+            JSONObject json = new JSONObject(data);
+            XYGlobalVarRequest apiData = JsonUtility.FromJson<XYGlobalVarRequest>(json["data"].ToString());
+            XYPlugin.Instance.Log($"接收到全局变量:{apiData.Json}");
+            GlobalVar.OnRecvData(apiData.Key, apiData.Json);
+        }
+
         private static void XYDropItem(string data)
         {
             // 这里有点奇怪，使用JsonUtility直接解析会丢失泛型的data，所以手动解析一下
             JSONObject json = new JSONObject(data);
             XYDropItemRequest apiData = JsonUtility.FromJson<XYDropItemRequest>(json["data"].ToString());
             XYPlugin.Instance.Log($"接收到物品掉落信息:{apiData.ImageName}x{apiData.DropCount}");
-            XYPlugin.Instance.DropItemManager.DropItem(apiData.ImageName, apiData.DropCount);
+            XYPlugin.Instance.DropItemManager.StartDropItem(apiData.ImageName, apiData.DropCount);
         }
 
         private static void XYRefreshDropItem()

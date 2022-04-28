@@ -11,6 +11,7 @@ public class DropItemManager
     public DirectoryInfo ImageDirectory;
     public DirectoryInfo ImageDataDirectory;
     public VTSSetModelColliderData.Data SetModelColliderData;
+    public DropSettingData DropSettingData;
 
     public DropItemManager()
     {
@@ -27,6 +28,7 @@ public class DropItemManager
             if (!ImageDataDirectory.Exists) ImageDataDirectory.Create();
             ReloadDropItemData();
             SetModelColliderData = ES3.Load<VTSSetModelColliderData.Data>("SetModelColliderData", VTSSetModelColliderData.Data.CreateDefault());
+            DropSettingData = ES3.Load<DropSettingData>("DropSettingData", DropSettingData.CreateDefault());
         }
         catch { }
     }
@@ -96,5 +98,11 @@ public class DropItemManager
     {
         ES3.Save<VTSSetModelColliderData.Data>("SetModelColliderData", SetModelColliderData);
         BiliPlugin.Instance.SendSetModelCollider(SetModelColliderData, (v) => { }, (e) => { });
+    }
+
+    public void SaveDropSetting()
+    {
+        GlobalVar.Data.SetField("DropSettingData", JsonUtility.ToJson(DropSettingData));
+        GlobalVar.SendData("DropSettingData");
     }
 }

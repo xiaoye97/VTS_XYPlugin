@@ -12,6 +12,7 @@ public class UIDropItemSettingPanel : MonoBehaviour
     public TMP_InputField ScaleInput;
     public TMP_InputField ColliderRadiusInput;
     public TMP_InputField PerTriggerDropCountInput;
+    public TMP_InputField OrderInput;
     public Button SaveBtn;
     public Button CloseBtn;
 
@@ -29,6 +30,7 @@ public class UIDropItemSettingPanel : MonoBehaviour
         data.Scale = float.Parse(ScaleInput.text);
         data.ColliderRadius = float.Parse(ColliderRadiusInput.text);
         data.PerTriggerDropCount = int.Parse(PerTriggerDropCountInput.text);
+        data.Order = int.Parse(OrderInput.text);
         BiliPlugin.Instance.DropItemManager.SaveItem(GiftName, data);
         gameObject.SetActive(false);
         BiliPlugin.Instance.UIDropItemPanel.Refresh();
@@ -44,5 +46,6 @@ public class UIDropItemSettingPanel : MonoBehaviour
         ScaleInput.text = data.Scale.ToString();
         ColliderRadiusInput.text = data.ColliderRadius.ToString();
         PerTriggerDropCountInput.text = data.PerTriggerDropCount.ToString();
+        OrderInput.text = data.Order.ToString();
     }
 }

@@ -14,6 +14,6 @@ public class UIDropItemMiniPanel : MonoBehaviour
 
     public void OnClickOpenDirBtn()
     {
-
+        System.Diagnostics.Process.Start(BiliPlugin.Instance.DropItemManager.ImageDirectory.FullName);
     }
 }

@@ -9,9 +9,11 @@ namespace VTS_XYPluginGameSide
 {
     public class DropItem : MonoBehaviour
     {
-        public static float StartDestoryY = -56;
+        public static float StartDestoryY = -54;
         public static float DestoryY = -65;
         public static Vector3 StartDropPoint = new Vector3(0, 65, 100);
+        public static float HighSpeed;
+        public static float BaseSpeed;
         public SpriteRenderer SR;
         public CircleCollider2D Collider;
         public Rigidbody2D Rigi;
@@ -29,22 +31,21 @@ namespace VTS_XYPluginGameSide
             maxLifeCD = itemData.LifeTime * 3;
             Collider.radius = itemData.ColliderRadius;
             SR.sprite = waitData.Sprite;
-            SR.sortingOrder = 20000;
+            SR.sortingOrder = itemData.Order;
             transform.localScale = new Vector3(itemData.Scale, itemData.Scale, itemData.Scale);
 
             // 偏移一点位置
             float xOffset = UnityEngine.Random.Range(-5f, 5f);
-            float yOffset = 0;
             if (waitData.HighSpeed)
             {
-                yOffset = UnityEngine.Random.Range(-200f, -130f);
+                Rigi.gravityScale = HighSpeed;
             }
             else
             {
-                yOffset = UnityEngine.Random.Range(-50f, -20f);
+                Rigi.gravityScale = BaseSpeed;
             }
             transform.position = new Vector3(transform.position.x + xOffset, transform.position.y, transform.position.z);
-            Rigi.velocity = new Vector2(0, yOffset);
+            
             isStartDrop = true;
         }
 

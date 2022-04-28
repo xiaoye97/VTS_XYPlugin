@@ -86,7 +86,6 @@ public class BiliPlugin : VTSPlugin
         {
             if (ActionQueue.Count > 0)
             {
-                
                 string action = ActionQueue.Dequeue();
                 var data = UIActionPanel.GetActionTriggerData(action);
                 if (data != null && data.ActionTime > 0)

@@ -22,6 +22,8 @@ namespace VTS_XYPluginGameSide
         private GameObject dropItemPrefab;
         public L2DModelCtl Liv2DModelCtl;
         public DropSettingData DropSettingData;
+        public EdgeCollider2D EdgeCollider;
+        public static int NowItemCount;
 
         public DropItemManager()
         {
@@ -45,13 +47,18 @@ namespace VTS_XYPluginGameSide
 
         public void Update()
         {
+            //if (WaitList.Count > 500)
+            //{
+            //    EdgeCollider.enabled = false;
+            //    XYPlugin.Instance.Log("礼物数量过多，关闭边界碰撞");
+            //}
             if (WaitList.Count > 0)
             {
                 var waitData = WaitList[0];
                 if (waitData.WaitCount > 100)
                 {
-                    waitData.WaitCount-= 10;
-                    for(int i = 0; i < 10; i++)
+                    waitData.WaitCount -= 10;
+                    for (int i = 0; i < 10; i++)
                     {
                         CreateDropItem(waitData);
                     }
@@ -66,6 +73,11 @@ namespace VTS_XYPluginGameSide
                     WaitList.RemoveAt(0);
                 }
             }
+            //if (NowItemCount <= 10)
+            //{
+            //    EdgeCollider.enabled = true;
+            //    XYPlugin.Instance.Log("恢复边界碰撞");
+            //}
         }
 
         public void SetDropSettingData()
@@ -107,7 +119,7 @@ namespace VTS_XYPluginGameSide
             go.layer = 8;
             go.transform.position = new Vector3(0, 0, 100);
             GameObject.DontDestroyOnLoad(go);
-            var collider = go.AddComponent<EdgeCollider2D>();
+            EdgeCollider = go.AddComponent<EdgeCollider2D>();
             List<Vector2> points = new List<Vector2>();
             float halfWidth = 115;
             float halfHeight = 58;
@@ -115,7 +127,7 @@ namespace VTS_XYPluginGameSide
             points.Add(new Vector2(-halfWidth, -halfHeight));
             points.Add(new Vector2(halfWidth, -halfHeight));
             points.Add(new Vector2(halfWidth, halfHeight));
-            collider.SetPoints(points);
+            EdgeCollider.SetPoints(points);
         }
 
         /// <summary>
@@ -125,7 +137,7 @@ namespace VTS_XYPluginGameSide
         {
             var modelRoot = GameObject.Find("Live2DModel/ModelScaleTranslateRotate/ModeRotationPivot");
             Liv2DModelCtl = modelRoot.AddComponent<L2DModelCtl>();
-            
+
             Liv2DModelCtl.collider = modelRoot.AddComponent<CircleCollider2D>();
             Liv2DModelCtl.collider.radius = 8;
             Liv2DModelCtl.collider.offset = new Vector2(0, 5);
@@ -138,7 +150,7 @@ namespace VTS_XYPluginGameSide
 
         public void SetModelCollider(XYSetModelColliderRequest data)
         {
-            if(Liv2DModelCtl != null && Liv2DModelCtl.collider != null)
+            if (Liv2DModelCtl != null && Liv2DModelCtl.collider != null)
             {
                 Liv2DModelCtl.collider.enabled = data.Enable;
                 Liv2DModelCtl.collider.radius = data.Radius;
@@ -155,6 +167,7 @@ namespace VTS_XYPluginGameSide
             var go = GameObject.Instantiate(dropItemPrefab);
             go.GetComponent<DropItem>().StartDrop(waitData);
             go.SetActive(true);
+            NowItemCount++;
         }
 
         /// <summary>

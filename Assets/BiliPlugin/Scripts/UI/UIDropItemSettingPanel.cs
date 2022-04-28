@@ -6,6 +6,7 @@ using TMPro;
 
 public class UIDropItemSettingPanel : MonoBehaviour
 {
+    public Sprite AllGift;
     public TextMeshProUGUI GiftNameText;
     public Image GiftImage;
     public TMP_InputField LifeTimeInput;
@@ -17,6 +18,7 @@ public class UIDropItemSettingPanel : MonoBehaviour
     public Button CloseBtn;
 
     private string GiftName;
+    private bool allGiftEdotMode;
 
     private void Awake()
     {
@@ -25,6 +27,47 @@ public class UIDropItemSettingPanel : MonoBehaviour
 
     void OnClickSaveBtn()
     {
+        if (allGiftEdotMode)
+        {
+            SaveAllGiftData();
+        }
+        else
+        {
+            SaveNowGiftData();
+        }
+        gameObject.SetActive(false);
+        BiliPlugin.Instance.UIDropItemPanel.Refresh();
+    }
+
+    public void SaveAllGiftData()
+    {
+        float lifeTime, radius, scale;
+        int perTriggerDropCount, order;
+        lifeTime = float.Parse(LifeTimeInput.text);
+        scale = float.Parse(ScaleInput.text);
+        radius = float.Parse(ColliderRadiusInput.text);
+        perTriggerDropCount = int.Parse(PerTriggerDropCountInput.text);
+        order = int.Parse(OrderInput.text);
+        List<string> keys = new List<string>();
+        foreach(var kv in BiliPlugin.Instance.DropItemManager.DropItemDataDict)
+        {
+            keys.Add(kv.Key);
+        }
+        for(int i = 0; i < keys.Count; i++)
+        {
+            string giftName = keys[i];
+            var data = BiliPlugin.Instance.DropItemManager.DropItemDataDict[giftName];
+            data.LifeTime = lifeTime;
+            data.Scale = scale;
+            data.ColliderRadius = radius;
+            data.PerTriggerDropCount = perTriggerDropCount;
+            data.Order = order;
+            BiliPlugin.Instance.DropItemManager.SaveItem(giftName, data);
+        }
+    }
+
+    public void SaveNowGiftData()
+    {
         var data = BiliPlugin.Instance.DropItemManager.DropItemDataDict[GiftName];
         data.LifeTime = float.Parse(LifeTimeInput.text);
         data.Scale = float.Parse(ScaleInput.text);
@@ -32,8 +75,22 @@ public class UIDropItemSettingPanel : MonoBehaviour
         data.PerTriggerDropCount = int.Parse(PerTriggerDropCountInput.text);
         data.Order = int.Parse(OrderInput.text);
         BiliPlugin.Instance.DropItemManager.SaveItem(GiftName, data);
-        gameObject.SetActive(false);
-        BiliPlugin.Instance.UIDropItemPanel.Refresh();
+    }
+
+    public void SetAllGiftEditMode(bool onoff)
+    {
+        allGiftEdotMode = onoff;
+        if (onoff)
+        {
+            GiftName = "全部礼物";
+            GiftImage.sprite = AllGift;
+            GiftNameText.text = "全部礼物";
+            LifeTimeInput.text = "";
+            ScaleInput.text = "";
+            ColliderRadiusInput.text = "";
+            PerTriggerDropCountInput.text = "";
+            OrderInput.text = "";
+        }
     }
 
     public void SetData(string giftName)

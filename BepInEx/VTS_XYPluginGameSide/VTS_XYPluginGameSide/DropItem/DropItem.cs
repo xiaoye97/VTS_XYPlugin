@@ -58,23 +58,31 @@ namespace VTS_XYPluginGameSide
                     lifeCD -= Time.deltaTime;
                     if (lifeCD < 0)
                     {
-                        if (transform.position.y - Collider.radius <= StartDestoryY)
-                        {
-                            isStartDestory = true;
-                            Collider.enabled = false;
-                        }
+                        //if (transform.position.y - Collider.radius <= StartDestoryY)
+                        //{
+                        //    isStartDestory = true;
+                        //    Collider.enabled = false;
+                        //}
+                        isStartDestory = true;
+                        Collider.enabled = false;
                     }
                 }
                 maxLifeCD -= Time.deltaTime;
                 if (maxLifeCD < 0)
                 {
-                    Destroy(gameObject);
+                    DestroySelf();
                 }
             }
             if (transform.position.y < DestoryY)
             {
-                Destroy(gameObject);
+                DestroySelf();
             }
+        }
+
+        public void DestroySelf()
+        {
+            DropItemManager.NowItemCount--;
+            Destroy(gameObject);
         }
     }
 }

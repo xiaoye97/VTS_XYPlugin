@@ -27,6 +27,12 @@ public class BiliPython
 
     public void StartPy()
     {
+        if (p != null)
+        {
+            p.Kill();
+            p.Close();
+            BiliPlugin.Log($"断开当前直播间");
+        }
         BiliPlugin.Log($"开始连接直播间{RoomID}");
         ThreadStart childRef = new ThreadStart(PythonThread);
         Thread childThread = new Thread(childRef);

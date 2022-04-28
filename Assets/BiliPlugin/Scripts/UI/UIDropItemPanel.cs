@@ -8,6 +8,7 @@ using SuperScrollView;
 public class UIDropItemPanel : MonoBehaviour
 {
     public Button RefreshBtn;
+    public Button AllEditBtn;
     public LoopListView2 ListView;
     public Toggle EnableModelColliderToggle;
     public TMP_InputField ColliderRadiusInput;
@@ -18,6 +19,7 @@ public class UIDropItemPanel : MonoBehaviour
     private void Awake()
     {
         RefreshBtn.onClick.AddListener(Refresh);
+        AllEditBtn.onClick.AddListener(OnClickAllEditBtn);
         ListView.InitListView(0, OnGetItemByIndex);
 
         var data = BiliPlugin.Instance.DropItemManager.SetModelColliderData;
@@ -46,6 +48,12 @@ public class UIDropItemPanel : MonoBehaviour
         float.TryParse(ColliderOffsetYInput.text, out data.OffsetY);
         BiliPlugin.Instance.DropItemManager.SetModelColliderData = data;
         BiliPlugin.Instance.DropItemManager.SaveAndSendCollider();
+    }
+
+    public void OnClickAllEditBtn()
+    {
+        BiliPlugin.Instance.UIDropItemSettingPanel.SetAllGiftEditMode(true);
+        BiliPlugin.Instance.UIDropItemSettingPanel.gameObject.SetActive(true);
     }
 
     public void Refresh()

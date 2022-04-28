@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace VTS_XYPluginGameSide
 {
-    [BepInPlugin("com.xiaoye97.plugin.VTubeStudio.VTS_XYPluginGameSide", "VTS_XYPluginGameSide", "1.2")]
+    [BepInPlugin("com.xiaoye97.plugin.VTubeStudio.VTS_XYPluginGameSide", "VTS_XYPluginGameSide", "1.3")]
     public class XYPlugin : BaseUnityPlugin
     {
         public static XYPlugin Instance;

@@ -32,6 +32,11 @@ namespace VTS_XYPluginGameSide
             }
             else
             {
+                // 如果是在向上运动并且接近原点，则进行降速
+                if (resultY >= -20 && nowSpeed > 5)
+                {
+                    nowSpeed--;
+                }
                 transform.localPosition = new Vector3(0, resultY, 0);
             }
         }
@@ -42,7 +47,7 @@ namespace VTS_XYPluginGameSide
             {
                 collision.rigidbody.gravityScale = 3f;
                 nowSpeed -= collision.rigidbody.velocity.magnitude / 10;
-                XYPlugin.Instance.Log($"速度:{collision.rigidbody.velocity.magnitude / 10}");
+                //XYPlugin.Instance.Log($"速度:{collision.rigidbody.velocity.magnitude / 10}");
             }
         }
     }

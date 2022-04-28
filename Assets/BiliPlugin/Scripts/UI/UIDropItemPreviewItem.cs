@@ -31,6 +31,7 @@ public class UIDropItemPreviewItem : MonoBehaviour
 
     public void OnClickEditBtn()
     {
+        BiliPlugin.Instance.UIDropItemSettingPanel.SetAllGiftEditMode(false);
         BiliPlugin.Instance.UIDropItemSettingPanel.SetData(GiftName);
         BiliPlugin.Instance.UIDropItemSettingPanel.gameObject.SetActive(true);
     }

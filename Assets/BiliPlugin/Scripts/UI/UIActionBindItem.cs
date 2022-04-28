@@ -15,7 +15,7 @@ public class UIActionBindItem : MonoBehaviour
     public void SetData(ActionTriggerData data, int index)
     {
         itemIndex = index;
-        ActionNameText.text = $"动作:{data.ActionName} CD:{data.TriggerCD}";
+        ActionNameText.text = $"动作:{data.ActionName} CD:{data.TriggerCD} 动作时长:{data.ActionTime}";
         string desc = "";
         desc += $"类型:{data.TriggerType}";
         switch (data.TriggerType)

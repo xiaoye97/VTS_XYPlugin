@@ -146,4 +146,18 @@ public class UIActionPanel : MonoBehaviour
         ES3.Save<ActionTriggerDatas>("ActionTriggerDatas", ActionTriggerDatas);
         ListView.SetListItemCount(ActionTriggerDatas.datas.Count);
     }
+
+    public ActionTriggerData GetActionTriggerData(string actionName)
+    {
+        ActionTriggerData result = null;
+        foreach (var data in ActionTriggerDatas.datas)
+        {
+            if (data.ActionName == actionName)
+            {
+                result = data;
+                break;
+            }
+        }
+        return result;
+    }
 }

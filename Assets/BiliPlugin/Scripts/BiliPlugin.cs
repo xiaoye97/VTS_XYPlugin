@@ -86,8 +86,17 @@ public class BiliPlugin : VTSPlugin
         {
             if (ActionQueue.Count > 0)
             {
-                ActionCD = ActionDuration;
+                
                 string action = ActionQueue.Dequeue();
+                var data = UIActionPanel.GetActionTriggerData(action);
+                if (data != null && data.ActionTime > 0)
+                {
+                    ActionCD = data.ActionTime;
+                }
+                else
+                {
+                    ActionCD = ActionDuration;
+                }
                 UIActionPanel.TriggerHotkey(action);
             }
         }

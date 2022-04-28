@@ -17,6 +17,7 @@ public class UICreateActionBindPanel : MonoBehaviour
     public TMP_InputField MaxBatteryInputField;
     public TMP_InputField TriggerCDInputField;
     public TMP_Dropdown SelectActionDP;
+    public TMP_InputField ActionTimeInputField;
 
     void Start()
     {
@@ -87,6 +88,7 @@ public class UICreateActionBindPanel : MonoBehaviour
             int.TryParse(MinBatteryInputField.text, out TriggerData.MinBattery);
             int.TryParse(MaxBatteryInputField.text, out TriggerData.MaxBattery);
             float.TryParse(TriggerCDInputField.text, out TriggerData.TriggerCD);
+            float.TryParse(ActionTimeInputField.text, out TriggerData.ActionTime);
             BiliPlugin.Instance.UIActionPanel.AddActionBind(TriggerData);
             OnClickCloseBtn();
         }

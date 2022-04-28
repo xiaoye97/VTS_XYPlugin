@@ -7,4 +7,5 @@ public class ActionTriggerData
     public int MaxBattery;
     public string ActionName;
     public float TriggerCD;
+    public float ActionTime;
 }

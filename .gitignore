@@ -10,6 +10,18 @@
 [Ll]ogs
 [Uu]ser[Ss]ettings
 Assets/Plugins
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -73,3 +85,17 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 [Aa]ssets[Ss]treamingAssetsaa.meta
 [Aa]ssets[Ss]treamingAssetsaa
+
+# NuGet Packages
+*.nupkg
+# NuGet Symbol Packages
+*.snupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets

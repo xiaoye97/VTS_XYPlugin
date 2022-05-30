@@ -1,0 +1,14 @@
+[
+  {
+    "PressingHotkey": "Numpad7",
+    "GlobalHotkey": true,
+    "IdleAnimationName": "01.motion3.json",
+    "FadeSecondsAmount": 0.5
+  },
+  {
+    "PressingHotkey": "Numpad8",
+    "GlobalHotkey": true,
+    "IdleAnimationName": "02.motion3.json",
+    "FadeSecondsAmount": 0.5
+  }
+]

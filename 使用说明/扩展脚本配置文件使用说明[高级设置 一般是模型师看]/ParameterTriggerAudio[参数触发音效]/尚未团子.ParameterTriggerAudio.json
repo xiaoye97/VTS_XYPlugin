@@ -1,0 +1,59 @@
+[
+  {
+    "AudioFile": "Audios/Casual - Level 1 (Loop_01).wav",
+    "Loop": false,
+    "LoopFadeTime": 0.0,
+    "Muti": false,
+    "Volume": 1.0,
+    "Parameters": [
+      "FaceAngleX"
+    ],
+    "Operations": [
+      ">"
+    ],
+    "Values": [
+      20.0
+    ],
+    "IsInputParam": [
+      true
+    ]
+  },
+  {
+    "AudioFile": "Audios/Cash register 2.wav",
+    "Loop": false,
+    "LoopFadeTime": 0.0,
+    "Muti": true,
+    "Volume": 1.0,
+    "Parameters": [
+      "ParamAngleX"
+    ],
+    "Operations": [
+      "<"
+    ],
+    "Values": [
+      -20.0
+    ],
+    "IsInputParam": [
+      false
+    ]
+  },
+  {
+    "AudioFile": "Audios/Casual - Level 1 (Loop_01).wav",
+    "Loop": true,
+    "LoopFadeTime": 1.0,
+    "Muti": true,
+    "Volume": 1.0,
+    "Parameters": [
+      "ParamAngleY"
+    ],
+    "Operations": [
+      ">"
+    ],
+    "Values": [
+      20.0
+    ],
+    "IsInputParam": [
+      false
+    ]
+  }
+]

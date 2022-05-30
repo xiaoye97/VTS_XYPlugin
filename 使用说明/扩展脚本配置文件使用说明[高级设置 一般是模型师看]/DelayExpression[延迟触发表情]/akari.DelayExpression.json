@@ -1,0 +1,38 @@
+[
+  {
+    "PressingHotkey": [
+      "Numpad4"
+    ],
+    "GlobalHotkey": true,
+    "PlayPoints": [
+      {
+        "PlayTime": 1.0,
+        "Expression": "EyesCry.exp3.json",
+        "FadeSecondsAmount": 0.5
+      },
+      {
+        "PlayTime": 4.0,
+        "Expression": "EyesLove.exp3.json",
+        "FadeSecondsAmount": 0.5
+      }
+    ]
+  },
+  {
+    "PressingHotkey": [
+      "Numpad5"
+    ],
+    "GlobalHotkey": true,
+    "PlayPoints": [
+      {
+        "PlayTime": 3.0,
+        "Expression": "EyesCry.exp3.json",
+        "FadeSecondsAmount": 0.5
+      },
+      {
+        "PlayTime": 6.0,
+        "Expression": "EyesLove.exp3.json",
+        "FadeSecondsAmount": 0.5
+      }
+    ]
+  }
+]

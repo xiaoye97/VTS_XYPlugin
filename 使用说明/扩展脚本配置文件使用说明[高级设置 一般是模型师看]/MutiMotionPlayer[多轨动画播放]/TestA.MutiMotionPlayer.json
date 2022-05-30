@@ -1,0 +1,15 @@
+[
+  {
+    "ControlParameters": [
+      "TestYuanXing"
+    ],
+    "ControlMotions": [
+      "YuanScene.motion3.json"
+    ],
+    "StopHotkeys": [
+      "Control",
+      "J"
+    ],
+    "GlobalHotkey": true
+  }
+]

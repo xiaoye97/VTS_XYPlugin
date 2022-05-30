@@ -119,7 +119,7 @@ namespace VTS_XYPlugin
                 }
                 string path = XYPaths.DropItemConfigPath;
                 string json = JsonConvert.SerializeObject(XYPlugin.Instance.DropItemDataBase, Formatting.Indented);
-                XYPlugin.Instance.DropItemDataBaseWatcher.IgnoreOnceModify = true;
+                //XYPlugin.Instance.DropItemDataBaseWatcher.IgnoreOnceModify = true;
                 WriteAllText(path, json);
             }
             catch (Exception ex)

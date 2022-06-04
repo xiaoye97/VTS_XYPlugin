@@ -13,7 +13,7 @@ namespace VTS_ParameterTriggerAudio
     {
         public const string GUID = "me.xiaoye97.plugin.VTubeStudio.ParameterTriggerAudio";
         public const string PluginName = "ParameterTriggerAudio[参数触发音效]";
-        public const string PluginDescription = "当模型的某个参数满足设定范围时，触发对应的音效。[需要在配置文件中设置相关数据][音频文件支持wav ogg acc三种格式]";
+        public const string PluginDescription = "当模型的某个参数满足设定范围时，触发对应的音效。[需要在配置文件中设置相关数据][音频文件支持wav ogg aac三种格式]";
         public const string VERSION = "1.0.0";
         public static GameObject AudioSourcePrefab;
 

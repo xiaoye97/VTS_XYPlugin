@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3E8880F2-4FE0-47CD-96D9-C4D47DA9D0DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VTS_XYPlugin</RootNamespace>
+    <AssemblyName>VTS_XYPlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Program Files %28x86%29\Steam\steamapps\common\VTube Studio\BepInEx\plugins\VTS_XYPlugin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\BepInEx\core\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp-nstrip">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\RefDll\Assembly-CSharp-nstrip.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BepInEx.Core">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\BepInEx\core\BepInEx.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BepInEx.Unity">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\BepInEx\core\BepInEx.Unity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LeanPool, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\RefDll\LeanPool.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.TextCoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityGifDecoder">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityGifDecoder.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bilibili.cs" />
+    <Compile Include="BilibiliHeadCache.cs" />
+    <Compile Include="Component\AutoFillSize.cs" />
+    <Compile Include="Component\DropItemBehaviour.cs" />
+    <Compile Include="Component\GravitationCalculator.cs" />
+    <Compile Include="Component\IModelReturnCalculator.cs" />
+    <Compile Include="Component\NoneBehaviour.cs" />
+    <Compile Include="Component\SceneItemBehaviour.cs" />
+    <Compile Include="Component\SpringCalculator.cs" />
+    <Compile Include="Component\XYDebugBehaviour.cs" />
+    <Compile Include="Component\XYDropItemBehaviour.cs" />
+    <Compile Include="Component\XYModelBehaviour.cs" />
+    <Compile Include="Component\XYTriggerHotkeyBehaviour.cs" />
+    <Compile Include="Component\XYVideoBehaviour.cs" />
+    <Compile Include="Gif.cs" />
+    <Compile Include="MonoSingleton.cs" />
+    <Compile Include="NetHelper.cs" />
+    <Compile Include="UserHead.cs" />
+    <Compile Include="XYCache.cs" />
+    <Compile Include="XYDropManager.cs" />
+    <Compile Include="FileHelper.cs" />
+    <Compile Include="Message\CollisionMessage.cs" />
+    <Compile Include="Message\MessageCenter.cs" />
+    <Compile Include="Message\MessageListener.cs" />
+    <Compile Include="MiscHelper.cs" />
+    <Compile Include="ResourceUtils.cs" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="Component\AutoEdgeCollider.cs" />
+    <Compile Include="WaitDropItemData.cs" />
+    <Compile Include="WaitTriggerHotkeyData.cs" />
+    <Compile Include="XYExScriptManager.cs" />
+    <Compile Include="XYHotkeyManager.cs" />
+    <Compile Include="XYLog.cs" />
+    <Compile Include="XYModelManager.cs" />
+    <Compile Include="XYPatch.cs" />
+    <Compile Include="XYPaths.cs" />
+    <Compile Include="XYPlugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XYRawKeyInput.cs" />
+    <Compile Include="XYServerSession.cs" />
+    <Compile Include="XYVideoManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VTS_XYPlugin_Common\VTS_XYPlugin_Common.csproj">
+      <Project>{f552ae77-eaa5-48d9-a485-3003a0aabd56}</Project>
+      <Name>VTS_XYPlugin_Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Res\Square.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

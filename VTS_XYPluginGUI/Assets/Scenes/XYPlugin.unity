@@ -15179,7 +15179,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 195, y: 0}
-  m_SizeDelta: {x: 183, y: 0}
+  m_SizeDelta: {x: 199, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1046708304
 MonoBehaviour:
@@ -17179,7 +17179,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -600, y: 0}
-  m_SizeDelta: {x: 1020, y: 0}
+  m_SizeDelta: {x: 1020, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1175892274
 MonoBehaviour:
@@ -17203,12 +17203,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: da9a51ce28f0d7443a5bcbdbe04c4f4b, type: 3}
-    m_FontSize: 54
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 3
     m_MaxSize: 76
-    m_Alignment: 4
+    m_Alignment: 7
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -24488,7 +24488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22edf581691d3ba478407fd40b1c3e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Version: "Ver.2.0-\u5185\u90E8\u6D4B\u8BD5a9"
+  Version: "Ver.2.0-\u5185\u90E8\u6D4B\u8BD5a10"
 --- !u!114 &1796244934
 MonoBehaviour:
   m_ObjectHideFlags: 0

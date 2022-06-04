@@ -138,6 +138,7 @@ namespace VTS_ParameterTriggerAudio
             {
                 AudioClip _audioClip = DownloadHandlerAudioClip.GetContent(_unityWebRequest);
                 Audios[audioPath] = _audioClip;
+                XYLog.LogMessage($"ParameterTriggerAudio加载了音频:{audioPath}");
             }
             else
             {

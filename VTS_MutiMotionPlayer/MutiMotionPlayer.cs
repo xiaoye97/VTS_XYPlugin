@@ -135,6 +135,7 @@ namespace VTS_MutiMotionPlayer
             NowModelMutiMixers = new List<Live2DAnimationMixer>();
             NowModelMutiPSCs = new List<ModelParamStateController>();
             NowControlMotionNames = new List<string>();
+            if (XYModelManager.Instance.NowModelDef == null) return;
             string path = XYModelManager.Instance.NowModelDef.FilePath.Replace(".vtube.json", ".MutiMotionPlayer.json");
             FileInfo file = new FileInfo(path);
             if (file.Exists)

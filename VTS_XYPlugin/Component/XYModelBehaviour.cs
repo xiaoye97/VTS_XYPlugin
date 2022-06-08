@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin
@@ -29,7 +24,7 @@ namespace VTS_XYPlugin
             collisionListener.UnRegister();
         }
 
-        void Update()
+        private void Update()
         {
             CheckCalculator();
             if (modelReturnCalculator != null)

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using BepInEx;
+using System;
+using System.Collections.Generic;
 using System.Reflection;
 using VTS_XYPlugin_Common;
-using System.Collections.Generic;
-using BepInEx;
 
 namespace VTS_XYPlugin
 {
@@ -11,6 +10,7 @@ namespace VTS_XYPlugin
     {
         public List<ExScriptAttribute> AllExScripts = new List<ExScriptAttribute>();
         public List<Assembly> AllAssemblies = new List<Assembly>();
+
         public override void Init()
         {
             LoadAllExScript();

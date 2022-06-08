@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace VTS_XYPlugin
 {
@@ -14,6 +9,7 @@ namespace VTS_XYPlugin
     {
         // 模拟模型被砸下
         private float G = 20; // 重力向上
+
         private float nowSpeed;
 
         void IModelReturnCalculator.Update(Transform transform)

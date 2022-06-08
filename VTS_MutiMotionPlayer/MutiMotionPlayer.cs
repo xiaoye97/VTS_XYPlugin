@@ -1,15 +1,14 @@
-﻿using System;
-using BepInEx;
-using System.IO;
+﻿using BepInEx;
 using HarmonyLib;
-using UnityEngine;
-using VTS_XYPlugin;
-using UnityRawInput;
-using Newtonsoft.Json;
 using Live2D.Cubism.Core;
-using UnityEngine.Events;
-using VTS_XYPlugin_Common;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+using UnityEngine.Events;
+using VTS_XYPlugin;
+using VTS_XYPlugin_Common;
 
 namespace VTS_MutiMotionPlayer
 {
@@ -29,7 +28,7 @@ namespace VTS_MutiMotionPlayer
         public static List<ModelParamStateController> NowModelMutiPSCs = new List<ModelParamStateController>();
         public static List<string> NowControlMotionNames = new List<string>();
 
-        void Start()
+        private void Start()
         {
             var modelLoader = GameObject.FindObjectOfType<VTubeStudioModelLoader>();
             if (modelLoader == null)

@@ -1,8 +1,10 @@
 ﻿using System;
 
-namespace PENet {
+namespace PENet
+{
     [Serializable]
-    public class NetMsg : PEMsg {
+    public class NetMsg : PEMsg
+    {
         public string text;
     }
 }

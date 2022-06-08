@@ -1,11 +1,11 @@
-﻿using System;
-using BepInEx;
-using System.IO;
+﻿using BepInEx;
 using HarmonyLib;
-using VTS_XYPlugin;
 using Newtonsoft.Json;
-using VTS_XYPlugin_Common;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using VTS_XYPlugin;
+using VTS_XYPlugin_Common;
 
 namespace VTS_DelayInputParameter
 {
@@ -21,12 +21,12 @@ namespace VTS_DelayInputParameter
         public static List<DelayInputParameterConfig> configs = new List<DelayInputParameterConfig>();
         private string nowControlModel = "";
 
-        void Start()
+        private void Start()
         {
             Harmony.CreateAndPatchAll(typeof(DelayInputParameter));
         }
 
-        void Update()
+        private void Update()
         {
             // 如果模型为空，则清空配置
             if (XYModelManager.Instance.NowModel == null)
@@ -45,6 +45,7 @@ namespace VTS_DelayInputParameter
 
         public static Dictionary<string, Queue<float>> DelayDict = new Dictionary<string, Queue<float>>();
         public static Dictionary<string, int> DelayCountDict = new Dictionary<string, int>();
+
         [HarmonyPrefix, HarmonyPatch(typeof(Live2DModelAnimator), "step_SetValuesFromFaceTracking")]
         public static bool Live2DModelAnimator_step_SetValuesFromFaceTracking_Patch(Live2DModelAnimator __instance)
         {
@@ -58,7 +59,7 @@ namespace VTS_DelayInputParameter
                     bool hasSpecialParam = false;
                     if (num2 == 0)
                         hasSpecialParam = __instance.specialParameters != null && __instance.specialParameters.TryGetFaceSpecialParameterValue(parameterName, out faceValue);
-                    
+
                     // 将当前的数据加入延迟列表
                     if (DelayCountDict.ContainsKey(parameterSetting.Input))
                     {

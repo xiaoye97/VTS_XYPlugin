@@ -1,9 +1,6 @@
 ﻿namespace VTS_XYPlugin_Common
 {
     [System.Serializable]
-    /// <summary>
-    /// 弹幕消息数据
-    /// </summary>
     public class BDanMuMessage : XYMessage
     {
         public int 用户ID;

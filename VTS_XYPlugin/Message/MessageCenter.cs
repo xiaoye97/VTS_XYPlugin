@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
-using Newtonsoft.Json;
-using VTS_XYPlugin_Common;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin
 {

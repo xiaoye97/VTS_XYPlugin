@@ -1,11 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using Live2D.Cubism.Core;
-using VTS_XYPlugin_Common;
+﻿using Live2D.Cubism.Core;
 using Live2D.Cubism.Rendering;
-using System.Collections.Generic;
+using System;
+using UnityEngine;
 
 namespace VTS_XYPlugin
 {
@@ -19,11 +15,14 @@ namespace VTS_XYPlugin
         public Collider2D Collider;
         public Animator Animator;
         public SpriteRenderer SR;
+
         /// <summary>
         /// 受击强度乘数
         /// </summary>
         public float StrengthMul = 0f;
+
         public bool CanHide;
+
         /// <summary>
         /// 不受其他因素影响，仅由用户控制的是否可显示
         /// </summary>
@@ -35,7 +34,7 @@ namespace VTS_XYPlugin
         // 因为挂件的动画状态机会将颜色改变会白色，所以根据生命周期，在LateUpdate中改变目标颜色
         private Color targetColor;
 
-        void Awake()
+        private void Awake()
         {
             SceneItem = GetComponent<SceneItem>();
             Animator = GetComponent<Animator>();
@@ -49,7 +48,7 @@ namespace VTS_XYPlugin
             ParseParam();
         }
 
-        void Update()
+        private void Update()
         {
             bool needShowSprite = true;
             // 如果物体在模型上，则根据绑定的部分来调节是否启用碰撞和显示

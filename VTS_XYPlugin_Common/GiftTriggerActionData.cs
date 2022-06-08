@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace VTS_XYPlugin_Common
 {
@@ -10,6 +9,7 @@ namespace VTS_XYPlugin_Common
         /// </summary>
         [NonSerialized]
         public int ID;
+
         public GiftTriggerActionType GiftTriggerActionType = GiftTriggerActionType.收到特定礼物时触发;
         public float TriggerCD;
         public string ActionName = "";
@@ -19,6 +19,7 @@ namespace VTS_XYPlugin_Common
 
         // 收到礼物满足条件时触发
         public int MinMoneyLimit = 1;
+
         public int MaxMoneyLimit = 10;
 
         // 收到舰长时触发

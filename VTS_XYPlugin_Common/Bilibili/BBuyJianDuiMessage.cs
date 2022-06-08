@@ -5,10 +5,12 @@
     {
         public int 用户ID;
         public string 用户名;
+
         /// <summary>
         /// 此处应该是此用户当前的舰队类型，而不是此次购买的类型
         /// </summary>
         public BJianDuiType 舰长类型;
+
         public BJianDuiType 开通类型;
         public int 开通数量;
 

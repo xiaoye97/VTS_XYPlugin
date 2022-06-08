@@ -1,10 +1,10 @@
-﻿using System;
-using BepInEx;
-using UnityEngine;
-using System.Threading;
-using System.Diagnostics;
-using VTS_XYPlugin_Common;
+﻿using BepInEx;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
+using UnityEngine;
+using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin
 {
@@ -12,16 +12,20 @@ namespace VTS_XYPlugin
     {
         public static int NowRoomID;
         public static string[] SplitStr = new[] { "$#**#$" };
+
         // 弹幕姬程序路径
         private static string ExePath;
+
         public static string dataCache;
         public static Queue<string> dataQueue = new Queue<string>();
         public Process process;
 
         // 如果进程意外退出的重连CD
         private float reConnectCD;
+
         // 如果60秒没接收到服务器消息的重连CD
         private static float reConnectCD2 = 120;
+
         // 是否允许连接B站，当启动参数里含有nobili的时候，不连接B站
         public static bool CanConnectBili = true;
 
@@ -71,28 +75,34 @@ namespace VTS_XYPlugin
                         args = data.Split(SplitStr, 8, StringSplitOptions.None);
                         message = new BDanMuMessage(args);
                         break;
+
                     case 'G':
                         args = data.Split(SplitStr, 8, StringSplitOptions.None);
                         message = new BGiftMessage(args);
                         // 如果是礼物，则直接将头像传入cache
                         BilibiliHeadCache.Instance.OnRecvGift(message as BGiftMessage);
                         break;
+
                     case 'P':
                         args = data.Split(SplitStr, 2, StringSplitOptions.None);
                         message = new BWatchPeopleMessage(args);
                         break;
+
                     case 'R':
                         args = data.Split(SplitStr, 2, StringSplitOptions.None);
                         message = new BRenQiMessage(args);
                         break;
+
                     case 'J':
                         args = data.Split(SplitStr, 6, StringSplitOptions.None);
                         message = new BBuyJianDuiMessage(args);
                         break;
+
                     case 'S':
                         args = data.Split(SplitStr, 6, StringSplitOptions.None);
                         message = new BSCMessage(args);
                         break;
+
                     case 'W':
                         args = data.Split(SplitStr, 2, StringSplitOptions.None);
                         message = new BWarningMessage(args);
@@ -174,7 +184,7 @@ namespace VTS_XYPlugin
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Out_RecvData(object sender, DataReceivedEventArgs e)
+        private void Out_RecvData(object sender, DataReceivedEventArgs e)
         {
             if (dataCache != e.Data)
             {
@@ -190,7 +200,7 @@ namespace VTS_XYPlugin
             }
         }
 
-        void OnApplicationQuit()
+        private void OnApplicationQuit()
         {
             EndDM();
         }

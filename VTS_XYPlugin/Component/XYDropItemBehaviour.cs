@@ -1,8 +1,4 @@
-﻿using System;
-using UnityEngine;
-using VTS_XYPlugin_Common;
-using System.Collections.Generic;
-
+﻿using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin
 {

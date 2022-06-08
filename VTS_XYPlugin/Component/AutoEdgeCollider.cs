@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace VTS_XYPlugin
@@ -17,7 +13,7 @@ namespace VTS_XYPlugin
         private EdgeCollider2D edgeCollider;
         private int lastWidth, lastHeight;
 
-        void Start()
+        private void Start()
         {
             var go = GameObject.Find("Live2D Camera");
             if (go != null)
@@ -27,7 +23,7 @@ namespace VTS_XYPlugin
             edgeCollider = GetComponent<EdgeCollider2D>();
         }
 
-        void Update()
+        private void Update()
         {
             if (lastWidth != Screen.width || lastHeight != Screen.height)
             {

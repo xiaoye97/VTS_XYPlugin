@@ -1,9 +1,7 @@
 ﻿using System;
-using System.IO;
-using System.Text;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace VTS_XYPlugin
 {

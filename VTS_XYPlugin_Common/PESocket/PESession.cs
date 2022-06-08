@@ -2,21 +2,26 @@
 	文件：PESession.cs
 	作者：Plane
 	邮箱: 1785275942@qq.com
-	日期：2018/10/30 11:20   	
+	日期：2018/10/30 11:20
 	功能：网络会话管理
 *****************************************************/
 
 using System;
 using System.Net.Sockets;
 
-namespace PENet {
-    public abstract class PESession<T> where T : PEMsg {
+namespace PENet
+{
+    public abstract class PESession<T> where T : PEMsg
+    {
         private Socket skt;
         private Action closeCB;
 
         #region Recevie
-        public void StartRcvData(Socket skt, Action closeCB) {
-            try {
+
+        public void StartRcvData(Socket skt, Action closeCB)
+        {
+            try
+            {
                 this.skt = skt;
                 this.closeCB = closeCB;
 
@@ -31,18 +36,23 @@ namespace PENet {
                     new AsyncCallback(RcvHeadData),
                     pack);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 PETool.LogMsg("StartRcvData:" + e.Message, LogLevel.Error);
             }
         }
 
-        private void RcvHeadData(IAsyncResult ar) {
-            try {
+        private void RcvHeadData(IAsyncResult ar)
+        {
+            try
+            {
                 PEPkg pack = (PEPkg)ar.AsyncState;
                 int len = skt.EndReceive(ar);
-                if (len > 0) {
+                if (len > 0)
+                {
                     pack.headIndex += len;
-                    if (pack.headIndex < pack.headLen) {
+                    if (pack.headIndex < pack.headLen)
+                    {
                         skt.BeginReceive(
                             pack.headBuff,
                             pack.headIndex,
@@ -51,7 +61,8 @@ namespace PENet {
                             new AsyncCallback(RcvHeadData),
                             pack);
                     }
-                    else {
+                    else
+                    {
                         pack.InitBodyBuff();
                         skt.BeginReceive(pack.bodyBuff,
                             0,
@@ -61,23 +72,29 @@ namespace PENet {
                             pack);
                     }
                 }
-                else {
+                else
+                {
                     OnDisConnected();
                     Clear();
                 }
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 PETool.LogMsg("RcvHeadError:" + e.Message, LogLevel.Error);
             }
         }
 
-        private void RcvBodyData(IAsyncResult ar) {
-            try {
+        private void RcvBodyData(IAsyncResult ar)
+        {
+            try
+            {
                 PEPkg pack = (PEPkg)ar.AsyncState;
                 int len = skt.EndReceive(ar);
-                if (len > 0) {
+                if (len > 0)
+                {
                     pack.bodyIndex += len;
-                    if (pack.bodyIndex < pack.bodyLen) {
+                    if (pack.bodyIndex < pack.bodyLen)
+                    {
                         skt.BeginReceive(pack.bodyBuff,
                             pack.bodyIndex,
                             pack.bodyLen - pack.bodyIndex,
@@ -85,7 +102,8 @@ namespace PENet {
                             new AsyncCallback(RcvBodyData),
                             pack);
                     }
-                    else {
+                    else
+                    {
                         T msg = PETool.DeSerialize<T>(pack.bodyBuff);
                         OnReciveMsg(msg);
 
@@ -100,23 +118,27 @@ namespace PENet {
                             pack);
                     }
                 }
-                else {
+                else
+                {
                     OnDisConnected();
                     Clear();
                 }
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 PETool.LogMsg("RcvBodyError:" + e.Message, LogLevel.Error);
-
             }
         }
-        #endregion
+
+        #endregion Recevie
 
         #region Send
+
         /// <summary>
         /// Send message data
         /// </summary>
-        public void SendMsg(T msg) {
+        public void SendMsg(T msg)
+        {
             byte[] data = PETool.PackLenInfo(PETool.Serialize<T>(msg));
             SendMsg(data);
         }
@@ -124,11 +146,14 @@ namespace PENet {
         /// <summary>
         /// Send binary data
         /// </summary>
-        public void SendMsg(byte[] data) {
+        public void SendMsg(byte[] data)
+        {
             NetworkStream ns = null;
-            try {
+            try
+            {
                 ns = new NetworkStream(skt);
-                if (ns.CanWrite) {
+                if (ns.CanWrite)
+                {
                     ns.BeginWrite(
                         data,
                         0,
@@ -137,29 +162,36 @@ namespace PENet {
                         ns);
                 }
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 PETool.LogMsg("SndMsgError:" + e.Message, LogLevel.Error);
             }
         }
 
-        private void SendCB(IAsyncResult ar) {
+        private void SendCB(IAsyncResult ar)
+        {
             NetworkStream ns = (NetworkStream)ar.AsyncState;
-            try {
+            try
+            {
                 ns.EndWrite(ar);
                 ns.Flush();
                 ns.Close();
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 PETool.LogMsg("SndMsgError:" + e.Message, LogLevel.Error);
             }
         }
-        #endregion
+
+        #endregion Send
 
         /// <summary>
         /// Release Resource
         /// </summary>
-        private void Clear() {
-            if (closeCB != null) {
+        private void Clear()
+        {
+            if (closeCB != null)
+            {
                 closeCB();
             }
             skt.Close();
@@ -168,21 +200,24 @@ namespace PENet {
         /// <summary>
         /// Connect network
         /// </summary>
-        protected virtual void OnConnected() {
+        protected virtual void OnConnected()
+        {
             PETool.LogMsg("New Seesion Connected.", LogLevel.Info);
         }
 
         /// <summary>
         /// Receive network message
         /// </summary>
-        protected virtual void OnReciveMsg(T msg) {
+        protected virtual void OnReciveMsg(T msg)
+        {
             PETool.LogMsg("Receive Network Message.", LogLevel.Info);
         }
 
         /// <summary>
         /// Disconnect network
         /// </summary>
-        protected virtual void OnDisConnected() {
+        protected virtual void OnDisConnected()
+        {
             PETool.LogMsg("Session Disconnected.", LogLevel.Info);
         }
     }

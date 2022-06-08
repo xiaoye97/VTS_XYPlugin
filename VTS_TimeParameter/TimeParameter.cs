@@ -1,6 +1,4 @@
-﻿using System;
-using BepInEx;
-using System.IO;
+﻿using BepInEx;
 using HarmonyLib;
 using VTS_XYPlugin;
 using VTS_XYPlugin_Common;
@@ -28,7 +26,7 @@ namespace VTS_TimeParameter
             if (XYModelManager.Instance.NowModel == null) return;
             if (XYModelManager.Instance.NowModel.ModelAnimator == null) return;
             if (XYModelManager.Instance.NowModel.ModelAnimator != __instance) return;
-            
+
             foreach (var kv in TimeParameterBehaviour.ParameterDict)
             {
                 float ori = kv.Key.Value;

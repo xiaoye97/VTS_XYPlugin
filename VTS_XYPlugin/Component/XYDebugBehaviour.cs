@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using VTS_XYPlugin_Common;
-using UnityEngine.Video;
-using System.Collections;
-using UnityEngine.Rendering.PostProcessing;
-using Live2D.Cubism.Rendering;
 
 namespace VTS_XYPlugin
 {
@@ -18,7 +9,7 @@ namespace VTS_XYPlugin
         private bool showWindow = false;
         private Rect windowRect = new Rect(50, 50, 500, 400);
 
-        void Update()
+        private void Update()
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -106,7 +97,6 @@ namespace VTS_XYPlugin
             XYPlugin.Instance.GlobalConfig.DebugMode = GUILayout.Toggle(XYPlugin.Instance.GlobalConfig.DebugMode, "显示隐藏挂件");
             GUI.DragWindow();
         }
-
 
         public void PlayerTestVideo()
         {

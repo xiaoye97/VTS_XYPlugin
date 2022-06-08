@@ -1,12 +1,4 @@
-﻿using System;
-using BepInEx;
-using System.IO;
-using HarmonyLib;
-using UnityEngine;
-using VTS_XYPlugin;
-using UnityRawInput;
-using Newtonsoft.Json;
-using VTS_XYPlugin_Common;
+﻿using HarmonyLib;
 using System.Collections.Generic;
 
 namespace VTS_MutiMotionPlayer
@@ -149,7 +141,7 @@ namespace VTS_MutiMotionPlayer
             foreach (KeyValuePair<VTubeStudioModel, LastKnownLive2DParamValues> keyValuePair in __instance.availableVTSModels)
             {
                 keyValuePair.Key.AnimationMixer.StepAnimationCurves(keyValuePair.Value.lastKnownParamValueOrDefault);
-                for(int i = 0; i < MutiMotionPlayer.NowModelMutiMixers.Count; i++)
+                for (int i = 0; i < MutiMotionPlayer.NowModelMutiMixers.Count; i++)
                 {
                     Live2DAnimationMixerPatch.StepAnimationCurves(MutiMotionPlayer.NowModelMutiMixers[i], MutiMotionPlayer.NowModelMutiPSCs[i], keyValuePair.Value.lastKnownParamValueOrDefault);
                 }

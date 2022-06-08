@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin

@@ -326,8 +326,8 @@ namespace BitConverter
 
         // Testing showed that this method wasn't automatically being inlined, and doing so offers a significant performance improvement.
 #if !NET40
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-#endif
         internal void CheckArguments(byte[] value, int startIndex, int byteLength)
         {
             if (value == null)

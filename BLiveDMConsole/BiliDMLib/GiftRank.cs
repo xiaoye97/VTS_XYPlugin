@@ -8,6 +8,7 @@ namespace BiliDMLib
         private string _userName;
         private decimal _coin;
         private int _uid;
+
         /// <summary>
         /// 用戶名
         /// </summary>
@@ -21,6 +22,7 @@ namespace BiliDMLib
                 OnPropertyChanged(nameof(UserName));
             }
         }
+
         /// <summary>
         /// 花銷
         /// </summary>
@@ -34,6 +36,7 @@ namespace BiliDMLib
                 OnPropertyChanged(nameof(coin));
             }
         }
+
         /// <summary>
         /// UID
         /// </summary>
@@ -47,7 +50,6 @@ namespace BiliDMLib
                 OnPropertyChanged(nameof(uid));
             }
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -1,11 +1,10 @@
-﻿using System;
-using BepInEx;
+﻿using BepInEx;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using VTS_XYPlugin;
-using UnityRawInput;
-using Newtonsoft.Json;
 using VTS_XYPlugin_Common;
-using System.Collections.Generic;
 
 namespace VTS_PressingMotionPlayer
 {
@@ -24,7 +23,7 @@ namespace VTS_PressingMotionPlayer
         private bool needPlay = false;
         private PressingConfig needPlayConfig;
 
-        void Start()
+        private void Start()
         {
             XYRawKeyInput.Instance.CheckInputAction += CheckInput;
         }
@@ -77,7 +76,7 @@ namespace VTS_PressingMotionPlayer
             {
                 if (XYModelManager.Instance.NowModel.ModelAnimator != null)
                 {
-                    if(needPlayConfig != null)
+                    if (needPlayConfig != null)
                     {
                         if (XYModelManager.Instance.NowModel.AnimationMixer.currentAnimation == null)
                         {

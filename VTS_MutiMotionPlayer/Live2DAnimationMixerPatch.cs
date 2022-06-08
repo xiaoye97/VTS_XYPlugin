@@ -1,14 +1,6 @@
-﻿using System;
-using BepInEx;
-using System.IO;
-using HarmonyLib;
-using UnityEngine;
-using VTS_XYPlugin;
-using UnityRawInput;
-using Newtonsoft.Json;
-using VTS_XYPlugin_Common;
+﻿using Live2D.Cubism.Core;
 using System.Collections.Generic;
-using Live2D.Cubism.Core;
+using UnityEngine;
 
 namespace VTS_MutiMotionPlayer
 {
@@ -40,7 +32,7 @@ namespace VTS_MutiMotionPlayer
             }
             if (newAnimation.Equals(mixer.currentAnimation) && mixer.animationStopsOnLastFrame && newAnimationStopsOnLastFrame)
             {
-                StopAnimation(mixer,psc,Live2DAnimationType.OneShotAnimation);
+                StopAnimation(mixer, psc, Live2DAnimationType.OneShotAnimation);
                 mixer.hasSetHoldAnimation = false;
                 return;
             }
@@ -175,7 +167,7 @@ namespace VTS_MutiMotionPlayer
             }
             if (flag && !mixer.animationStopsOnLastFrame)
             {
-                StopAnimation(mixer, psc,Live2DAnimationType.OneShotAnimation);
+                StopAnimation(mixer, psc, Live2DAnimationType.OneShotAnimation);
             }
         }
 

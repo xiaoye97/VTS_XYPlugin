@@ -1,12 +1,11 @@
-﻿using System;
-using BepInEx;
+﻿using BepInEx;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using VTS_XYPlugin;
-using UnityRawInput;
-using Newtonsoft.Json;
 using VTS_XYPlugin_Common;
-using System.Collections.Generic;
 
 namespace VTS_DelayExpression
 {
@@ -26,12 +25,12 @@ namespace VTS_DelayExpression
         private float playStartTime;
         private int pointIndex;
 
-        void Start()
+        private void Start()
         {
             XYRawKeyInput.Instance.CheckInputAction += CheckInput;
         }
 
-        void Update()
+        private void Update()
         {
             if (needPlayConfig != null)
             {
@@ -92,7 +91,7 @@ namespace VTS_DelayExpression
                 foreach (var hotkey in config.PressingHotkey)
                 {
                     bool pressed = XYRawKeyInput.GetKey(hotkey) && (config.GlobalHotkey || FocusHelper.AppHasFocus);
-                    if(!pressed)
+                    if (!pressed)
                     {
                         canPlay = false;
                         break;

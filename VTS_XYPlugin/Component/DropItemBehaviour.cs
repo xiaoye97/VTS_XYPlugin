@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin
@@ -25,7 +24,7 @@ namespace VTS_XYPlugin
         private Gif gif;
         private UserHead userHead;
 
-        void Update()
+        private void Update()
         {
             switch (state)
             {
@@ -38,6 +37,7 @@ namespace VTS_XYPlugin
                         Collider.enabled = false;
                     }
                     break;
+
                 case DropItemState.正在销毁:
                     destroyCD -= Time.deltaTime;
                     if (destroyCD < 0)

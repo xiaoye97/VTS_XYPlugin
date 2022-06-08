@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Live2D.Cubism.Core;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using VTS_XYPlugin;
-using Newtonsoft.Json;
-using Live2D.Cubism.Core;
 using VTS_XYPlugin_Common;
-using System.Collections.Generic;
 
 namespace VTS_TimeParameter
 {
@@ -53,7 +53,7 @@ namespace VTS_TimeParameter
         public void SetLuaParameters()
         {
             LuaParameters["GameTime"] = Time.time;
-            DateTime now =  DateTime.Now;
+            DateTime now = DateTime.Now;
             LuaParameters["Year"] = now.Year;
             LuaParameters["Month"] = now.Month;
             LuaParameters["Day"] = now.Day;

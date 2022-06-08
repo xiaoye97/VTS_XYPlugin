@@ -6,6 +6,7 @@ namespace VTS_XYPlugin_Common
     public class BindModelAttribute : Attribute
     {
         public string ModelName;
+
         public BindModelAttribute(string modelName)
         {
             ModelName = modelName;

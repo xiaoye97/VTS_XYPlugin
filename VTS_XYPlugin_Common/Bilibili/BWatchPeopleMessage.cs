@@ -1,9 +1,6 @@
 ﻿namespace VTS_XYPlugin_Common
 {
     [System.Serializable]
-    /// <summary>
-    /// 看过人数消息数据
-    /// </summary>
     public class BWatchPeopleMessage : XYMessage
     {
         public int 看过人数;

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using VTS_XYPlugin_Common;
-using UnityEngine;
 using System.IO;
+using UnityEngine;
+using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin
 {
@@ -23,12 +23,13 @@ namespace VTS_XYPlugin
         /// 掉落物的图片缓存，key为路径
         /// </summary>
         public Dictionary<string, Sprite> SpireCache = new Dictionary<string, Sprite>();
+
         /// <summary>
         /// 掉落位置预设
         /// </summary>
         public Dictionary<int, SceneItemBehaviour> DropPosItems = new Dictionary<int, SceneItemBehaviour>();
 
-        void Update()
+        private void Update()
         {
             if (WaitList.Count > 0)
             {

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace VTS_XYPlugin_Common
@@ -10,12 +6,13 @@ namespace VTS_XYPlugin_Common
     public class XYFileWatcher
     {
         public string FilePath;
-        DateTime lastWriteTime;
-        float checkCD;
-        bool fileExists;
+        private DateTime lastWriteTime;
+        private float checkCD;
+        private bool fileExists;
         public Action OnFileCreated;
         public Action OnFileModified;
         public Action OnFileDeleted;
+
         // 忽略一次文件修改的事件触发，用于自己写文件时使用
         public bool IgnoreOnceModify;
 

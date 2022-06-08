@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
-using Newtonsoft.Json;
-using VTS_XYPlugin_Common;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using UnityEngine;
+using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin
 {
@@ -19,7 +18,7 @@ namespace VTS_XYPlugin
             BWarningMessageListener = MessageCenter.Instance.Register<BWarningMessage>(OnBWarningMessage);
         }
 
-        void Update()
+        private void Update()
         {
             sendCacheCD -= Time.deltaTime;
             if (sendCacheCD < 0)
@@ -80,10 +79,12 @@ namespace VTS_XYPlugin
         }
 
         #region 插件向GUI
+
         /// <summary>
         /// 需要向GUI发送的数据缓存
         /// </summary>
         public XYPluginCache PluginCache = new XYPluginCache();
+
         private float sendCacheCD;
 
         private MessageListener BDanMuMessageListener;
@@ -135,9 +136,11 @@ namespace VTS_XYPlugin
             PluginCache.WarningMessages.Add(message as BWarningMessage);
             PluginCache.HasData = true;
         }
-        #endregion
+
+        #endregion 插件向GUI
 
         #region GUI向插件
+
         public static Queue<string> GUICacheQueue = new Queue<string>();
 
         public void HandleGUICache(XYGUICache cache)
@@ -160,6 +163,7 @@ namespace VTS_XYPlugin
                 }
             }
         }
-        #endregion
+
+        #endregion GUI向插件
     }
 }

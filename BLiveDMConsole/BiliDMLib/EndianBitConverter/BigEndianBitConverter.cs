@@ -9,7 +9,8 @@ namespace BitConverter
     internal class BigEndianBitConverter : EndianBitConverter
     {
         // Instance available from EndianBitConverter.BigEndian
-        internal BigEndianBitConverter() { }
+        internal BigEndianBitConverter()
+        { }
 
         public override bool IsLittleEndian { get; } = false;
 

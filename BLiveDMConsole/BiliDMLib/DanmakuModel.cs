@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Newtonsoft.Json.Linq;
 
 namespace BiliDMLib
 {
@@ -71,11 +70,11 @@ namespace BiliDMLib
         /// 超管警告
         /// </summary>
         Warning,
+
         /// <summary>
-        /// 观看人数, 可能是人次? 
+        /// 观看人数, 可能是人次?
         /// </summary>
         WatchedChange
-
     }
 
     /// <summary>
@@ -107,7 +106,6 @@ namespace BiliDMLib
         /// 互相关注
         /// </summary>
         MutualFollow = 5,
-
     }
 
     public class DanmakuModel
@@ -120,7 +118,6 @@ namespace BiliDMLib
         public MsgTypeEnum MsgType { get; set; }
 
         public InteractTypeEnum InteractType { get; set; }
-
 
         /// <summary>
         /// 彈幕內容
@@ -307,10 +304,12 @@ namespace BiliDMLib
                                 MsgType = MsgTypeEnum.LiveStart;
                                 roomID = obj["roomid"].ToString();
                                 break;
+
                             case "PREPARING":
                                 MsgType = MsgTypeEnum.LiveEnd;
                                 roomID = obj["roomid"].ToString();
                                 break;
+
                             case "DANMU_MSG":
                                 MsgType = MsgTypeEnum.Comment;
                                 CommentText = obj["info"][1].ToString();
@@ -331,6 +330,7 @@ namespace BiliDMLib
                                 }
                                 //Console.WriteLine(obj.ToString());
                                 break;
+
                             case "SEND_GIFT":
                                 MsgType = MsgTypeEnum.GiftSend;
                                 GiftName = obj["data"]["giftName"].ToString();
@@ -343,6 +343,7 @@ namespace BiliDMLib
                                 Price = obj["data"]["total_coin"].ToObject<int>();
                                 FaceAddress = obj["data"]["face"].ToString();
                                 break;
+
                             case "COMBO_SEND":
                                 {
                                     MsgType = MsgTypeEnum.Unknown;
@@ -367,7 +368,6 @@ namespace BiliDMLib
                                             uid = v.Value<int>("uid"),
                                             UserName = v.Value<string>("uname"),
                                             coin = v.Value<decimal>("coin")
-
                                         });
                                     }
 
@@ -381,7 +381,6 @@ namespace BiliDMLib
                                     isVIP = true;
                                     isAdmin = obj["data"]["isadmin"]?.ToString() == "1";
                                     break;
-
                                 }
                             case "WELCOME_GUARD":
                                 {

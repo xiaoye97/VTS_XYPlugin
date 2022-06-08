@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using VTS_XYPlugin_Common;
-using HarmonyLib;
-using System.Reflection;
 
 namespace VTS_XYPlugin
 {
     public class XYModelManager : MonoSingleton<XYModelManager>
     {
-        VTubeStudioModelLoader modelLoader;
+        private VTubeStudioModelLoader modelLoader;
         public VTubeStudioModel NowModel;
         public ModelDefinitionJSON NowModelDef;
         public XYModelConfig NowModelConfig;
@@ -21,7 +17,7 @@ namespace VTS_XYPlugin
         public GameObject ModelRoot;
         public Dictionary<string, XYCustomBehaviour> CustomBehaviours = new Dictionary<string, XYCustomBehaviour>();
 
-        void Update()
+        private void Update()
         {
             if (modelConfigWatcher != null)
             {

@@ -1,6 +1,6 @@
 ﻿using System;
-using UnityRawInput;
 using System.Collections.Generic;
+using UnityRawInput;
 using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin

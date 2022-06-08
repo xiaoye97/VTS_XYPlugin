@@ -1,9 +1,6 @@
 ﻿namespace VTS_XYPlugin_Common
 {
     [System.Serializable]
-    /// <summary>
-    /// 礼物消息数据
-    /// </summary>
     public class BGiftMessage : XYMessage
     {
         public int 用户ID;

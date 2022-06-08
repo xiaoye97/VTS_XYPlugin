@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
+﻿using BiliDMLib;
+using System;
 using System.Threading;
-using System.Threading.Tasks;
-using BiliDMLib;
 
 namespace BLiveDMConsole
 {
     internal class Program
     {
         public static int RoomID;
-        static void Main(string[] args)
+
+        private static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             if (args.Length != 1)
@@ -60,22 +55,27 @@ namespace BLiveDMConsole
                     // 弹幕
                     Console.WriteLine($"D$#**#${dm.UserID}$#**#${dm.UserName}$#**#${dm.isAdmin}$#**#${dm.UserGuardLevel}$#**#${dm.MedalName}$#**#${dm.MedalLevel}$#**#${dm.CommentText}");
                     break;
+
                 case MsgTypeEnum.GiftSend:
                     // 礼物
                     Console.WriteLine($"G$#**#${dm.UserID}$#**#${dm.UserName}$#**#${dm.GiftName}$#**#${dm.GiftCount}$#**#${dm.GiftCoinType}$#**#${dm.Price}$#**#${dm.FaceAddress}");
                     break;
+
                 case MsgTypeEnum.GuardBuy:
                     // 舰队
                     Console.WriteLine($"J$#**#${dm.UserID}$#**#${dm.UserName}$#**#${dm.UserGuardLevel}$#**#${dm.GiftName}$#**#${dm.GiftCount}");
                     break;
+
                 case MsgTypeEnum.SuperChat:
                     // SC
                     Console.WriteLine($"S$#**#${dm.UserID}$#**#${dm.UserName}$#**#${dm.Price}$#**#${dm.SCKeepTime}$#**#${dm.CommentText}");
                     break;
+
                 case MsgTypeEnum.Warning:
                     // 超管警告
                     Console.WriteLine($"W$#**#${dm.CommentText}");
                     break;
+
                 case MsgTypeEnum.WatchedChange:
                     // 看过人数
                     Console.WriteLine($"P$#**#${dm.WatchedCount}");

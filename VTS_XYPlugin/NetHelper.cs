@@ -1,10 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Text;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Net.Sockets;
+using System.Text;
 
 namespace VTS_XYPlugin
 {

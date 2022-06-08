@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
-using UnityEngine;
-using Newtonsoft.Json;
-using VTS_XYPlugin_Common;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
+using UnityEngine;
+using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin
 {
@@ -21,10 +20,11 @@ namespace VTS_XYPlugin
 
         private float saveCD = 60f;
         private int lastSaveCount;
+
         // 访问用户空间的CD 设定为3秒
         private float accessUserSpaceCD;
 
-        void Update()
+        private void Update()
         {
             saveCD -= Time.deltaTime;
             accessUserSpaceCD -= Time.deltaTime;
@@ -61,7 +61,7 @@ namespace VTS_XYPlugin
             }
         }
 
-        void OnApplicationQuit()
+        private void OnApplicationQuit()
         {
             FileHelper.SaveBiliHeadCache();
         }
@@ -188,7 +188,6 @@ namespace VTS_XYPlugin
         /// <param name="message"></param>
         public void OnRecvGift(BGiftMessage message)
         {
-            
             string url = message.头像图片链接.Replace("http://", "");
             if (HeadLinkDict.ContainsKey(message.用户ID))
             {

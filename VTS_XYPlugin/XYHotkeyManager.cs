@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 using VTS_XYPlugin_Common;
-using System.Collections.Generic;
-using UnityRawInput;
 
 namespace VTS_XYPlugin
 {
     public class XYHotkeyManager : MonoSingleton<XYHotkeyManager>
     {
         public static bool EnableTriggerHotkey = true;
+
         // 触发快捷键的CD，在CD冷却之前，不会重复触发
         private List<float> hotkeyCDs = new List<float>();
+
         // 动作的CD，对于播放动画的快捷键，使用动画的时长
         private float actionCD;
+
         public List<WaitTriggerHotkeyData> WaitList = new List<WaitTriggerHotkeyData>();
         public HotkeyManager HotkeyManager;
 
@@ -23,7 +22,7 @@ namespace VTS_XYPlugin
         {
         }
 
-        void Update()
+        private void Update()
         {
             if (HotkeyManager == null)
             {

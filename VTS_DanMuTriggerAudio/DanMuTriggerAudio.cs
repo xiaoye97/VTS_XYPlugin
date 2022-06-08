@@ -1,14 +1,14 @@
-﻿using System;
-using BepInEx;
+﻿using BepInEx;
 using Lean.Pool;
+using Newtonsoft.Json;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using VTS_XYPlugin;
-using Newtonsoft.Json;
-using System.Collections;
-using VTS_XYPlugin_Common;
 using UnityEngine.Networking;
-using System.Collections.Generic;
+using VTS_XYPlugin;
+using VTS_XYPlugin_Common;
 
 namespace VTS_DanMuTriggerAudio
 {
@@ -27,7 +27,7 @@ namespace VTS_DanMuTriggerAudio
         public static List<DanMuTriggerAudioConfig> configs = new List<DanMuTriggerAudioConfig>();
         public static Dictionary<string, List<AudioSourceAutoDestroy>> AudioSources = new Dictionary<string, List<AudioSourceAutoDestroy>>();
 
-        void Start()
+        private void Start()
         {
             CreateAudioSourcePrefab();
             AudioFolder = new DirectoryInfo($"{XYPaths.XYDirPath}/DanMuTriggerAudio");

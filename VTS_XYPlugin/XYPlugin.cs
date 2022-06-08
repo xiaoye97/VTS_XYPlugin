@@ -1,13 +1,13 @@
-﻿using PENet;
-using System;
-using BepInEx;
+﻿using BepInEx;
 using HarmonyLib;
-using UnityEngine;
-using System.Threading;
-using System.Diagnostics;
-using VTS_XYPlugin_Common;
+using PENet;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
+using UnityEngine;
+using VTS_XYPlugin_Common;
 
 namespace VTS_XYPlugin
 {
@@ -22,33 +22,40 @@ namespace VTS_XYPlugin
         public static List<string> CmdArgs;
 
         public static XYPlugin Instance;
+
         /// <summary>
         /// 全局配置文件监听
         /// </summary>
         public XYFileWatcher GlobalConfigWatcher;
+
         /// <summary>
         /// 掉落物配置文件监听
         /// </summary>
         public XYFileWatcher DropItemDataBaseWatcher;
+
         /// <summary>
         /// 全局配置
         /// </summary>
         public XYGlobalConfig GlobalConfig;
+
         /// <summary>
         /// 掉落物配置
         /// </summary>
         public DropItemDataBase DropItemDataBase;
 
         public PESocket<XYServerSession, NetMsg> ServerSkt = null;
+
         // 和GUI交互用的端口
         public static int GUINetPort;
 
         public Process GUIProcess;
+
         // VTS的左侧圆形按钮控制器
         private CircleButtonController CircleButtonController;
+
         private RectTransform CircleButtonControllerRT;
 
-        void Awake()
+        private void Awake()
         {
             Instance = this;
             CmdArgs = Environment.GetCommandLineArgs().ToList();
@@ -57,12 +64,12 @@ namespace VTS_XYPlugin
             Harmony.CreateAndPatchAll(typeof(XYPatch));
         }
 
-        void Start()
+        private void Start()
         {
             Init();
         }
 
-        void Update()
+        private void Update()
         {
             XYLog.Update();
             if (GlobalConfigWatcher != null) GlobalConfigWatcher.Update(Time.deltaTime);
@@ -77,7 +84,7 @@ namespace VTS_XYPlugin
             }
         }
 
-        void OnGUI()
+        private void OnGUI()
         {
             if (CircleButtonControllerRT != null && CircleButtonControllerRT.anchoredPosition.x >= 0)
             {
@@ -94,7 +101,7 @@ namespace VTS_XYPlugin
             }
         }
 
-        void OnApplicationQuit()
+        private void OnApplicationQuit()
         {
             if (GUIProcess != null)
             {
@@ -106,7 +113,7 @@ namespace VTS_XYPlugin
             }
         }
 
-        void Init()
+        private void Init()
         {
             XYExScriptManager.Instance.Init();
             XYCache.Instance.Init();
@@ -125,14 +132,17 @@ namespace VTS_XYPlugin
                         msg = "[PENet]Log:" + msg;
                         XYLog.LogMessage(msg);
                         break;
+
                     case 1:
                         msg = "[PENet]Warn:" + msg;
                         XYLog.LogWarning(msg);
                         break;
+
                     case 2:
                         msg = "[PENet]Error:" + msg;
                         XYLog.LogError(msg);
                         break;
+
                     case 3:
                         msg = "[PENet]Info:" + msg;
                         XYLog.LogMessage(msg);

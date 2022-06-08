@@ -1,8 +1,8 @@
-﻿using System;
-using Lean.Pool;
+﻿using Lean.Pool;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using VTS_XYPlugin;
-using System.Collections.Generic;
 
 namespace VTS_ParameterTriggerAudio
 {
@@ -12,6 +12,7 @@ namespace VTS_ParameterTriggerAudio
         /// 是否可用，如果初始化的时候遇到错误，则不可用
         /// </summary>
         public bool CanUse;
+
         public ParameterTriggerConfig Config;
         public List<Func<bool>> CheckList = new List<Func<bool>>();
 
@@ -124,6 +125,7 @@ namespace VTS_ParameterTriggerAudio
         public AudioSourceAutoDestroy LoopAudioSource;
         public float loopFadeTimer;
         public LoopAudioState loopState = LoopAudioState.NoInParam;
+
         private void CheckLoopAudio(bool nowValueTrue)
         {
             if (LoopAudioSource == null)
@@ -159,6 +161,7 @@ namespace VTS_ParameterTriggerAudio
                         }
                     }
                     break;
+
                 case LoopAudioState.InParam:
                     // 如果之前在范围内但是现在不在，则过渡到NoInParam
                     if (!nowValueTrue)
@@ -177,6 +180,7 @@ namespace VTS_ParameterTriggerAudio
                         }
                     }
                     break;
+
                 case LoopAudioState.FadeToOpen:
                     loopFadeTimer += Time.deltaTime;
                     float openValue = Mathf.Clamp(Config.Volume * (loopFadeTimer / Config.LoopFadeTime), 0, 1);
@@ -188,6 +192,7 @@ namespace VTS_ParameterTriggerAudio
                         //XYLog.LogMessage("5:FadeToOpen->InParam");
                     }
                     break;
+
                 case LoopAudioState.FadeToClose:
                     loopFadeTimer -= Time.deltaTime;
                     float closeValue = Mathf.Clamp(Config.Volume * (loopFadeTimer / Config.LoopFadeTime), 0, 1);
@@ -203,7 +208,8 @@ namespace VTS_ParameterTriggerAudio
         }
 
         public int NowOneShotAudioCount;
-        OneShotAudioState oneShotState;
+        private OneShotAudioState oneShotState;
+
         private void CheckOneShotAudio(bool nowValueTrue)
         {
             switch (oneShotState)
@@ -226,6 +232,7 @@ namespace VTS_ParameterTriggerAudio
                         }
                     }
                     break;
+
                 case OneShotAudioState.InParamAndPlayed:
                     if (!nowValueTrue)
                     {

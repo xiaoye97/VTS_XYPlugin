@@ -1,13 +1,5 @@
-﻿using System;
-using BepInEx;
-using System.IO;
-using HarmonyLib;
-using UnityEngine;
+﻿using HarmonyLib;
 using VTS_XYPlugin;
-using UnityRawInput;
-using Newtonsoft.Json;
-using VTS_XYPlugin_Common;
-using System.Collections.Generic;
 
 namespace VTS_MutiMotionPlayer
 {

@@ -6,6 +6,7 @@ namespace VTS_XYPlugin_Common
     public class XYMessage
     {
         public string 消息名;
+
         // 是否在控制台打印此消息的日志
         [NonSerialized]
         public bool LogMessage = true;

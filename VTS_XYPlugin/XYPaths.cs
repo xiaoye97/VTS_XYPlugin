@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BepInEx;
-using UnityEngine;
+﻿using BepInEx;
 using System.IO;
 
 namespace VTS_XYPlugin

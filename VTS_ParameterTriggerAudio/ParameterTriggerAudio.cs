@@ -1,6 +1,4 @@
-﻿using System;
-using BepInEx;
-using System.IO;
+﻿using BepInEx;
 using UnityEngine;
 using VTS_XYPlugin_Common;
 
@@ -17,7 +15,7 @@ namespace VTS_ParameterTriggerAudio
         public const string VERSION = "1.0.0";
         public static GameObject AudioSourcePrefab;
 
-        void Start()
+        private void Start()
         {
             CreateAudioSourcePrefab();
         }

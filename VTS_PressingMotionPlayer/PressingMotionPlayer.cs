@@ -87,7 +87,7 @@ namespace VTS_PressingMotionPlayer
                                 var anim = XYModelManager.Instance.NowModel.Animations[needPlayConfig.IdleAnimationName];
                                 anim.fadeSpeed = needPlayConfig.FadeSecondsAmount;
                                 XYModelManager.Instance.NowModel.AnimationMixer.animationFadeOngoing = false;
-                                XYHotkeyManager.Instance.HotkeyManager.PlayOneShotAnimation(anim, false, -1);
+                                XYHotkeyManager.Instance.HotkeyManager.PlayOneShotAnimation(anim, false, -1, XYModelManager.Instance.NowModel);
                             }
                         }
                     }

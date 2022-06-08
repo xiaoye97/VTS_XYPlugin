@@ -12,7 +12,7 @@ using Live2D.Cubism.Rendering;
 
 namespace VTS_XYPlugin
 {
-    //[BindModel("尚未团子")]
+    [BindModel("尚未团子Test")]
     public class XYDebugBehaviour : XYCustomBehaviour
     {
         private bool showWindow = false;
@@ -23,12 +23,6 @@ namespace VTS_XYPlugin
             if (Input.GetKeyDown(KeyCode.P))
             {
                 showWindow = !showWindow;
-            }
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                GameObject go = new GameObject("Test");
-                var c = go.AddComponent<NoneBehaviour>();
-                c.StartCoroutine(PlayTestVideo2());
             }
         }
 
@@ -104,13 +98,6 @@ namespace VTS_XYPlugin
                 trigger.TriggerCD = 3f;
                 XYModelManager.Instance.NowModelConfig.TriggerActionData.Add(trigger);
             }
-            if (GUILayout.Button("测试视频播放"))
-            {
-                GameObject go = new GameObject("Test");
-                var c = go.AddComponent<NoneBehaviour>();
-                c.StartCoroutine(PlayTestVideo2());
-                //StartCoroutine(PlayTestVideo2());
-            }
             if (GUILayout.Button("测试GIF"))
             {
                 Gif gif = new Gif();
@@ -124,44 +111,6 @@ namespace VTS_XYPlugin
         public void PlayerTestVideo()
         {
             XYVideoManager.Instance.PlayVideo("file://C:/Users/xiaoye/Desktop/VTS插件素材/鲸落最终版 动态水印.mp4", false, 0);
-        }
-
-        public IEnumerator PlayTestVideo2()
-        {
-            XYVideoManager.Instance.PlayVideo("file://C:/Users/xiaoye/Desktop/VTS插件素材/transition-otameshi.webm", false, 30000);
-            yield return new WaitForSeconds(1);
-            var v = XYVideoManager.Instance.PlayVideo("file://C:/Users/xiaoye/Desktop/VTS插件素材/鲸落最终版 动态水印.mp4", false, 0);
-            foreach (var key in XYHotkeyManager.Instance.HotkeyManager.hotkeys)
-            {
-                XYLog.LogMessage($"1遍历到:{key.Name}");
-                if (key.Name == "切换模型")
-                {
-                    XYHotkeyManager.Instance.HotkeyManager.ExecuteHotkey(key);
-                }
-            }
-            yield return new WaitForSeconds(5f);
-            foreach (var key in XYHotkeyManager.Instance.HotkeyManager.hotkeys)
-            {
-                XYLog.LogMessage($"2遍历到:{key.Name}");
-                if (key.Name == "摇头")
-                {
-                    XYHotkeyManager.Instance.HotkeyManager.ExecuteHotkey(key);
-                }
-            }
-            //XYHotkeyManager.Instance.HotkeyManager.ExecuteHotkey(XYHotkeyManager.Instance.HotkeyManager.hotkeys.Find((h) => h.Name == "摇头"));
-            yield return new WaitForSeconds(14f);
-            XYVideoManager.Instance.PlayVideo("file://C:/Users/xiaoye/Desktop/VTS插件素材/transition-otameshi.webm", false, 30000);
-            yield return new WaitForSeconds(1);
-            foreach (var key in XYHotkeyManager.Instance.HotkeyManager.hotkeys)
-            {
-                XYLog.LogMessage($"3遍历到:{key.Name}");
-                if (key.Name == "切换模型")
-                {
-                    XYHotkeyManager.Instance.HotkeyManager.ExecuteHotkey(key);
-                }
-            }
-            //XYHotkeyManager.Instance.HotkeyManager.ExecuteHotkey(XYHotkeyManager.Instance.HotkeyManager.hotkeys.Find((h) => h.Name == "切换模型"));
-            yield break;
         }
     }
 }

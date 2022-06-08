@@ -53,6 +53,9 @@
       <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\RefDll\LeanPool.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MoonSharp.Interpreter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=921e73ce94aa17f8, processorArchitecture=MSIL">
+      <HintPath>..\packages\MoonSharp.2.0.0.0\lib\net40-client\MoonSharp.Interpreter.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\Newtonsoft.Json.dll</HintPath>
@@ -165,6 +168,7 @@
     <Compile Include="XYExScriptManager.cs" />
     <Compile Include="XYHotkeyManager.cs" />
     <Compile Include="XYLog.cs" />
+    <Compile Include="XYLuaHelper.cs" />
     <Compile Include="XYModelManager.cs" />
     <Compile Include="XYPatch.cs" />
     <Compile Include="XYPaths.cs" />
@@ -183,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Res\Square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

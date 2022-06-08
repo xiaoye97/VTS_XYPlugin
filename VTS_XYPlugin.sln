@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_DelayInputParameter", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_DanMuTriggerAudio", "VTS_DanMuTriggerAudio\VTS_DanMuTriggerAudio.csproj", "{DD02CF54-0F32-4328-ADF9-B822A36CD514}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_TimeParameter", "VTS_TimeParameter\VTS_TimeParameter.csproj", "{CB5307C7-F574-43E4-8DAF-BF3F5B8EFC67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{DD02CF54-0F32-4328-ADF9-B822A36CD514}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD02CF54-0F32-4328-ADF9-B822A36CD514}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD02CF54-0F32-4328-ADF9-B822A36CD514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB5307C7-F574-43E4-8DAF-BF3F5B8EFC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB5307C7-F574-43E4-8DAF-BF3F5B8EFC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB5307C7-F574-43E4-8DAF-BF3F5B8EFC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB5307C7-F574-43E4-8DAF-BF3F5B8EFC67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

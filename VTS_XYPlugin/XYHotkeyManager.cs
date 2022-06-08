@@ -55,7 +55,7 @@ namespace VTS_XYPlugin
                             if (hotkey.Name == wait.data.ActionName)
                             {
                                 XYLog.LogMessage($"触发快捷键:{hotkey.File}");
-                                HotkeyManager.ExecuteHotkey(hotkey);
+                                HotkeyManager.ExecuteHotkey(hotkey, null, XYModelManager.Instance.NowModel);
                                 // 如果当前快捷键的动作为播放动画，则需要根据动画来设置CD
                                 if (hotkey.Action == "TriggerAnimation")
                                 {
@@ -133,7 +133,7 @@ namespace VTS_XYPlugin
             {
                 if (hotkey.Name == hotkeyName)
                 {
-                    HotkeyManager.ExecuteHotkey(hotkey);
+                    HotkeyManager.ExecuteHotkey(hotkey, null, XYModelManager.Instance.NowModel);
                     break;
                 }
             }

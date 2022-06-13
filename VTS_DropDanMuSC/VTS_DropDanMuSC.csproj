@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB5307C7-F574-43E4-8DAF-BF3F5B8EFC67}</ProjectGuid>
+    <ProjectGuid>{F7A4854D-059D-49FB-BFD4-160F612EF364}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VTS_TimeParameter</RootNamespace>
-    <AssemblyName>VTS_TimeParameter</AssemblyName>
+    <RootNamespace>VTS_DropDanMuSC</RootNamespace>
+    <AssemblyName>VTS_DropDanMuSC</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,8 +48,8 @@
       <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\BepInEx\core\BepInEx.Unity.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="MoonSharp.Interpreter">
-      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\BepInEx\plugins\VTS_XYPlugin\MoonSharp.Interpreter.dll</HintPath>
+    <Reference Include="LeanPool">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\RefDll\LeanPool.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -69,16 +69,39 @@
       <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TimeParameter.cs" />
+    <Compile Include="DropDanMuSC.cs" />
+    <Compile Include="DropDanMuSCCanvas.cs" />
+    <Compile Include="DropDanMuSCConfig.cs" />
+    <Compile Include="DropDanMuUI.cs" />
+    <Compile Include="DropSCUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimeParameterBehaviour.cs" />
-    <Compile Include="TimeParameterConfig.cs" />
+    <Compile Include="RectToBoxCollider2D.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VTS_XYPlugin\VTS_XYPlugin.csproj">

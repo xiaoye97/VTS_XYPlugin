@@ -87,19 +87,19 @@ namespace VTS_DanMuTriggerAudio
                 }
                 catch (Exception ex)
                 {
-                    XYLog.LogError($"DanMuTriggerAudioConfig解析配置文件异常 {ex}");
+                    XYLog.LogError($"DanMuTriggerAudio解析配置文件异常 {ex}");
                 }
             }
             else
             {
-                DanMuTriggerAudioConfig config = new DanMuTriggerAudioConfig();
-                config.DanMu = "大叫";
-                config.AudioFile = "Audios/大叫.wav";
-                config.Volume = 1;
-                config.Muti = true;
-                configs.Add(config);
-                var json = JsonConvert.SerializeObject(configs, Formatting.Indented);
-                FileHelper.WriteAllText(file.FullName, json);
+                //DanMuTriggerAudioConfig config = new DanMuTriggerAudioConfig();
+                //config.DanMu = "大叫";
+                //config.AudioFile = "Audios/大叫.wav";
+                //config.Volume = 1;
+                //config.Muti = true;
+                //configs.Add(config);
+                //var json = JsonConvert.SerializeObject(configs, Formatting.Indented);
+                //FileHelper.WriteAllText(file.FullName, json);
             }
         }
 

@@ -29,7 +29,7 @@ namespace VTS_TimeParameter
 
             foreach (var kv in TimeParameterBehaviour.ParameterDict)
             {
-                float ori = kv.Key.Value;
+                //float ori = kv.Key.Value;
                 XYModelManager.Instance.NowModel.SetLive2DParam(kv.Key, kv.Value);
                 //UnityEngine.Debug.Log($"原值:{ori} 新值:{kv.Value} 实际新值:{kv.Key.Value}");
             }

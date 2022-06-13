@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine;
 using VTS_XYPlugin;
 using VTS_XYPlugin_Common;
+using MoonSharp.Interpreter;
 
 namespace VTS_TimeParameter
 {
@@ -14,9 +15,9 @@ namespace VTS_TimeParameter
         public static TimeParameterBehaviour Inst;
         private bool inited;
         public List<TimeParameterConfig> configs = new List<TimeParameterConfig>();
-
-        public Dictionary<string, object> LuaParameters = new Dictionary<string, object>();
         public static Dictionary<CubismParameter, float> ParameterDict = new Dictionary<CubismParameter, float>();
+
+        public Script script = new Script();
 
         public void Start()
         {
@@ -39,28 +40,41 @@ namespace VTS_TimeParameter
             ParameterDict.Clear();
             foreach (var config in configs)
             {
-                var value = XYLuaHelper.RunLua($"return {config.Expression}", LuaParameters);
-                //Debug.Log(value);
+                DynValue result = script.DoString(config.Expression);
                 CubismParameter cubismParameter;
                 bool hasParam = XYModelManager.Instance.NowModel.NamedParams.TryGetValue(config.Parameter, out cubismParameter);
                 if (hasParam)
                 {
-                    ParameterDict[cubismParameter] = (float)value;
+                    ParameterDict[cubismParameter] = (float)result.Number;
                 }
             }
         }
 
         public void SetLuaParameters()
         {
-            LuaParameters["GameTime"] = Time.time;
+            script.Globals["GameTime"] = Time.time;
             DateTime now = DateTime.Now;
-            LuaParameters["Year"] = now.Year;
-            LuaParameters["Month"] = now.Month;
-            LuaParameters["Day"] = now.Day;
-            LuaParameters["Hour"] = now.Hour;
-            LuaParameters["Minute"] = now.Minute;
-            LuaParameters["Second"] = now.Second;
-            LuaParameters["Millisecond"] = now.Millisecond;
+            script.Globals["Year"] = now.Year;
+            script.Globals["Month"] = now.Month;
+            script.Globals["Day"] = now.Day;
+            script.Globals["Hour"] = now.Hour;
+            script.Globals["Minute"] = now.Minute;
+            script.Globals["Second"] = now.Second;
+            script.Globals["Millisecond"] = now.Millisecond;
+            if (now.DayOfWeek == DayOfWeek.Sunday)
+            {
+                script.Globals["DayOfWeek"] = 7;
+            }
+            else
+            {
+                script.Globals["DayOfWeek"] = (int)now.DayOfWeek;
+            }
+            script.Globals["DayOfYear"] = now.DayOfYear;
+            script.Globals["TimeOfDayTotalMilliseconds"] = now.TimeOfDay.TotalMilliseconds;
+            script.Globals["TimeOfDayTotalSeconds"] = now.TimeOfDay.TotalSeconds;
+            script.Globals["TimeOfDayTotalMinutes"] = now.TimeOfDay.TotalMinutes;
+            script.Globals["TimeOfDayTotalHours"] = now.TimeOfDay.TotalHours;
+            script.Globals["TimeOfDayTotalDays"] = now.TimeOfDay.TotalDays;
         }
 
         public void Init(ModelDefinitionJSON modelDef)
@@ -79,8 +93,11 @@ namespace VTS_TimeParameter
                 string json = FileHelper.ReadAllText(file.FullName);
                 try
                 {
-                    var con = JsonConvert.DeserializeObject<List<TimeParameterConfig>>(json);
-                    configs = con;
+                    configs = JsonConvert.DeserializeObject<List<TimeParameterConfig>>(json);
+                    foreach (var config in configs)
+                    {
+                        config.Expression = $"return {config.Expression}";
+                    }
                 }
                 catch (Exception ex)
                 {

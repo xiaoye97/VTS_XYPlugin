@@ -83,6 +83,7 @@ public class UIGiftItem : MonoBehaviour
             Item.TriggerCount = paste.TriggerCount;
             Item.UseUserHead = paste.UseUserHead;
             UIPageGiftDrop.Instance.Refresh();
+            UIPageGiftDrop.Instance.SaveGift();
         }
     }
 

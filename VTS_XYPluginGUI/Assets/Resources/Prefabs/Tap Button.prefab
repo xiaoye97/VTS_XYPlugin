@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7571427555003636958}
-  - component: {fileID: 7571427555003636930}
   - component: {fileID: 7571427555003636931}
   - component: {fileID: 7571427555003636956}
   - component: {fileID: 7571427555003636957}
@@ -34,23 +33,6 @@ Transform:
   m_Father: {fileID: 7571427556620719671}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7571427555003636930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114925277481713382, guid: 5e753e9127a8329439efbb44d55d171e, type: 2}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7571427555003636959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85492e6e5abb6364ab68b8b794f4fd97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Alias: 
-  Data:
-    Duration: 0
-    Target: {fileID: 8300000, guid: 622df6012652bdb498c7ec99b1b8a532, type: 3}
-    Volume: 1
 --- !u!114 &7571427555003636931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +390,6 @@ GameObject:
   - component: {fileID: 7571427556619736713}
   - component: {fileID: 7571427556619736718}
   - component: {fileID: 7571427556619736719}
-  - component: {fileID: 7571427556619736712}
   m_Layer: 0
   m_Name: '[Down Transitions]'
   m_TagString: Untagged
@@ -466,23 +447,6 @@ MonoBehaviour:
     Target: {fileID: 7571427555773544404}
     Value: -10
     Ease: 250
---- !u!114 &7571427556619736712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114925277481713382, guid: 5e753e9127a8329439efbb44d55d171e, type: 2}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7571427556619736714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85492e6e5abb6364ab68b8b794f4fd97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Alias: 
-  Data:
-    Duration: 0
-    Target: {fileID: 8300000, guid: 3cdf6946b7f8a1549ab339405d1c0146, type: 3}
-    Volume: 1
 --- !u!1 &7571427556620719664
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,13 +534,19 @@ MonoBehaviour:
     roots: []
     aliases: []
     targets: []
-    entries: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
   nonInteractableTransitions:
     speed: -1
     roots: []
     aliases: []
     targets: []
-    entries: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
   onInteractable:
     m_PersistentCalls:
       m_Calls: []

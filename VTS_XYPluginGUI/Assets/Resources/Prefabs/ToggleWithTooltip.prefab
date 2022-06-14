@@ -436,7 +436,6 @@ GameObject:
   - component: {fileID: 6532770613216981894}
   - component: {fileID: 6532770613216981947}
   - component: {fileID: 6532770613216981945}
-  - component: {fileID: 6532770613216981949}
   m_Layer: 0
   m_Name: '[Off Transitions]'
   m_TagString: Untagged
@@ -512,23 +511,6 @@ MonoBehaviour:
     Target: {fileID: 6532770612915074489}
     Value: {r: 0, g: 0, b: 0, a: 0.197}
     Ease: 100
---- !u!114 &6532770613216981949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6532770613216981892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85492e6e5abb6364ab68b8b794f4fd97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Alias: 
-  Data:
-    Duration: 0
-    Target: {fileID: 8300000, guid: a3723b260c560944ca45ec5b066bc871, type: 3}
-    Volume: 0
 --- !u!1 &6532770613939352707
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +523,6 @@ GameObject:
   - component: {fileID: 6532770613939352709}
   - component: {fileID: 6532770613939352710}
   - component: {fileID: 6532770613939352708}
-  - component: {fileID: 6532770613939352760}
   m_Layer: 0
   m_Name: '[On Transitions]'
   m_TagString: Untagged
@@ -617,23 +598,6 @@ MonoBehaviour:
     Target: {fileID: 6532770612915074489}
     Value: {r: 0, g: 0, b: 0, a: 0.78431374}
     Ease: 100
---- !u!114 &6532770613939352760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6532770613939352707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85492e6e5abb6364ab68b8b794f4fd97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Alias: 
-  Data:
-    Duration: 0
-    Target: {fileID: 8300000, guid: 622df6012652bdb498c7ec99b1b8a532, type: 3}
-    Volume: 0
 --- !u!1001 &5504093131722120870
 PrefabInstance:
   m_ObjectHideFlags: 0

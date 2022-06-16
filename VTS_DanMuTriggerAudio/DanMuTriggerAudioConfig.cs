@@ -13,5 +13,8 @@
 
         // 音效的音量，此值介于0-1之间
         public float Volume = 1f;
+
+        // 播放的CD，在CD内不会重复播放
+        public float CD = 0;
     }
 }

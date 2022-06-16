@@ -20,11 +20,12 @@ namespace VTS_DanMuTriggerAudio
         public const string GUID = "me.xiaoye97.plugin.VTubeStudio.DanMuTriggerAudio";
         public const string PluginName = "DanMuTriggerAudio[弹幕触发音效]";
         public const string PluginDescription = "当直播间发送的弹幕包含触发词时，触发对应的音效。[需要在配置文件中设置相关数据][音频文件支持wav ogg aac三种格式]";
-        public const string VERSION = "1.0.0";
+        public const string VERSION = "1.1.0";
         public static GameObject AudioSourcePrefab;
         public static Dictionary<string, AudioClip> Audios = new Dictionary<string, AudioClip>();
         public static DirectoryInfo AudioFolder;
         public static List<DanMuTriggerAudioConfig> configs = new List<DanMuTriggerAudioConfig>();
+        public static List<float> CDList = new List<float>();
         public static Dictionary<string, List<AudioSourceAutoDestroy>> AudioSources = new Dictionary<string, List<AudioSourceAutoDestroy>>();
 
         private void Start()
@@ -35,16 +36,36 @@ namespace VTS_DanMuTriggerAudio
             LoadConfig();
         }
 
+        private void Update()
+        {
+            // 冷却
+            for (int i = 0; i < CDList.Count; i++)
+            {
+                if (CDList[i] > 0)
+                {
+                    CDList[i] -= Time.deltaTime;
+                }
+            }
+        }
+
         public void OnDanMuRecv(object obj)
         {
             BDanMuMessage message = (BDanMuMessage)obj;
-            foreach (var config in configs)
+            for (int i = 0; i < configs.Count; i++)
             {
+                var config = configs[i];
+                float cd = CDList[i];
                 // 如果包含关键词，则触发音效
                 if (message.弹幕.Contains(config.DanMu) && Audios.ContainsKey(config.AudioFile))
                 {
                     if (config.Muti || AudioSources[config.AudioFile].Count == 0)
                     {
+                        if (config.CD > 0 && cd > 0)
+                        {
+                            // 如果CD没有冷却，则跳过
+                            continue;
+                        }
+                        CDList[i] = config.CD;
                         var go = LeanPool.Spawn(AudioSourcePrefab);
                         var com = go.GetComponent<AudioSourceAutoDestroy>();
                         com.config = config;
@@ -53,6 +74,7 @@ namespace VTS_DanMuTriggerAudio
                         com.audioSource.clip = Audios[config.AudioFile];
                         com.audioSource.volume = config.Volume;
                         com.audioSource.Play();
+                        AudioSources[config.AudioFile].Add(com);
                         XYLog.LogMessage($"弹幕:{message.弹幕}触发了音频:{config.AudioFile}");
                         break;
                     }
@@ -82,6 +104,7 @@ namespace VTS_DanMuTriggerAudio
                     foreach (var config in configs)
                     {
                         AudioSources[config.AudioFile] = new List<AudioSourceAutoDestroy>();
+                        CDList.Add(0);
                         LoadAudio(config.AudioFile);
                     }
                 }

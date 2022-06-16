@@ -24568,7 +24568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22edf581691d3ba478407fd40b1c3e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Version: "Ver.2.0-\u516C\u5F00\u6D4B\u8BD5b1"
+  Version: "Ver.2.0-\u516C\u5F00\u6D4B\u8BD5b3"
 --- !u!114 &1796244934
 MonoBehaviour:
   m_ObjectHideFlags: 0

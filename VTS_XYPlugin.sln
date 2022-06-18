@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_TimeParameter", "VTS_Ti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_DropDanMuSC", "VTS_DropDanMuSC\VTS_DropDanMuSC.csproj", "{F7A4854D-059D-49FB-BFD4-160F612EF364}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_XYPluginWPF", "VTS_XYPluginWPF\VTS_XYPluginWPF.csproj", "{4456174B-A03D-458A-AED4-B3B4C034B905}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{F7A4854D-059D-49FB-BFD4-160F612EF364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7A4854D-059D-49FB-BFD4-160F612EF364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7A4854D-059D-49FB-BFD4-160F612EF364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4456174B-A03D-458A-AED4-B3B4C034B905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4456174B-A03D-458A-AED4-B3B4C034B905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4456174B-A03D-458A-AED4-B3B4C034B905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4456174B-A03D-458A-AED4-B3B4C034B905}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

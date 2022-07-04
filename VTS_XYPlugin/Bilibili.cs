@@ -186,16 +186,13 @@ namespace VTS_XYPlugin
         /// <param name="e"></param>
         private void Out_RecvData(object sender, DataReceivedEventArgs e)
         {
-            if (dataCache != e.Data)
+            dataCache = e.Data;
+            if (!string.IsNullOrWhiteSpace(dataCache))
             {
-                dataCache = e.Data;
-                if (!string.IsNullOrWhiteSpace(dataCache))
+                lock (dataQueue)
                 {
-                    lock (dataQueue)
-                    {
-                        dataQueue.Enqueue(dataCache);
-                        reConnectCD2 = 60f;
-                    }
+                    dataQueue.Enqueue(dataCache);
+                    reConnectCD2 = 60f;
                 }
             }
         }

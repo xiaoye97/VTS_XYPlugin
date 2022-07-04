@@ -15179,7 +15179,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 195, y: 0}
-  m_SizeDelta: {x: 183, y: 0}
+  m_SizeDelta: {x: 197, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1046708304
 MonoBehaviour:
@@ -21688,7 +21688,7 @@ GameObject:
   - component: {fileID: 1513727087}
   - component: {fileID: 1513727086}
   m_Layer: 5
-  m_Name: Title (1)
+  m_Name: "\u6D4B\u8BD5\u63D0\u9192"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21710,8 +21710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -661}
-  m_SizeDelta: {x: -28, y: 200}
+  m_AnchoredPosition: {x: 0, y: -700.7987}
+  m_SizeDelta: {x: -28, y: 279.5974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1513727086
 MonoBehaviour:
@@ -21740,13 +21740,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6E29\u99A8\u63D0\u793A\uFF1A\u4FEE\u6539\u8BBE\u7F6E\u540E\u8BB0\u5F97\u5230\u76F4\u64AD\u95F4\u53BB\u6D4B\u8BD5\u4E00\u4E0B(\u6CA1\u5F00\u64AD\u4E5F\u53EF\u4EE5\u63A5\u6536\u76F4\u64AD\u95F4\u5F39\u5E55)\uFF0C\u786E\u4FDD\u529F\u80FD\u90FD\u6B63\u5E38\uFF0C\u907F\u514D\u5F00\u64AD\u540E\u529F\u80FD\u6CA1\u8BBE\u7F6E\u597D\u5C34\u5C2C\u3002"
+  m_Text: "\u6E29\u99A8\u63D0\u793A\uFF1A\u4FEE\u6539\u8BBE\u7F6E\u540E\u4E00\u5B9A\u8981<color=red>\u8BB0\u5F97\u5230\u76F4\u64AD\u95F4\u53BB\u6D4B\u8BD5\u4E00\u4E0B</color>(\u6CA1\u5F00\u64AD\u4E5F\u53EF\u4EE5\u63A5\u6536\u76F4\u64AD\u95F4\u5F39\u5E55)\uFF0C\u5728\u63D2\u4EF6GUI\u4E2D\u7684\u70B9\u51FB\u6D4B\u8BD5\u662F\u8D70\u7684\u5185\u90E8\u901A\u4FE1\uFF0C\u4E0D\u80FD\u6A21\u62DF\u771F\u5B9E\u73AF\u5883\u3002\n\u786E\u4FDD\u529F\u80FD\u90FD\u6B63\u5E38\u4E4B\u540E\u518D\u5F00\u64AD\uFF0C\u907F\u514D\u5F00\u64AD\u540E\u529F\u80FD\u6CA1\u8BBE\u7F6E\u597D\u5C34\u5C2C\u3002\n\u5907\u6CE8\uFF1A\u6211\u4E00\u822C\u4F1A\u8FDE\u63A5\u5230\u5F53\u524D\u6B63\u5728\u76F4\u64AD\u7684\u5927\u4E3B\u64AD\u7684\u76F4\u64AD\u95F4\u6D4B\u8BD5\uFF0C\u6570\u636E\u6BD4\u8F83\u591A\u65B9\u4FBF\u6D4B\u8BD5(\u4E0D\u4F1A\u5F71\u54CD\u5230\u6B64\u4E3B\u64AD\u76F4\u64AD)"
 --- !u!222 &1513727087
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24568,7 +24568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22edf581691d3ba478407fd40b1c3e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Version: "Ver.2.0-\u516C\u5F00\u6D4B\u8BD5b4"
+  Version: "Ver.2.0-\u516C\u5F00\u6D4B\u8BD5b5"
 --- !u!114 &1796244934
 MonoBehaviour:
   m_ObjectHideFlags: 0

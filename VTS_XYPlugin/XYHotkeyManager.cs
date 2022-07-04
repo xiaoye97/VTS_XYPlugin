@@ -34,6 +34,7 @@ namespace VTS_XYPlugin
             {
                 hotkeyCDs[i] -= dt;
             }
+            UpdateTrigger();
         }
 
         public void UpdateTrigger()

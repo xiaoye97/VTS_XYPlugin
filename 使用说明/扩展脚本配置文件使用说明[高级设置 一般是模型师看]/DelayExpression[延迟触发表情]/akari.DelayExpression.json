@@ -1,6 +1,6 @@
 [
   {
-    "PressingHotkey": [
+    "PressingHotkeys": [
       "Numpad4"
     ],
     "GlobalHotkey": true,
@@ -18,7 +18,7 @@
     ]
   },
   {
-    "PressingHotkey": [
+    "PressingHotkeys": [
       "Numpad5"
     ],
     "GlobalHotkey": true,

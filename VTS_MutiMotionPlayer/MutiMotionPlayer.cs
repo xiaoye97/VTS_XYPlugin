@@ -12,9 +12,9 @@ using VTS_XYPlugin_Common;
 
 namespace VTS_MutiMotionPlayer
 {
-    [BepInDependency("me.xiaoye97.plugin.VTubeStudio.VTS_XYPlugin", "2.0.0")]
-    [BepInPlugin(GUID, PluginName, VERSION)]
-    [ExScript(PluginName, PluginDescrition, "宵夜97", VERSION)]
+    //[BepInDependency("me.xiaoye97.plugin.VTubeStudio.VTS_XYPlugin", "2.0.0")]
+    //[BepInPlugin(GUID, PluginName, VERSION)]
+    //[ExScript(PluginName, PluginDescrition, "宵夜97", VERSION)]
     public class MutiMotionPlayer : BaseUnityPlugin
     {
         public const string GUID = "me.xiaoye97.plugin.VTubeStudio.MutiMotionPlayer";

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityRawInput;
 using VTS_XYPlugin_Common;
+using UnityEngine;
 
 namespace VTS_XYPlugin
 {
@@ -12,6 +13,7 @@ namespace VTS_XYPlugin
         private static List<bool> LastFramePressed = new List<bool>();
         private static List<bool> ThisFramePressed = new List<bool>();
         public Action CheckInputAction;
+        public bool ShowDebugGUI;
 
         public override void Init()
         {
@@ -53,6 +55,23 @@ namespace VTS_XYPlugin
             for (int i = 0; i < KeyList.Count; i++)
             {
                 LastFramePressed[i] = ThisFramePressed[i];
+            }
+        }
+
+        public void OnGUI()
+        {
+            if (ShowDebugGUI)
+            {
+                GUILayout.Space(20);
+                GUILayout.BeginVertical(GUI.skin.box);
+                for (int i = 0; i < KeyList.Count; i++)
+                {
+                    if (ThisFramePressed[i])
+                    {
+                        GUILayout.Label(KeyList[i].ToString());
+                    }
+                }
+                GUILayout.EndVertical();
             }
         }
 

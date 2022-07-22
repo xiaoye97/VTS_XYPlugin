@@ -1,0 +1,16 @@
+[
+  {
+    "DanMu": "大叫",
+    "AudioFile": "大叫.wav",
+    "Muti": true,
+    "Volume": 1.0,
+    "CD" : 5.0
+  },
+  {
+    "DanMu": "喵",
+    "AudioFile": "喵叫.wav",
+    "Muti": true,
+    "Volume": 1.0,
+    "CD" : 0.0
+  }
+]

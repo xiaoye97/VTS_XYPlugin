@@ -17,7 +17,7 @@ namespace VTS_DelayExpression
         public const string GUID = "me.xiaoye97.plugin.VTubeStudio.DelayExpression";
         public const string PluginName = "DelayExpression[延迟触发表情]";
         public const string PluginDescription = "按下快捷键后，根据配置的时间轴依次添加表情exp。[需要在配置文件中设置相关数据]";
-        public const string VERSION = "1.0.0";
+        public const string VERSION = "1.0.1";
         public List<DelayExpressionConfig> configs = new List<DelayExpressionConfig>();
 
         private string nowControlModel = "";
@@ -82,11 +82,18 @@ namespace VTS_DelayExpression
             // 如果当前模型不为空但是配置为空，则创建配置
             if (configs == null || nowControlModel != XYModelManager.Instance.NowModelDef.Name)
             {
-                nowControlModel = XYModelManager.Instance.NowModelDef.Name;
-                LoadConfig();
+                if (XYModelManager.Instance.NowModelDef != null)
+                {
+                    nowControlModel = XYModelManager.Instance.NowModelDef.Name;
+                    LoadConfig();
+                }
             }
             foreach (var config in configs)
             {
+                if (config.PressingHotkey.Count == 0)
+                {
+                    continue;
+                }
                 bool canPlay = true;
                 foreach (var hotkey in config.PressingHotkey)
                 {
@@ -139,6 +146,7 @@ namespace VTS_DelayExpression
             }
             else
             {
+                XYLog.LogMessage($"DelayExpression:未找到配置文件 {path}");
                 //DelayExpressionConfig config = new DelayExpressionConfig();
                 //config.PressingHotkey = RawKey.Numpad4;
                 //config.GlobalHotkey = true;

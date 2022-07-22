@@ -1,0 +1,6 @@
+[
+  {
+    "Parameter": "ParamAngleX",
+    "Expression": "math.sin(GameTime) * 15 + 15"
+  }
+]

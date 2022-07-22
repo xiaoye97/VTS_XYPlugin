@@ -1,0 +1,1 @@
+此扩展的配置文件不放置在模型文件夹下，而是放置到VTube Studio/XYPluginConfig/DanMuTriggerAudio

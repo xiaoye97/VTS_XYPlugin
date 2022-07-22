@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace VTS_MutiMotionPlayer
 {
@@ -8,7 +9,8 @@ namespace VTS_MutiMotionPlayer
         [HarmonyPrefix, HarmonyPatch(typeof(Live2DModelAnimator), "LateUpdate")]
         public static bool Live2DModelAnimator_LateUpdate_Patch(Live2DModelAnimator __instance)
         {
-            if (__instance.availableVTSModels.Count == 0)
+            __instance.modelCount = __instance.availableVTSModels.Count;
+            if (__instance.modelCount == 0)
             {
                 return false;
             }
@@ -27,23 +29,59 @@ namespace VTS_MutiMotionPlayer
             foreach (VTubeStudioModel vtubeStudioModel in __instance.availableVTSModels.Keys)
             {
                 // 这里是主ParamStateController的刷新等操作
+                ModelDefinitionJSON modelJSON = vtubeStudioModel.ModelJSON;
+                bool flag = vtubeStudioModel != __instance.mainModel;
+                Live2DItemShift live2DItemShift = null;
+                float t = 1f;
+                if (flag)
+                {
+                    bool flag2 = !modelJSON.ItemSettings.OnlyMoveWhenPinned || (modelJSON.ItemSettings.OnlyMoveWhenPinned && modelJSON.ItemSettings.ItemInfo != null && modelJSON.ItemSettings.ItemInfo.IsPinned);
+                    modelJSON.ItemSettings.MovementFade = (modelJSON.ItemSettings.MovementFade + Time.deltaTime * 3.8f * (float)(flag2 ? 1 : -1)).Clamp01();
+                    t = modelJSON.ItemSettings.MovementFade;
+                    live2DItemShift = vtubeStudioModel.ItemShiftController;
+                }
+
                 vtubeStudioModel.ParamStateController.ExecuteStateStep();
-                bool flag = __instance.paramOverride.OverridesActive();
+                bool flag3 = __instance.paramOverride.OverridesActive();
                 foreach (ModelParamState modelParamState in vtubeStudioModel.ParamStateController.ParamStates)
                 {
-                    if (!flag)
+                    Live2DParamNames.Live2DParameterID paramID = Live2DParamNames.Live2DParameterID.NonDefault;
+                    float num = 1f;
+                    if (flag)
                     {
-                        vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, modelParamState.Value);
+                        bool flag4;
+                        paramID = __instance.step_GetItemMultiplierForParameter(modelParamState.Parameter, modelJSON, out num, out flag4);
+                        if (flag4)
+                        {
+                            num = Mathf.Lerp(0f, num, t);
+                        }
                     }
-                    else if (flag)
+                    if (!flag3)
+                    {
+                        vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, modelParamState.Value * num);
+                        if (live2DItemShift != null)
+                        {
+                            live2DItemShift.SetParam(paramID, modelParamState.Value);
+                        }
+                    }
+                    else if (flag3)
                     {
                         if (!__instance.paramOverride.HasOverride(modelParamState.Parameter))
                         {
-                            vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, modelParamState.Parameter.DefaultValue);
+                            vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, modelParamState.Parameter.DefaultValue * num);
+                            if (live2DItemShift != null)
+                            {
+                                live2DItemShift.SetParam(paramID, modelParamState.Parameter.DefaultValue);
+                            }
                         }
                         else
                         {
-                            vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, __instance.paramOverride.GetOverride(modelParamState.Parameter));
+                            float @override = __instance.paramOverride.GetOverride(modelParamState.Parameter);
+                            vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, @override);
+                            if (live2DItemShift != null)
+                            {
+                                live2DItemShift.SetParam(paramID, @override);
+                            }
                         }
                     }
                 }
@@ -51,21 +89,45 @@ namespace VTS_MutiMotionPlayer
                 foreach (var psc in MutiMotionPlayer.NowModelMutiPSCs)
                 {
                     psc.ExecuteStateStep();
-                    foreach (ModelParamState modelParamState in psc.ParamStates)
+                    foreach (ModelParamState modelParamState in vtubeStudioModel.ParamStateController.ParamStates)
                     {
-                        if (!flag)
+                        Live2DParamNames.Live2DParameterID paramID = Live2DParamNames.Live2DParameterID.NonDefault;
+                        float num = 1f;
+                        if (flag)
                         {
-                            vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, modelParamState.Value);
+                            bool flag4;
+                            paramID = __instance.step_GetItemMultiplierForParameter(modelParamState.Parameter, modelJSON, out num, out flag4);
+                            if (flag4)
+                            {
+                                num = Mathf.Lerp(0f, num, t);
+                            }
                         }
-                        else if (flag)
+                        if (!flag3)
+                        {
+                            vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, modelParamState.Value * num);
+                            if (live2DItemShift != null)
+                            {
+                                live2DItemShift.SetParam(paramID, modelParamState.Value);
+                            }
+                        }
+                        else if (flag3)
                         {
                             if (!__instance.paramOverride.HasOverride(modelParamState.Parameter))
                             {
-                                vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, modelParamState.Parameter.DefaultValue);
+                                vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, modelParamState.Parameter.DefaultValue * num);
+                                if (live2DItemShift != null)
+                                {
+                                    live2DItemShift.SetParam(paramID, modelParamState.Parameter.DefaultValue);
+                                }
                             }
                             else
                             {
-                                vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, __instance.paramOverride.GetOverride(modelParamState.Parameter));
+                                float @override = __instance.paramOverride.GetOverride(modelParamState.Parameter);
+                                vtubeStudioModel.SetLive2DParam(modelParamState.Parameter, @override);
+                                if (live2DItemShift != null)
+                                {
+                                    live2DItemShift.SetParam(paramID, @override);
+                                }
                             }
                         }
                     }

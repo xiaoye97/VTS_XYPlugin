@@ -74,6 +74,10 @@ namespace VTS_XYPlugin
                         needShowSprite = false;
                     }
                 }
+                else
+                {
+                    if (Collider != null) Collider.enabled = true;
+                }
             }
             // 如果物体不在模型上，则固定激活，但是根据参数来控制是否显示
             else

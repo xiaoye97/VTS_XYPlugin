@@ -60,8 +60,32 @@ namespace VTS_XYPlugin
             Instance = this;
             CmdArgs = Environment.GetCommandLineArgs().ToList();
             XYLog.Init(Logger);
+            DeleteErrorExScript();
             LogStartupMessage();
             Harmony.CreateAndPatchAll(typeof(XYPatch));
+        }
+
+        /// <summary>
+        /// 删除BepInEx/plugins下的扩展脚本，它们应该放在BepInEx/plugins/VTS_Ex文件夹
+        /// </summary>
+        public void DeleteErrorExScript()
+        {
+            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(Paths.PluginPath);
+            var files = dir.GetFiles();
+            for (int i = 0; i < files.Length; i++)
+            {
+                try
+                {
+                    if (files[i].Name.StartsWith("VTS_"))
+                    {
+                        files[i].Delete();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XYLog.LogError(ex.ToString());
+                }
+            }
         }
 
         private void Start()

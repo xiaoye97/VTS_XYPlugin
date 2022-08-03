@@ -1,4 +1,5 @@
 ﻿using VTS_XYPlugin_Common;
+using Newtonsoft.Json;
 
 namespace VTS_XYPlugin
 {
@@ -38,7 +39,7 @@ namespace VTS_XYPlugin
                         {
                             if (message.礼物名 == data.TriggerGiftName)
                             {
-                                //XYLog.LogMessage($"礼物{message.礼物名}可以触发快捷键");
+                                //XYLog.LogMessage($"收到礼物 {message.礼物名} 尝试触发:{JsonConvert.SerializeObject(data)}");
                                 XYHotkeyManager.Instance.TriggerHotkey(data);
                             }
                         }
@@ -49,6 +50,7 @@ namespace VTS_XYPlugin
                                 float rmb = message.瓜子数量 / 1000f;
                                 if (rmb >= data.MinMoneyLimit && rmb <= data.MaxMoneyLimit)
                                 {
+                                    //XYLog.LogMessage($"收到RMB {rmb} 尝试触发:{JsonConvert.SerializeObject(data)}");
                                     XYHotkeyManager.Instance.TriggerHotkey(data);
                                 }
                             }
@@ -67,6 +69,7 @@ namespace VTS_XYPlugin
                 {
                     if (data.GiftTriggerActionType == GiftTriggerActionType.收到舰长时触发)
                     {
+                        //XYLog.LogMessage($"收到舰长 尝试触发:{JsonConvert.SerializeObject(data)}");
                         XYHotkeyManager.Instance.TriggerHotkey(data);
                     }
                 }
@@ -82,6 +85,7 @@ namespace VTS_XYPlugin
                 {
                     if (data.GiftTriggerActionType == GiftTriggerActionType.收到SC时触发)
                     {
+                        //XYLog.LogMessage($"收到SC 尝试触发:{JsonConvert.SerializeObject(data)}");
                         XYHotkeyManager.Instance.TriggerHotkey(data);
                     }
                 }

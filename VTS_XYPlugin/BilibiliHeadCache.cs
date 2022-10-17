@@ -51,7 +51,7 @@ namespace VTS_XYPlugin
                         {
                             HeadLinkDict[userID] = url;
                             // 如果不存在此文件，则下载
-                            if (!File.Exists($"{XYPaths.BiliHeadDirPath}/{url}"))
+                            if (!File.Exists($"{XYPaths.BiliHeadDirPath}/{url.RemoveHttp()}"))
                             {
                                 NetHelper.DownloadHead(url);
                             }
@@ -188,7 +188,7 @@ namespace VTS_XYPlugin
         /// <param name="message"></param>
         public void OnRecvGift(BGiftMessage message)
         {
-            string url = message.头像图片链接.Replace("http://", "");
+            string url = message.头像图片链接;
             if (HeadLinkDict.ContainsKey(message.用户ID))
             {
                 // 如果缓存的数据和传入的数据不一致，说明需要更新
@@ -204,7 +204,7 @@ namespace VTS_XYPlugin
             if (XYPlugin.Instance.GlobalConfig.DownloadHeadOnRecvGift)
             {
                 // 如果不存在此文件，则加入下载队列
-                if (!File.Exists($"{XYPaths.BiliHeadDirPath}/{url}"))
+                if (!File.Exists($"{XYPaths.BiliHeadDirPath}/{url.RemoveHttp()}"))
                 {
                     waitDownloadHeads.Enqueue(url);
                 }

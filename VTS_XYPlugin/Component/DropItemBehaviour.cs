@@ -29,37 +29,71 @@ namespace VTS_XYPlugin
             switch (state)
             {
                 case DropItemState.正在掉落:
-                    lifeCD -= Time.deltaTime;
-                    if (lifeCD < 0)
+                    try
                     {
-                        state = DropItemState.正在销毁;
-                        destroyCD = 1.5f;
-                        Collider.enabled = false;
+                        lifeCD -= Time.deltaTime;
+                        if (lifeCD < 0)
+                        {
+                            state = DropItemState.正在销毁;
+                            destroyCD = 1.5f;
+                            Collider.enabled = false;
+                        }
+                    }
+                    catch
+                    {
+                        Debug.LogError("DropItemBehaviour Update Error 1");
                     }
                     break;
 
                 case DropItemState.正在销毁:
-                    destroyCD -= Time.deltaTime;
-                    if (destroyCD < 0)
+                    try
                     {
-                        // GameObject.Destroy(gameObject);
-                        Lean.Pool.LeanPool.Despawn(gameObject);
+                        destroyCD -= Time.deltaTime;
+                        if (destroyCD < 0)
+                        {
+                            // GameObject.Destroy(gameObject);
+                            Lean.Pool.LeanPool.Despawn(gameObject);
+                        }
+                        SR.color = new Color(1, 1, 1, destroyCD / 1.5f);
                     }
-                    SR.color = new Color(1, 1, 1, destroyCD / 1.5f);
+                    catch
+                    {
+                        Debug.LogError("DropItemBehaviour Update Error 2");
+                    }
                     break;
             }
             if (itemData.UseUserHead)
             {
-                if (userHead.ImageType == ImageType.GIF && gif != null)
+                try
                 {
-                    SR.sprite = gif.GetNowSprite();
+                    if (userHead != null)
+                    {
+                        if (!userHead.IsHeadReadError)
+                        {
+                            if (userHead.ImageType == ImageType.GIF && gif != null)
+                            {
+                                SR.sprite = gif.GetNowSprite();
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    Debug.LogError("DropItemBehaviour Update Error 3");
                 }
             }
             else
             {
-                if (itemData.ImageType == ImageType.GIF && gif != null)
+                try
                 {
-                    SR.sprite = gif.GetNowSprite();
+                    if (itemData.ImageType == ImageType.GIF && gif != null)
+                    {
+                        SR.sprite = gif.GetNowSprite();
+                    }
+                }
+                catch
+                {
+                    Debug.LogError("DropItemBehaviour Update Error 4");
                 }
             }
         }
@@ -94,7 +128,11 @@ namespace VTS_XYPlugin
                 if (head != null)
                 {
                     userHead = head;
-                    if (head.ImageType == ImageType.PNG)
+                    if (userHead.IsHeadReadError)
+                    {
+                        SR.sprite = XYDropManager.Instance.UserHeadNormalSprite;
+                    }
+                    else if (head.ImageType == ImageType.PNG)
                     {
                         SR.sprite = head.sprite;
                     }

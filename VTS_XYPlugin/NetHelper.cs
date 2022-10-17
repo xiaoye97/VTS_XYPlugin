@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -44,6 +45,8 @@ namespace VTS_XYPlugin
             return port;
         }
 
+        private static List<string> downloadUrlCache = new List<string>();
+
         /// <summary>
         /// 下载头像
         /// </summary>
@@ -52,6 +55,10 @@ namespace VTS_XYPlugin
         {
             try
             {
+                if (downloadUrlCache.Contains(url))
+                {
+                    return;
+                }
                 string savePath = $"{XYPaths.BiliHeadDirPath}/{url.RemoveHttp()}";
                 FileInfo file = new FileInfo(savePath);
                 if (file.Exists)
@@ -66,7 +73,8 @@ namespace VTS_XYPlugin
                 {
                     file.Directory.Create();
                 }
-                XYLog.LogMessage($"开始下载头像 {url}");
+                XYLog.LogMessage($"开始下载头像 {url} savePath:{savePath}");
+                downloadUrlCache.Add(url);
                 using (var web = new WebClient())
                 {
                     web.DownloadFile($"{url}", savePath);

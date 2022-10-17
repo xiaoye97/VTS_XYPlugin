@@ -17,7 +17,7 @@ namespace VTS_XYPlugin
     {
         public const string GUID = "me.xiaoye97.plugin.VTubeStudio.VTS_XYPlugin";
         public const string PluginName = "VTS_XYPlugin";
-        public const string VERSION = "2.1.0";
+        public const string VERSION = "2.0.0";
 
         public static List<string> CmdArgs;
 

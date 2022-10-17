@@ -11,6 +11,7 @@ namespace VTS_XYPlugin
         public int UserID;
         public ImageType ImageType;
         public string FilePath;
+        public bool IsHeadReadError;
 
         public UserHead()
         {
@@ -41,13 +42,27 @@ namespace VTS_XYPlugin
             {
                 ImageType = ImageType.GIF;
                 gif = new Gif();
-                gif.LoadGif(FilePath, true);
+                try
+                {
+                    gif.LoadGif(FilePath, true);
+                }
+                catch
+                {
+                    IsHeadReadError = true;
+                }
                 //XYLog.LogMessage($"加载gif完毕,共{gif.frameDelays.Count}帧");
             }
             else
             {
                 ImageType = ImageType.PNG;
-                sprite = FileHelper.LoadSprite(FilePath, true);
+                try
+                {
+                    sprite = FileHelper.LoadSprite(FilePath, true);
+                }
+                catch
+                {
+                    IsHeadReadError = true;
+                }
                 //XYLog.LogMessage($"加载sprite完毕, pixelsPerUnit:{sprite.pixelsPerUnit}");
             }
         }

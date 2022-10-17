@@ -233,15 +233,8 @@ namespace VTS_XYPlugin
         public static Texture2D LoadTexture2D(string path)
         {
             Texture2D tex = new Texture2D(2, 2);
-            try
-            {
-                var bytes = File.ReadAllBytes(path);
-                tex.LoadImage(bytes);
-            }
-            catch (Exception ex)
-            {
-                XYLog.LogError($"{ex}");
-            }
+            var bytes = File.ReadAllBytes(path);
+            tex.LoadImage(bytes);
             return tex;
         }
 

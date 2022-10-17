@@ -1,0 +1,17 @@
+{
+	"displayName": "Lean GUI Shapes",
+	"description": "Lightweight gui extensions for all projects.",
+	"name": "com.cwilkes.lean.gui-shapes",
+	"version": "1.0.0",
+	"unity": "2019.4",
+	"author": {
+		"name": "Carlos Wilkes",
+		"email": "carlos.wilkes@gmail.com",
+		"url": "https://carloswilkes.com"
+	},
+	"dependencies": {
+		"com.cwilkes.lean.common": "1.0.0",
+		"com.cwilkes.lean.transition": "1.0.0",
+		"com.cwilkes.lean.gui": "1.0.0"
+	}
+}

@@ -52,7 +52,7 @@ namespace VTS_XYPlugin
         {
             try
             {
-                string savePath = $"{XYPaths.BiliHeadDirPath}/{url}";
+                string savePath = $"{XYPaths.BiliHeadDirPath}/{url.RemoveHttp()}";
                 FileInfo file = new FileInfo(savePath);
                 if (file.Exists)
                 {
@@ -69,13 +69,18 @@ namespace VTS_XYPlugin
                 XYLog.LogMessage($"开始下载头像 {url}");
                 using (var web = new WebClient())
                 {
-                    web.DownloadFile($"http://{url}", savePath);
+                    web.DownloadFile($"{url}", savePath);
                 }
             }
             catch (Exception ex)
             {
                 XYLog.LogError($"{ex}");
             }
+        }
+
+        public static string RemoveHttp(this string str)
+        {
+            return str.Replace("http://", "").Replace("https://", "");
         }
     }
 }

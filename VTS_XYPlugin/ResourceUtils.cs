@@ -8,9 +8,9 @@ namespace VTS_XYPlugin
 {
     public static class ResourceUtils
     {
-        public static Texture2D LoadDLLTexture2D(string name)
+        public static Texture2D LoadDLLTexture2D(string name, Assembly containingAssembly = null)
         {
-            byte[] data = LoadDLLResource(name);
+            byte[] data = LoadDLLResource(name, containingAssembly);
             if (data == null)
             {
                 return null;
@@ -27,10 +27,10 @@ namespace VTS_XYPlugin
             return tex;
         }
 
-        public static Sprite LoadDLLSprite(string name)
+        public static Sprite LoadDLLSprite(string name, Assembly containingAssembly = null)
         {
             Sprite sprite = null;
-            Texture2D tex = LoadDLLTexture2D(name);
+            Texture2D tex = LoadDLLTexture2D(name, containingAssembly);
             try
             {
                 sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
@@ -42,9 +42,9 @@ namespace VTS_XYPlugin
             return sprite;
         }
 
-        public static AssetBundle LoadDLLAB(string name)
+        public static AssetBundle LoadDLLAB(string name, Assembly containingAssembly = null)
         {
-            byte[] data = LoadDLLResource(name);
+            byte[] data = LoadDLLResource(name, containingAssembly);
             return AssetBundle.LoadFromMemory(data);
         }
 

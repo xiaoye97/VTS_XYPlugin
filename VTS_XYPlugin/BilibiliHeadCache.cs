@@ -143,7 +143,7 @@ namespace VTS_XYPlugin
                 {
                     //XYLog.LogMessage($"[获取头像][{userID}]抓取成功，检查文件");
                     HeadLinkDict[userID] = url;
-                    string path = $"{XYPaths.BiliHeadDirPath}/{HeadLinkDict[userID]}";
+                    string path = $"{XYPaths.BiliHeadDirPath}/{HeadLinkDict[userID].RemoveHttp()}";
                     if (File.Exists(path))
                     {
                         //XYLog.LogMessage($"[获取头像][{userID}]本地文件存在，直接加载图片");
@@ -222,7 +222,7 @@ namespace VTS_XYPlugin
                 obj = JObject.Parse(json);
                 string url = obj["card"]["face"].ToString();
                 XYLog.LogMessage(url);
-                return url.Replace("http://", "");
+                return url;
             }
             catch (Exception ex)
             {

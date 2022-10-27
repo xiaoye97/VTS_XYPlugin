@@ -3,7 +3,7 @@
     [System.Serializable]
     public class BGiftMessage : XYMessage
     {
-        public int 用户ID;
+        public string 用户ID;
         public string 用户名;
         public string 礼物名;
         public int 礼物数量;
@@ -17,7 +17,7 @@
 
         public BGiftMessage(string[] data) : base()
         {
-            用户ID = data[1].ToInt();
+            用户ID = data[1];
             用户名 = data[2];
             礼物名 = data[3];
             礼物数量 = data[4].ToInt();

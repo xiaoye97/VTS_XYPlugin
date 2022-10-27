@@ -11,6 +11,6 @@ namespace VTS_XYPlugin
         public DropItemData ItemData;
 
         // 在掉落头像时使用
-        public int UserID;
+        public string UserID;
     }
 }

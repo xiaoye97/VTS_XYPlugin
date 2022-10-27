@@ -342,4 +342,5 @@ namespace BitConverter
             }
         }
     }
+#endif
 }

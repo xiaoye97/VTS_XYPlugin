@@ -13,9 +13,9 @@ namespace VTS_XYPlugin
     /// </summary>
     public class BilibiliHeadCache : MonoSingleton<BilibiliHeadCache>
     {
-        public Dictionary<int, string> HeadLinkDict = new Dictionary<int, string>();
-        public Dictionary<int, UserHead> HeadDict = new Dictionary<int, UserHead>();
-        private Queue<int> waitGetHeadUrlUsers = new Queue<int>();
+        public Dictionary<string, string> HeadLinkDict = new Dictionary<string, string>();
+        public Dictionary<string, UserHead> HeadDict = new Dictionary<string, UserHead>();
+        private Queue<string> waitGetHeadUrlUsers = new Queue<string>();
         public static Queue<string> waitDownloadHeads = new Queue<string>();
 
         private float saveCD = 60f;
@@ -41,7 +41,7 @@ namespace VTS_XYPlugin
             {
                 if (waitGetHeadUrlUsers.Count > 0)
                 {
-                    int userID = waitGetHeadUrlUsers.Dequeue();
+                    string userID = waitGetHeadUrlUsers.Dequeue();
                     // 如果在等待期间已经获取到此用户头像，则跳过
                     if (!HeadLinkDict.ContainsKey(userID))
                     {
@@ -95,9 +95,9 @@ namespace VTS_XYPlugin
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public UserHead GetHead(int userID)
+        public UserHead GetHead(string userID)
         {
-            if (userID < 0)
+            if (string.IsNullOrWhiteSpace(userID))
             {
                 return null;
             }
@@ -174,7 +174,7 @@ namespace VTS_XYPlugin
             return null;
         }
 
-        private UserHead LoadAndCacheHead(int userID, string path)
+        private UserHead LoadAndCacheHead(string userID, string path)
         {
             UserHead head = new UserHead(userID, path);
             head.LoadImage();
@@ -211,7 +211,7 @@ namespace VTS_XYPlugin
             }
         }
 
-        public string GetUserHeadUrl(int userID)
+        public string GetUserHeadUrl(string userID)
         {
             try
             {

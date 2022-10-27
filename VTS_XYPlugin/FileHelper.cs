@@ -196,11 +196,11 @@ namespace VTS_XYPlugin
                 if (File.Exists(path))
                 {
                     string json = FileHelper.ReadAllText(path);
-                    BilibiliHeadCache.Instance.HeadLinkDict = JsonConvert.DeserializeObject<Dictionary<int, string>>(json);
+                    BilibiliHeadCache.Instance.HeadLinkDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
                 }
                 if (BilibiliHeadCache.Instance.HeadLinkDict == null)
                 {
-                    BilibiliHeadCache.Instance.HeadLinkDict = new Dictionary<int, string>();
+                    BilibiliHeadCache.Instance.HeadLinkDict = new Dictionary<string, string>();
                     SaveBiliHeadCache();
                 }
             }

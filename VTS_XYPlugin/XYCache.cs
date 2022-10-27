@@ -152,7 +152,7 @@ namespace VTS_XYPlugin
                 {
                     var dropItem = XYDropManager.Instance.SearchDropItemByDropItemName(drop.Name);
                     //XYDropManager.Instance.StartDrop(dropItem, drop.TriggerCount, 1306433);
-                    XYDropManager.Instance.StartDrop(dropItem, drop.TriggerCount, 1418194);
+                    XYDropManager.Instance.StartDrop(dropItem, drop.TriggerCount, "1306433");
                 }
             }
             if (cache.TestTriggerHotkeys != null && cache.TestTriggerHotkeys.Count > 0)

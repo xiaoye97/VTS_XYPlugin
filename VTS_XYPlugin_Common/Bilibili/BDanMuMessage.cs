@@ -3,7 +3,7 @@
     [System.Serializable]
     public class BDanMuMessage : XYMessage
     {
-        public int 用户ID;
+        public string 用户ID;
         public string 用户名;
         public bool 是否房管;
         public BJianDuiType 舰队类型;
@@ -17,7 +17,7 @@
 
         public BDanMuMessage(string[] data) : base()
         {
-            用户ID = data[1].ToInt();
+            用户ID = data[1];
             用户名 = data[2];
             是否房管 = data[3].ToBool();
             舰队类型 = data[4].ToJianDuiType();

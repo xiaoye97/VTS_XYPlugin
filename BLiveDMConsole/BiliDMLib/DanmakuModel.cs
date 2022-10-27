@@ -151,7 +151,7 @@ namespace BiliDMLib
         /// <item><see cref="MsgTypeEnum.Interact"/></item>
         /// </list></para>
         /// </summary>
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
         /// <summary>
         /// 用户舰队等级
@@ -313,7 +313,7 @@ namespace BiliDMLib
                             case "DANMU_MSG":
                                 MsgType = MsgTypeEnum.Comment;
                                 CommentText = obj["info"][1].ToString();
-                                UserID = obj["info"][2][0].ToObject<int>();
+                                UserID = obj["info"][2][0].ToString();
                                 UserName = obj["info"][2][1].ToString();
                                 isAdmin = obj["info"][2][2].ToString() == "1";
                                 isVIP = obj["info"][2][3].ToString() == "1";
@@ -335,7 +335,7 @@ namespace BiliDMLib
                                 MsgType = MsgTypeEnum.GiftSend;
                                 GiftName = obj["data"]["giftName"].ToString();
                                 UserName = obj["data"]["uname"].ToString();
-                                UserID = obj["data"]["uid"].ToObject<int>();
+                                UserID = obj["data"]["uid"].ToString();
                                 // Giftrcost = obj["data"]["rcost"].ToString();
                                 GiftCount = obj["data"]["num"].ToObject<int>();
                                 GiftCoinType = obj["data"]["coin_type"].ToString();
@@ -377,7 +377,7 @@ namespace BiliDMLib
                                 {
                                     MsgType = MsgTypeEnum.Welcome;
                                     UserName = obj["data"]["uname"].ToString();
-                                    UserID = obj["data"]["uid"].ToObject<int>();
+                                    UserID = obj["data"]["uid"].ToString();
                                     isVIP = true;
                                     isAdmin = obj["data"]["isadmin"]?.ToString() == "1";
                                     break;
@@ -386,7 +386,7 @@ namespace BiliDMLib
                                 {
                                     MsgType = MsgTypeEnum.WelcomeGuard;
                                     UserName = obj["data"]["username"].ToString();
-                                    UserID = obj["data"]["uid"].ToObject<int>();
+                                    UserID = obj["data"]["uid"].ToString();
                                     UserGuardLevel = obj["data"]["guard_level"].ToObject<int>();
                                     break;
                                 }
@@ -398,7 +398,7 @@ namespace BiliDMLib
                                     {
                                         MsgType = MsgTypeEnum.WelcomeGuard;
                                         UserName = match.Groups[1].Value;
-                                        UserID = obj["data"]["uid"].ToObject<int>();
+                                        UserID = obj["data"]["uid"].ToString();
                                         UserGuardLevel = obj["data"]["privilege_type"].ToObject<int>();
                                     }
                                     else
@@ -411,7 +411,7 @@ namespace BiliDMLib
                             case "GUARD_BUY":
                                 {
                                     MsgType = MsgTypeEnum.GuardBuy;
-                                    UserID = obj["data"]["uid"].ToObject<int>();
+                                    UserID = obj["data"]["uid"].ToString();
                                     UserName = obj["data"]["username"].ToString();
                                     UserGuardLevel = obj["data"]["guard_level"].ToObject<int>();
                                     GiftName = UserGuardLevel == 3 ? "舰长" :
@@ -425,7 +425,7 @@ namespace BiliDMLib
                                 {
                                     MsgType = MsgTypeEnum.SuperChat;
                                     CommentText = obj["data"]["message"]?.ToString();
-                                    UserID = obj["data"]["uid"].ToObject<int>();
+                                    UserID = obj["data"]["uid"].ToString();
                                     UserName = obj["data"]["user_info"]["uname"].ToString();
                                     Price = obj["data"]["price"].ToObject<decimal>();
                                     SCKeepTime = obj["data"]["time"].ToObject<int>();
@@ -435,7 +435,7 @@ namespace BiliDMLib
                                 {
                                     MsgType = MsgTypeEnum.Interact;
                                     UserName = obj["data"]["uname"].ToString();
-                                    UserID = obj["data"]["uid"].ToObject<int>();
+                                    UserID = obj["data"]["uid"].ToString();
                                     InteractType = (InteractTypeEnum)obj["data"]["msg_type"].ToObject<int>();
                                     break;
                                 }
@@ -464,7 +464,7 @@ namespace BiliDMLib
                                     {
                                         MsgType = MsgTypeEnum.Comment;
                                         CommentText = obj["info"][1].ToString();
-                                        UserID = obj["info"][2][0].ToObject<int>();
+                                        UserID = obj["info"][2][0].ToString();
                                         UserName = obj["info"][2][1].ToString();
                                         isAdmin = obj["info"][2][2].ToString() == "1";
                                         isVIP = obj["info"][2][3].ToString() == "1";

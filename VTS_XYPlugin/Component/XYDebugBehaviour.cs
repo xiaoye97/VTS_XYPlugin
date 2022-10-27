@@ -65,7 +65,7 @@ namespace VTS_XYPlugin
             if (GUILayout.Button("测试送礼牛哇牛哇"))
             {
                 BGiftMessage gift = new BGiftMessage();
-                gift.用户ID = 1371894082;
+                gift.用户ID = "1306433";
                 gift.用户名 = "bili_89093521589";
                 gift.礼物名 = "牛哇牛哇";
                 gift.礼物数量 = 100;

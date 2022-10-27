@@ -7,6 +7,6 @@ namespace VTS_XYPlugin_Common
         /// <summary>
         /// <用户ID, 头像链接>
         /// </summary>
-        public Dictionary<int, string> Dict = new Dictionary<int, string>();
+        public Dictionary<string, string> Dict = new Dictionary<string, string>();
     }
 }

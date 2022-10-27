@@ -62,7 +62,7 @@ namespace VTS_XYPlugin
             CreateDropItemPrefab();
         }
 
-        public void StartDrop(DropItemData dropItemData, int triggerCount, int userID = -1)
+        public void StartDrop(DropItemData dropItemData, int triggerCount, string userID = "")
         {
             if (!EnableDrop) return;
             XYLog.LogMessage($"触发{dropItemData.Name} {triggerCount}次");

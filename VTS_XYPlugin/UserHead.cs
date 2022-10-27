@@ -8,7 +8,7 @@ namespace VTS_XYPlugin
     {
         public Sprite sprite;
         public Gif gif;
-        public int UserID;
+        public string UserID;
         public ImageType ImageType;
         public string FilePath;
         public bool IsHeadReadError;
@@ -17,7 +17,7 @@ namespace VTS_XYPlugin
         {
         }
 
-        public UserHead(int userID, string filePath)
+        public UserHead(string userID, string filePath)
         {
             UserID = userID;
             FilePath = filePath;

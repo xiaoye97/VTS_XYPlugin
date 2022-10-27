@@ -3,7 +3,7 @@
     [System.Serializable]
     public class BBuyJianDuiMessage : XYMessage
     {
-        public int 用户ID;
+        public string 用户ID;
         public string 用户名;
 
         /// <summary>
@@ -20,7 +20,7 @@
 
         public BBuyJianDuiMessage(string[] data) : base()
         {
-            用户ID = data[1].ToInt();
+            用户ID = data[1];
             用户名 = data[2];
             舰长类型 = data[3].ToJianDuiType();
             if (data[4] == "舰长")

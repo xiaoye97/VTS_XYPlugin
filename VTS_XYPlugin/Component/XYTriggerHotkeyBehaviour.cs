@@ -45,12 +45,13 @@ namespace VTS_XYPlugin
                         }
                         else if (data.GiftTriggerActionType == GiftTriggerActionType.收到礼物满足条件时触发)
                         {
+                            //XYLog.LogMessage($"收到礼物满足条件时触发 :{JsonConvert.SerializeObject(data)}");
                             if (message.瓜子类型 == BGiftCoinType.金瓜子)
                             {
-                                float rmb = message.瓜子数量 / 1000f;
-                                if (rmb >= data.MinMoneyLimit && rmb <= data.MaxMoneyLimit)
+                                float dianchi = message.瓜子数量 / 100f;
+                                if (dianchi >= data.MinMoneyLimit && dianchi <= data.MaxMoneyLimit)
                                 {
-                                    //XYLog.LogMessage($"收到RMB {rmb} 尝试触发:{JsonConvert.SerializeObject(data)}");
+                                    //XYLog.LogMessage($"收到电池 {dianchi} 尝试触发:{JsonConvert.SerializeObject(data)}");
                                     XYHotkeyManager.Instance.TriggerHotkey(data);
                                 }
                             }
@@ -69,8 +70,10 @@ namespace VTS_XYPlugin
                 {
                     if (data.GiftTriggerActionType == GiftTriggerActionType.收到舰长时触发)
                     {
-                        //XYLog.LogMessage($"收到舰长 尝试触发:{JsonConvert.SerializeObject(data)}");
-                        XYHotkeyManager.Instance.TriggerHotkey(data);
+                        if (message.舰长类型 == data.JianZhangType)
+                        {
+                            XYHotkeyManager.Instance.TriggerHotkey(data);
+                        }
                     }
                 }
             }

@@ -60,7 +60,7 @@ namespace VTS_XYPlugin
             Instance = this;
             CmdArgs = Environment.GetCommandLineArgs().ToList();
             XYLog.Init(Logger);
-            DeleteErrorExScript();
+            //DeleteErrorExScript();
             LogStartupMessage();
             Harmony.CreateAndPatchAll(typeof(XYPatch));
         }

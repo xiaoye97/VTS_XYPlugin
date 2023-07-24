@@ -229,11 +229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7571427555785445917, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: m_Text
-      value: "bililive_dm\r @copyliu"
+      value: "BLiveAPI_CS @skyatgit\r"
       objectReference: {fileID: 0}
     - target: {fileID: 7571427556620719664, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: m_Name
-      value: bililive_dm
+      value: BLiveAPI
       objectReference: {fileID: 0}
     - target: {fileID: 7571427556620719670, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: interactableTransitions.entries.Array.size
@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7571427556620719670, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: https://github.com/copyliu/bililive_dm
+      value: https://github.com/skyatgit/BLiveAPI_CS
       objectReference: {fileID: 0}
     - target: {fileID: 7571427556620719670, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -24568,7 +24568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22edf581691d3ba478407fd40b1c3e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Version: Ver 2.4.0
+  Version: Ver 2.5.0
 --- !u!114 &1796244934
 MonoBehaviour:
   m_ObjectHideFlags: 0

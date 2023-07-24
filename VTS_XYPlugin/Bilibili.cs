@@ -32,7 +32,7 @@ namespace VTS_XYPlugin
         public override void Init()
         {
             dataCache = "";
-            ExePath = $"{Paths.PluginPath}/VTS_XYPlugin/BLiveDMConsole/BLiveDMConsole.exe";
+            ExePath = $"{Paths.PluginPath}/VTS_XYPlugin/BLiveAPI/BLiveAPI.exe";
             XYLog.LogMessage($"弹幕姬路径:{ExePath}");
             if (XYPlugin.CmdArgs.Contains("-nobili"))
             {

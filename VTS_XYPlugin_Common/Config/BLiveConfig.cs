@@ -5,6 +5,8 @@
     /// </summary>
     public class BLiveConfig
     {
-        public int RoomID = 285362;
+        public ulong RoomID = 285362;
+        public ulong UID;
+        public string SESS = "";
     }
 }

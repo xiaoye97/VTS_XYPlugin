@@ -10,7 +10,9 @@ namespace VTS_XYPlugin
 {
     public class Bilibili : MonoSingleton<Bilibili>
     {
-        public static int NowRoomID;
+        public static ulong NowRoomID;
+        public static ulong UID;
+        public static string SESS;
         public static string[] SplitStr = new[] { "$#**#$" };
 
         // 弹幕姬程序路径
@@ -32,7 +34,7 @@ namespace VTS_XYPlugin
         public override void Init()
         {
             dataCache = "";
-            ExePath = $"{Paths.PluginPath}/VTS_XYPlugin/BLiveAPI/BLiveAPI.exe";
+            ExePath = $"{Paths.PluginPath}/VTS_XYPlugin/BLiveAPIConsole/BLiveAPIConsole.exe";
             XYLog.LogMessage($"弹幕姬路径:{ExePath}");
             if (XYPlugin.CmdArgs.Contains("-nobili"))
             {
@@ -125,6 +127,8 @@ namespace VTS_XYPlugin
             EndDM();
             XYLog.LogMessage($"开始连接直播间{XYPlugin.Instance.GlobalConfig.BLiveConfig.RoomID}");
             NowRoomID = XYPlugin.Instance.GlobalConfig.BLiveConfig.RoomID;
+            UID = XYPlugin.Instance.GlobalConfig.BLiveConfig.UID;
+            SESS = XYPlugin.Instance.GlobalConfig.BLiveConfig.SESS;
             ThreadStart childRef = new ThreadStart(DMExeThread);
             Thread childThread = new Thread(childRef);
             childThread.Start();
@@ -147,15 +151,16 @@ namespace VTS_XYPlugin
 
         public void DMExeThread()
         {
-            RunPythonScript(XYPlugin.Instance.GlobalConfig.BLiveConfig.RoomID.ToString());
+            var config = XYPlugin.Instance.GlobalConfig.BLiveConfig;
+            RunPythonScript($"{config.RoomID} {config.UID} {config.SESS}");
         }
 
-        public void RunPythonScript(string roomID)
+        public void RunPythonScript(string args)
         {
             process = new Process();
             process.StartInfo.FileName = ExePath;
             process.StartInfo.UseShellExecute = false;
-            process.StartInfo.Arguments = roomID;
+            process.StartInfo.Arguments = args;
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardInput = true;
             process.StartInfo.RedirectStandardError = true;

@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_DropDanMuSC", "VTS_Drop
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_PassArtMesh", "VTS_PassArtMesh\VTS_PassArtMesh.csproj", "{EA3DEB1F-F563-43BD-BE4A-0F260436E391}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLiveAPIConsole", "BLiveAPIConsole\BLiveAPIConsole.csproj", "{C11A33BF-9801-4E54-B4E8-627B3B04E028}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{EA3DEB1F-F563-43BD-BE4A-0F260436E391}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA3DEB1F-F563-43BD-BE4A-0F260436E391}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA3DEB1F-F563-43BD-BE4A-0F260436E391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C11A33BF-9801-4E54-B4E8-627B3B04E028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C11A33BF-9801-4E54-B4E8-627B3B04E028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C11A33BF-9801-4E54-B4E8-627B3B04E028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C11A33BF-9801-4E54-B4E8-627B3B04E028}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

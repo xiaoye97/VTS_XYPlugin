@@ -1,0 +1,31 @@
+﻿name: Build .NET Framework 4.7.2 Library
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.3.1
+
+      - name: Restore NuGet packages
+        run: nuget restore
+
+      - name: Build
+        run: msbuild /p:Configuration=Release
+
+      - name: Upload Release
+        uses: actions/upload-artifact@v3
+        with:
+          name: BLiveAPI
+          path: bin

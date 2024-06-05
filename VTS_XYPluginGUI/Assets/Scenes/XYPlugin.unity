@@ -229,11 +229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7571427555785445917, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: m_Text
-      value: "BLiveAPI @skyatgit\r"
+      value: "B\u7AD9\u5F39\u5E55\u59EC@CopyLiu"
       objectReference: {fileID: 0}
     - target: {fileID: 7571427556620719664, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: m_Name
-      value: BLiveAPI
+      value: "\u5F39\u5E55\u673A"
       objectReference: {fileID: 0}
     - target: {fileID: 7571427556620719670, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: interactableTransitions.entries.Array.size
@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7571427556620719670, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: https://github.com/skyatgit/BLiveAPI
+      value: https://play-live.bilibili.com/details/1651388990835
       objectReference: {fileID: 0}
     - target: {fileID: 7571427556620719670, guid: 993043eeda13e8340aa015345b48bd9d, type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -12620,8 +12620,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 195, y: 0}
+  m_SizeDelta: {x: 199, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1046708304
 MonoBehaviour:

@@ -1,7 +1,13 @@
 # VTS_XYPlugin
 用于Bilibili的VTube Studio的插件
 
-当前正在制作2.0 重构版本，已经移除1.X相关描述，敬请期待。
+主要功能: B站直播礼物掉落
+
+基于BepInEx 6.0.0-pre.1 Mono x64
+
+连接B站使用的弹幕机: https://play-live.bilibili.com/details/1651388990835
+
+我的B站主页: https://space.bilibili.com/1306433
 
 ## 下载
 [releases][1]

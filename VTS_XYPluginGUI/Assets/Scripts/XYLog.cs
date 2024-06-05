@@ -22,19 +22,16 @@ public static class XYLog
         {
             string log = Messages.Dequeue();
             Debug.Log(log);
-            UIPageLiveRoom.Instance.AddLogMessage(log);
         }
         while (Warnings.Count > 0)
         {
             string log = Warnings.Dequeue();
             Debug.LogWarning(log);
-            UIPageLiveRoom.Instance.AddLogWarning(log);
         }
         while (Errors.Count > 0)
         {
             string log = Errors.Dequeue();
             Debug.LogError(log);
-            UIPageLiveRoom.Instance.AddLogError(log);
         }
     }
 

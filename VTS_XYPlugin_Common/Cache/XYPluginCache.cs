@@ -13,12 +13,5 @@ namespace VTS_XYPlugin_Common
         public List<ExScriptAttribute> InstallExScripts = new List<ExScriptAttribute>();
         public List<string> NowModelHotkeys = new List<string>();
         public List<string> Logs = new List<string>();
-        public List<BDanMuMessage> DanMuMessages = new List<BDanMuMessage>();
-        public List<BGiftMessage> GiftMessages = new List<BGiftMessage>();
-        public List<BBuyJianDuiMessage> BuyJianDuiMessages = new List<BBuyJianDuiMessage>();
-        public List<BRenQiMessage> RenQiMessages = new List<BRenQiMessage>();
-        public List<BSCMessage> SCMessages = new List<BSCMessage>();
-        public List<BWarningMessage> WarningMessages = new List<BWarningMessage>();
-        public List<BWatchPeopleMessage> WatchPeopleMessages = new List<BWatchPeopleMessage>();
     }
 }

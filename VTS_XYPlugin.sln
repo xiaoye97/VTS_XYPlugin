@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_XYPlugin", "VTS_XYPlugi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_XYPlugin_Common", "VTS_XYPlugin_Common\VTS_XYPlugin_Common.csproj", "{F552AE77-EAA5-48D9-A485-3003A0AABD56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLiveDMConsole", "BLiveDMConsole\BLiveDMConsole.csproj", "{29F9D7A7-B864-4D1B-99D4-6FFCADD2A52E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_PressingMotionPlayer", "VTS_PressingMotionPlayer\VTS_PressingMotionPlayer.csproj", "{2B78A59D-85C1-41B9-9449-1FC25AB2B407}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTS_DelayExpression", "VTS_DelayExpression\VTS_DelayExpression.csproj", "{6E632DA5-E806-4F77-87E6-AE83B454A7C9}"
@@ -43,10 +41,6 @@ Global
 		{F552AE77-EAA5-48D9-A485-3003A0AABD56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F552AE77-EAA5-48D9-A485-3003A0AABD56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F552AE77-EAA5-48D9-A485-3003A0AABD56}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29F9D7A7-B864-4D1B-99D4-6FFCADD2A52E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29F9D7A7-B864-4D1B-99D4-6FFCADD2A52E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29F9D7A7-B864-4D1B-99D4-6FFCADD2A52E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29F9D7A7-B864-4D1B-99D4-6FFCADD2A52E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2B78A59D-85C1-41B9-9449-1FC25AB2B407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B78A59D-85C1-41B9-9449-1FC25AB2B407}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B78A59D-85C1-41B9-9449-1FC25AB2B407}.Release|Any CPU.ActiveCfg = Release|Any CPU

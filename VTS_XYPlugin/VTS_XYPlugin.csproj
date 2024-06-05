@@ -61,6 +61,9 @@
       <HintPath>..\..\..\Program Files (x86)\Steam\steamapps\common\VTube Studio\VTube Studio_Data\Managed\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="SuperSimpleTcp">
+      <HintPath>..\RefDll\SuperSimpleTcp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -137,6 +140,7 @@
   <ItemGroup>
     <Compile Include="Bilibili.cs" />
     <Compile Include="BilibiliHeadCache.cs" />
+    <Compile Include="BLiveDanmuParser.cs" />
     <Compile Include="Component\AutoFillSize.cs" />
     <Compile Include="Component\DropItemBehaviour.cs" />
     <Compile Include="Component\GravitationCalculator.cs" />

@@ -26,10 +26,15 @@
         public static BJianDuiType ToJianDuiType(this string str)
         {
             int J = str.ToInt();
+            return J.ToJianDuiType();
+        }
+
+        public static BJianDuiType ToJianDuiType(this int level)
+        {
             BJianDuiType result = BJianDuiType.无;
-            if (J == 1) result = BJianDuiType.总督;
-            if (J == 2) result = BJianDuiType.提督;
-            if (J == 3) result = BJianDuiType.舰长;
+            if (level == 1) result = BJianDuiType.总督;
+            if (level == 2) result = BJianDuiType.提督;
+            if (level == 3) result = BJianDuiType.舰长;
             return result;
         }
 

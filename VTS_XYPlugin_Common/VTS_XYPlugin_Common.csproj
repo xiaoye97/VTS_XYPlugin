@@ -59,14 +59,22 @@
   <ItemGroup>
     <Compile Include="Attribute\BindModelAttribute.cs" />
     <Compile Include="Attribute\ExScriptAttribute.cs" />
-    <Compile Include="Bilibili\BDanMuMessage.cs" />
-    <Compile Include="Bilibili\BGiftMessage.cs" />
-    <Compile Include="Bilibili\BGiftCoinType.cs" />
     <Compile Include="Bilibili\BBuyJianDuiMessage.cs" />
+    <Compile Include="Bilibili\BDanMuMessage.cs" />
+    <Compile Include="Bilibili\BGiftCoinType.cs" />
+    <Compile Include="Bilibili\BGiftMessage.cs" />
+    <Compile Include="Bilibili\BJianDuiType.cs" />
     <Compile Include="Bilibili\BRenQiMessage.cs" />
     <Compile Include="Bilibili\BSCMessage.cs" />
     <Compile Include="Bilibili\BWarningMessage.cs" />
     <Compile Include="Bilibili\BWatchPeopleMessage.cs" />
+    <Compile Include="BLiveOpen\AnchorInfo.cs" />
+    <Compile Include="BLiveOpen\Dm.cs" />
+    <Compile Include="BLiveOpen\Guard.cs" />
+    <Compile Include="BLiveOpen\SendGift.cs" />
+    <Compile Include="BLiveOpen\SuperChat.cs" />
+    <Compile Include="BLiveOpen\SuperChatDel.cs" />
+    <Compile Include="BLiveOpen\UserInfo.cs" />
     <Compile Include="Cache\TestDropCache.cs" />
     <Compile Include="Config\DropItemDataBase.cs" />
     <Compile Include="Config\GiftDropConfig.cs" />
@@ -76,11 +84,9 @@
     <Compile Include="Config\XYModelConfig.cs" />
     <Compile Include="Cache\XYPluginCache.cs" />
     <Compile Include="DropItemData.cs" />
-    <Compile Include="Config\BLiveConfig.cs" />
     <Compile Include="Enum\CollisionType.cs" />
     <Compile Include="Enum\ImageType.cs" />
     <Compile Include="GiftTriggerActionData.cs" />
-    <Compile Include="Bilibili\BJianDuiType.cs" />
     <Compile Include="PESocket\NetMsg.cs" />
     <Compile Include="PESocket\PEMsg.cs" />
     <Compile Include="PESocket\PEPkg.cs" />

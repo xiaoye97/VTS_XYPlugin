@@ -189,7 +189,7 @@ namespace VTS_XYPlugin
             Bilibili.Instance.Init();
             if (Bilibili.CanConnectBili)
             {
-                Bilibili.Instance.StartDM();
+                Bilibili.Instance.Connect();
             }
             if (GlobalConfig.AutoOpenGUI)
             {
@@ -221,33 +221,6 @@ namespace VTS_XYPlugin
         {
             //XYLog.LogMessage("检测到全局配置文件变更");
             FileHelper.LoadGlobalConfig();
-            bool needReloadBLive = false;
-            // 如果配置文件中的房间号和当前房间号不一致，则重启弹幕姬
-            if (GlobalConfig.BLiveConfig.RoomID != Bilibili.NowRoomID)
-            {
-                needReloadBLive = true;
-            }
-            if (GlobalConfig.BLiveConfig.UID != Bilibili.UID)
-            {
-                needReloadBLive = true;
-            }
-            if (GlobalConfig.BLiveConfig.SESS != Bilibili.SESS)
-            {
-                needReloadBLive = true;
-            }
-            if (needReloadBLive)
-            {
-                if (Bilibili.CanConnectBili)
-                {
-                    XYLog.LogWarning($"配置文件中的B站配置更改，切换直播间{Bilibili.NowRoomID}到{GlobalConfig.BLiveConfig.RoomID} UID:{GlobalConfig.BLiveConfig.UID} SESS:{GlobalConfig.BLiveConfig.SESS}");
-                    Bilibili.Instance.EndDM();
-                    Bilibili.Instance.StartDM();
-                }
-                else
-                {
-                    XYLog.LogWarning($"配置文件中的房间号更改，但此实例禁用了bilibili连接，跳过");
-                }
-            }
         }
 
         private void OnDropItemConfigFileModified()

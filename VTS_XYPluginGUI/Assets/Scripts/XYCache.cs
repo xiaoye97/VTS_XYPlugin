@@ -56,20 +56,11 @@ public class XYCache : MonoSingleton<XYCache>
                     Cache.NowModelHotkeys = cache.NowModelHotkeys;
                 }
             }
-            Cache.WatchPeopleMessages.AddRange(cache.WatchPeopleMessages);
-            Cache.RenQiMessages.AddRange(cache.RenQiMessages);
-            Cache.GiftMessages.AddRange(cache.GiftMessages);
-            Cache.WarningMessages.AddRange(cache.WarningMessages);
-            Cache.BuyJianDuiMessages.AddRange(cache.BuyJianDuiMessages);
-            Cache.DanMuMessages.AddRange(cache.DanMuMessages);
-            Cache.SCMessages.AddRange(cache.SCMessages);
             Cache.InstallExScripts.Clear();
             foreach (var script in cache.InstallExScripts)
             {
                 Cache.InstallExScripts.Add(script);
             }
-            // 刷新UI
-            UIPageLiveRoom.Instance.Refresh(cache);
             UIPageSctipt.Instance.Refresh();
             // 如果模型的数据变了，则刷新动作绑定UI
             if (nowModelDataChanged)

@@ -9,13 +9,6 @@ namespace VTS_XYPlugin
     {
         public override void Init()
         {
-            BDanMuMessageListener = MessageCenter.Instance.Register<BDanMuMessage>(OnBDanMuMessage);
-            BGiftMessageListener = MessageCenter.Instance.Register<BGiftMessage>(OnBGiftMessage);
-            BWatchPeopleMessageListener = MessageCenter.Instance.Register<BWatchPeopleMessage>(OnBWatchPeopleMessage);
-            BRenQiMessageListener = MessageCenter.Instance.Register<BRenQiMessage>(OnBRenQiMessage);
-            BBuyJianDuiMessageListener = MessageCenter.Instance.Register<BBuyJianDuiMessage>(OnBBuyJianDuiMessage);
-            BSCMessageListener = MessageCenter.Instance.Register<BSCMessage>(OnBSCMessage);
-            BWarningMessageListener = MessageCenter.Instance.Register<BWarningMessage>(OnBWarningMessage);
         }
 
         private void Update()
@@ -48,10 +41,6 @@ namespace VTS_XYPlugin
                         {
                             PluginCache.InstallExScripts.Add(script);
                         }
-                    }
-                    if (Bilibili.Instance != null && Bilibili.Instance.process != null)
-                    {
-                        PluginCache.BiliDanMuJiPID = Bilibili.Instance.process.Id;
                     }
                     string json = JsonConvert.SerializeObject(PluginCache);
                     //XYLog.LogMessage(json);
@@ -87,55 +76,6 @@ namespace VTS_XYPlugin
 
         private float sendCacheCD;
 
-        private MessageListener BDanMuMessageListener;
-        private MessageListener BGiftMessageListener;
-        private MessageListener BWatchPeopleMessageListener;
-        private MessageListener BRenQiMessageListener;
-        private MessageListener BBuyJianDuiMessageListener;
-        private MessageListener BSCMessageListener;
-        private MessageListener BWarningMessageListener;
-
-        private void OnBDanMuMessage(object message)
-        {
-            PluginCache.DanMuMessages.Add(message as BDanMuMessage);
-            PluginCache.HasData = true;
-        }
-
-        private void OnBGiftMessage(object message)
-        {
-            PluginCache.GiftMessages.Add(message as BGiftMessage);
-            PluginCache.HasData = true;
-        }
-
-        private void OnBWatchPeopleMessage(object message)
-        {
-            PluginCache.WatchPeopleMessages.Add(message as BWatchPeopleMessage);
-            PluginCache.HasData = true;
-        }
-
-        private void OnBRenQiMessage(object message)
-        {
-            PluginCache.RenQiMessages.Add(message as BRenQiMessage);
-            PluginCache.HasData = true;
-        }
-
-        private void OnBBuyJianDuiMessage(object message)
-        {
-            PluginCache.BuyJianDuiMessages.Add(message as BBuyJianDuiMessage);
-            PluginCache.HasData = true;
-        }
-
-        private void OnBSCMessage(object message)
-        {
-            PluginCache.SCMessages.Add(message as BSCMessage);
-            PluginCache.HasData = true;
-        }
-
-        private void OnBWarningMessage(object message)
-        {
-            PluginCache.WarningMessages.Add(message as BWarningMessage);
-            PluginCache.HasData = true;
-        }
 
         #endregion 插件向GUI
 

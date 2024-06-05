@@ -1,8 +1,7 @@
-﻿using BepInEx;
+﻿using SuperSimpleTcp;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
+using System.IO;
+using System.Text;
 using UnityEngine;
 using VTS_XYPlugin_Common;
 
@@ -10,36 +9,29 @@ namespace VTS_XYPlugin
 {
     public class Bilibili : MonoSingleton<Bilibili>
     {
-        public static ulong NowRoomID;
-        public static ulong UID;
-        public static string SESS;
-        public static string[] SplitStr = new[] { "$#**#$" };
+        public string ServerIPAddress = "127.0.0.1:9000";
+        private SimpleTcpClient client;
+        private BLiveDanmuParser danmuParser;
 
-        // 弹幕姬程序路径
-        private static string ExePath;
-
-        public static string dataCache;
-        public static Queue<string> dataQueue = new Queue<string>();
-        public Process process;
-
-        // 如果进程意外退出的重连CD
-        private float reConnectCD;
-
-        // 如果60秒没接收到服务器消息的重连CD
-        private static float reConnectCD2 = 120;
+        private static float reConnectCD = 120;
 
         // 是否允许连接B站，当启动参数里含有nobili的时候，不连接B站
         public static bool CanConnectBili = true;
 
         public override void Init()
         {
-            dataCache = "";
-            ExePath = $"{Paths.PluginPath}/VTS_XYPlugin/BLiveAPIConsole/BLiveAPIConsole.exe";
-            XYLog.LogMessage($"弹幕姬路径:{ExePath}");
             if (XYPlugin.CmdArgs.Contains("-nobili"))
             {
                 CanConnectBili = false;
                 XYLog.LogMessage($"当前已禁用连接Bilibili");
+            }
+            if (CanConnectBili)
+            {
+                danmuParser = new BLiveDanmuParser();
+                danmuParser.OnDanmaku += DanmuParser_OnDanmaku;
+                danmuParser.OnGift += DanmuParser_OnGift;
+                danmuParser.OnGuardBuy += DanmuParser_OnGuardBuy;
+                danmuParser.OnSuperChat += DanmuParser_OnSuperChat;
             }
         }
 
@@ -47,164 +39,124 @@ namespace VTS_XYPlugin
         {
             if (CanConnectBili)
             {
-                reConnectCD -= Time.deltaTime;
-                reConnectCD2 -= Time.deltaTime;
-                if (reConnectCD < 0)
+                if (!client.IsConnected)
                 {
-                    // 每5秒检查一次
-                    reConnectCD = 5f;
-                    if (process == null || process.HasExited)
+                    reConnectCD -= Time.deltaTime;
+                    if (reConnectCD < 0)
                     {
-                        StartDM();
+                        reConnectCD = 120;
+                        XYLog.LogMessage($"开始尝试重连弹幕机");
+                        Connect();
                     }
                 }
-                if (reConnectCD2 < 0)
-                {
-                    reConnectCD2 = 120;
-                    XYLog.LogWarning($"120秒没有接收到服务器消息，重连服务器");
-                    EndDM();
-                    StartDM();
-                }
-            }
-            while (dataQueue.Count > 0)
-            {
-                string data = dataQueue.Dequeue();
-                string[] args = null;
-                XYMessage message = null;
-                switch (data[0])
-                {
-                    case 'D':
-                        args = data.Split(SplitStr, 8, StringSplitOptions.None);
-                        message = new BDanMuMessage(args);
-                        break;
-
-                    case 'G':
-                        args = data.Split(SplitStr, 8, StringSplitOptions.None);
-                        message = new BGiftMessage(args);
-                        // 如果是礼物，则直接将头像传入cache
-                        BilibiliHeadCache.Instance.OnRecvGift(message as BGiftMessage);
-                        break;
-
-                    case 'P':
-                        args = data.Split(SplitStr, 2, StringSplitOptions.None);
-                        message = new BWatchPeopleMessage(args);
-                        break;
-
-                    case 'R':
-                        args = data.Split(SplitStr, 2, StringSplitOptions.None);
-                        message = new BRenQiMessage(args);
-                        break;
-
-                    case 'J':
-                        args = data.Split(SplitStr, 6, StringSplitOptions.None);
-                        message = new BBuyJianDuiMessage(args);
-                        break;
-
-                    case 'S':
-                        args = data.Split(SplitStr, 6, StringSplitOptions.None);
-                        message = new BSCMessage(args);
-                        break;
-
-                    case 'W':
-                        args = data.Split(SplitStr, 2, StringSplitOptions.None);
-                        message = new BWarningMessage(args);
-                        break;
-                }
-                //XYLog.LogMessage($"[Bili]{data}");
-                if (message != null)
-                {
-                    MessageCenter.Instance.Send(message);
-                }
-                else
-                {
-                    XYLog.LogMessage($"[Bili]{data}");
-                }
             }
         }
 
-        public void StartDM()
+        public void LoadOrCreateAddressConfig()
         {
-            EndDM();
-            XYLog.LogMessage($"开始连接直播间{XYPlugin.Instance.GlobalConfig.BLiveConfig.RoomID}");
-            NowRoomID = XYPlugin.Instance.GlobalConfig.BLiveConfig.RoomID;
-            UID = XYPlugin.Instance.GlobalConfig.BLiveConfig.UID;
-            SESS = XYPlugin.Instance.GlobalConfig.BLiveConfig.SESS;
-            ThreadStart childRef = new ThreadStart(DMExeThread);
-            Thread childThread = new Thread(childRef);
-            childThread.Start();
-        }
-
-        public void EndDM()
-        {
-            // 如果进程不为空，则先杀死老进程，再开始新进程
-            if (process != null)
+            string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string path = $"{doc}/xiaoye97/XYDanMuShare/ServerIPAddress.txt";
+            if (File.Exists(path))
             {
-                if (!process.HasExited)
-                {
-                    process.Kill();
-                    process.Close();
-                    XYLog.LogMessage("断开当前直播间");
-                }
-                process = null;
-            }
-        }
-
-        public void DMExeThread()
-        {
-            var config = XYPlugin.Instance.GlobalConfig.BLiveConfig;
-            RunPythonScript($"{config.RoomID} {config.UID} {config.SESS}");
-        }
-
-        public void RunPythonScript(string args)
-        {
-            process = new Process();
-            process.StartInfo.FileName = ExePath;
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.Arguments = args;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.RedirectStandardInput = true;
-            process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.CreateNoWindow = true;
-            process.Exited += Process_Exited;
-            if (process.Start())
-            {
-                process.BeginOutputReadLine();
-                process.OutputDataReceived += new DataReceivedEventHandler(Out_RecvData);
-                Console.ReadLine();
-                process.WaitForExit();
+                ServerIPAddress = File.ReadAllText(path);
             }
             else
             {
-                EndDM();
-            }
-        }
-
-        private void Process_Exited(object sender, EventArgs e)
-        {
-            XYLog.LogMessage($"弹幕进程已退出");
-        }
-
-        /// <summary>
-        /// 接收数据
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Out_RecvData(object sender, DataReceivedEventArgs e)
-        {
-            dataCache = e.Data;
-            if (!string.IsNullOrWhiteSpace(dataCache))
-            {
-                lock (dataQueue)
+                FileInfo f = new FileInfo(path);
+                if (!f.Directory.Exists)
                 {
-                    dataQueue.Enqueue(dataCache);
-                    reConnectCD2 = 60f;
+                    f.Directory.Create();
                 }
+                ServerIPAddress = "127.0.0.1:9000";
+                File.WriteAllText(path, ServerIPAddress);
             }
         }
 
-        private void OnApplicationQuit()
+        public void Connect()
         {
-            EndDM();
+            LoadOrCreateAddressConfig();
+            client = new SimpleTcpClient(ServerIPAddress);
+            client.Events.Connected += Events_Connected;
+            client.Events.Disconnected += Events_Disconnected;
+            client.Events.DataReceived += Events_DataReceived;
+            client.Connect();
+        }
+
+        private void Events_DataReceived(object sender, DataReceivedEventArgs e)
+        {
+            string data = Encoding.UTF8.GetString(e.Data.Array, 0, e.Data.Count);
+            if (data.StartsWith("XYDanMuShareForCopyLiuDanMuJi;"))
+            {
+                var rawData = data.Replace("XYDanMuShareForCopyLiuDanMuJi;", "");
+                danmuParser.ProcessNotice(rawData);
+            }
+        }
+
+        private void Events_Disconnected(object sender, ConnectionEventArgs e)
+        {
+            XYLog.LogMessage($"与弹幕广播的连接已断开，即将尝试重连。");
+            reConnectCD = 1f;
+            client = null;
+        }
+
+        private void Events_Connected(object sender, ConnectionEventArgs e)
+        {
+            XYLog.LogMessage($"已连接到弹幕广播");
+        }
+
+        private void DanmuParser_OnGift(OpenBLive.Runtime.Data.SendGift sendGift)
+        {
+            var message = new BGiftMessage()
+            {
+                用户ID = sendGift.uid.ToString(),
+                用户名 = sendGift.userName,
+                礼物名 = sendGift.giftName,
+                礼物数量 = (int)sendGift.giftNum,
+                瓜子类型 = sendGift.paid ? BGiftCoinType.金瓜子 : BGiftCoinType.银瓜子,
+                瓜子数量 = (int)sendGift.price,
+                头像图片链接 = sendGift.userFace
+            };
+            BilibiliHeadCache.Instance.OnRecvGift(message);
+            MessageCenter.Instance.Send(message);
+        }
+
+        private void DanmuParser_OnDanmaku(OpenBLive.Runtime.Data.Dm dm)
+        {
+            var message = new BDanMuMessage()
+            {
+                用户ID = dm.uid.ToString(),
+                用户名 = dm.userName,
+                舰队类型 = dm.guardLevel.ToString().ToJianDuiType(),
+                粉丝牌名称 = dm.fansMedalName,
+                粉丝牌等级 = (int)dm.fansMedalLevel,
+                弹幕 = dm.msg
+            };
+            MessageCenter.Instance.Send(message);
+        }
+
+        private void DanmuParser_OnSuperChat(OpenBLive.Runtime.Data.SuperChat sc)
+        {
+            var message = new BSCMessage()
+            {
+                用户ID = sc.uid.ToString(),
+                用户名 = sc.userName,
+                金额 = (int)sc.rmb,
+                持续时间 = (int)(sc.endTime - sc.startTime),
+                SC = sc.message
+            };
+            MessageCenter.Instance.Send(message);
+        }
+
+        private void DanmuParser_OnGuardBuy(OpenBLive.Runtime.Data.Guard guard)
+        {
+            var message = new BBuyJianDuiMessage()
+            {
+                用户ID = guard.userInfo.uid.ToString(),
+                用户名 = guard.userInfo.userName,
+                开通类型 = guard.guardLevel.ToString().ToJianDuiType(),
+                开通数量 = (int)guard.guardNum,
+            };
+            MessageCenter.Instance.Send(message);
         }
     }
 }

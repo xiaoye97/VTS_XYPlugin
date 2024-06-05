@@ -36,7 +36,6 @@ namespace VTS_XYPlugin
                 bool pressed = RawKeyInput.IsKeyPressed(key);
                 ThisFramePressed[i] = pressed;
             }
-            RefreshXYHotkey();
             if (CheckInputAction != null)
             {
                 try
@@ -72,34 +71,6 @@ namespace VTS_XYPlugin
                     }
                 }
                 GUILayout.EndVertical();
-            }
-        }
-
-        public void RefreshXYHotkey()
-        {
-            RawKey switchMessageKey = (RawKey)XYPlugin.Instance.GlobalConfig.SwitchMessageSystemHotkey;
-            RawKey switchDropKey = (RawKey)XYPlugin.Instance.GlobalConfig.SwitchDropGiftHotkey;
-            RawKey switchTriggerKey = (RawKey)XYPlugin.Instance.GlobalConfig.SwitchTriggerActionHotkey;
-            // 按键检测控制是否开关消息系统
-            if (XYRawKeyInput.GetKey(RawKey.Control) && XYRawKeyInput.GetKeyDown(switchMessageKey))
-            {
-                MessageCenter.RunMessageCenter = !MessageCenter.RunMessageCenter;
-                if (MessageCenter.RunMessageCenter) XYLog.LogMessage("打开了消息系统");
-                else XYLog.LogMessage("关闭了消息系统");
-            }
-            // 按键检测控制是否开关礼物掉落
-            if (XYRawKeyInput.GetKey(RawKey.Control) && XYRawKeyInput.GetKeyDown(switchDropKey))
-            {
-                XYDropManager.EnableDrop = !XYDropManager.EnableDrop;
-                if (XYDropManager.EnableDrop) XYLog.LogMessage("打开了礼物掉落");
-                else XYLog.LogMessage("关闭了礼物掉落");
-            }
-            // 按键检测控制是否开关动作触发
-            if (XYRawKeyInput.GetKey(RawKey.Control) && XYRawKeyInput.GetKeyDown(switchTriggerKey))
-            {
-                XYHotkeyManager.EnableTriggerHotkey = !XYHotkeyManager.EnableTriggerHotkey;
-                if (XYHotkeyManager.EnableTriggerHotkey) XYLog.LogMessage("打开了动作触发");
-                else XYLog.LogMessage("关闭了动作触发");
             }
         }
 

@@ -25,14 +25,6 @@
         /// </summary>
         public bool DownloadHeadOnRecvGift = true;
 
-        /// <summary>
-        /// 开关消息系统的快捷键，需要按住Ctrl再按此键
-        /// </summary>
-        public RawKeyMap SwitchMessageSystemHotkey = RawKeyMap.I;
-
-        public RawKeyMap SwitchDropGiftHotkey = RawKeyMap.O;
-        public RawKeyMap SwitchTriggerActionHotkey = RawKeyMap.P;
-        public BLiveConfig BLiveConfig = new BLiveConfig();
         public GiftDropConfig GiftDropConfig = new GiftDropConfig();
     }
 }

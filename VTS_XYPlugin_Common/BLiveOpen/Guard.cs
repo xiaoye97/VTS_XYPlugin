@@ -20,7 +20,7 @@ namespace OpenBLive.Runtime.Data
         [JsonProperty("guard_num")] public long guardNum;
 
         /// <summary>
-        /// 大航海单位 "月"
+        /// 大航海单位(正常单位为“月”，如为其他内容，无视guard_num以本字段内容为准，例如*3天)
         /// </summary>
         [JsonProperty("guard_unit")] public string guardUnit;
 

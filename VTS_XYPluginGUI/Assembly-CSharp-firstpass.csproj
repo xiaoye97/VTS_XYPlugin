@@ -41,6 +41,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Folder Include="Assets\Plugins\CW\Shared" />
+     <Folder Include="Assets\Plugins\CW" />
+     <Folder Include="Assets\Plugins" />
      <None Include="Assets\Plugins\CW\READ ME.txt" />
      <None Include="Assets\Plugins\CW\Third-Party Notices.txt" />
      <Reference Include="UnityEngine">

@@ -41,21 +41,31 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanFormatString.cs" />
      <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelectableBehaviour.cs" />
      <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSpawn.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanRoll.cs" />
      <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanPath.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelect.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanFormatString.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelectableGraphicColor.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanDestroy.cs" />
      <Compile Include="Assets\Plugins\CW\LeanCommon\Required\Scripts\LeanCommon.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelectableGraphicColor.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelectable.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelect.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelectableSpriteRendererColor.cs" />
      <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanPlane.cs" />
      <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelectableRendererColor.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanRoll.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanDestroy.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelectable.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts\LeanSelectableSpriteRendererColor.cs" />
      <None Include="Assets\Plugins\CW\LeanCommon\LeanCommon.asmdef" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon\Required\Scripts" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon\Extras" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon\Extras\Scripts" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon\Examples\Prefabs" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon\Examples\Materials" />
      <None Include="Assets\Plugins\CW\LeanCommon\package.json" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon\Examples" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon\Required" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon\Examples\Meshes" />
+     <Folder Include="Assets\Plugins\CW\LeanCommon\Examples\Textures" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -288,25 +298,25 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Antlr3.Runtime">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="VTS_XYPlugin_Common">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\VTS_XYPlugin_Common.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\VTS_XYPlugin_Common.dll</HintPath>
      </Reference>
      <Reference Include="UnityGifDecoder">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\UnityGifDecoder.dll</HintPath>
-     </Reference>
-     <Reference Include="log4netPlastic">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
-     </Reference>
-     <Reference Include="Newtonsoft.Json">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\UnityGifDecoder.dll</HintPath>
      </Reference>
      <Reference Include="unityplastic">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+     </Reference>
+     <Reference Include="log4netPlastic">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -657,10 +667,10 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -41,32 +41,44 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Extras\Scripts\CwInputManager.cs" />
      <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwDepthTextureMode.cs" />
      <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwCameraLook.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwCameraMove.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwDemoButtonBuilder.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Required\Scripts\CwInput.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwRotate.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Required\Scripts\CwHelper.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwLightIntensity.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwFollow.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwDemoButton.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Extras\Scripts\CwRenderTextureManager.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwDemo.cs" />
      <Compile Include="Assets\Plugins\CW\Shared\Common\Required\Scripts\CwEditor.cs" />
      <Compile Include="Assets\Plugins\CW\Shared\Common\Extras\Scripts\CwChild.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwInputManager.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwDemoButton.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Required\Scripts\CwShaderBundle.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Extras\Scripts\CwRoot.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Required\Scripts\CwInput.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwRotate.cs" />
      <Compile Include="Assets\Plugins\CW\Shared\Common\Required\Scripts\CwCommon.cs" />
      <Compile Include="Assets\Plugins\CW\Shared\Common\Extras\Scripts\CwSeedAttribute.cs" />
      <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwCameraPivot.cs" />
-     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwDemo.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwCameraMove.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Required\Scripts\CwHelper.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwDemoButtonBuilder.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts\CwLightIntensity.cs" />
      <Compile Include="Assets\Plugins\CW\Shared\Common\Required\Scripts\CwGuide.cs" />
+     <Compile Include="Assets\Plugins\CW\Shared\Common\Extras\Scripts\CwFollow.cs" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Examples\Fonts" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Required\Shaders" />
      <None Include="Assets\Plugins\CW\Shared\Common\CW.Common.asmdef" />
      <None Include="Assets\Plugins\CW\Shared\Common\Examples\Shaders\RimOpaque.shader" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common" />
+     <None Include="Assets\Plugins\CW\Shared\Common\Required\Shaders\ShapeOutline.shader" />
      <None Include="Assets\Plugins\CW\Shared\Common\Examples\Shaders\Skybox.shader" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Examples\Shaders" />
      <None Include="Assets\Plugins\CW\Shared\Common\Examples\Fonts\VarelaRound-Regular.txt" />
      <None Include="Assets\Plugins\CW\Shared\Common\package.json" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Extras\Scripts" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Examples\Materials" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Extras" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Required\Scripts" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Examples\Textures" />
      <None Include="Assets\Plugins\CW\Shared\Common\Examples\Shaders\RimAlpha.shader" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Examples\Scripts" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Required" />
+     <Folder Include="Assets\Plugins\CW\Shared\Common\Examples" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -299,25 +311,25 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Antlr3.Runtime">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="VTS_XYPlugin_Common">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\VTS_XYPlugin_Common.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\VTS_XYPlugin_Common.dll</HintPath>
      </Reference>
      <Reference Include="UnityGifDecoder">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\UnityGifDecoder.dll</HintPath>
-     </Reference>
-     <Reference Include="log4netPlastic">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
-     </Reference>
-     <Reference Include="Newtonsoft.Json">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\UnityGifDecoder.dll</HintPath>
      </Reference>
      <Reference Include="unityplastic">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+     </Reference>
+     <Reference Include="log4netPlastic">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -668,10 +680,10 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

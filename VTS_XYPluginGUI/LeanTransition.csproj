@@ -41,89 +41,110 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformRotation.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMax_x.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanPlayer.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMin.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanTime.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalRotation.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanStateWithTarget.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition_z.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalPosition_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformRotate.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanTiming.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanState.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformSetAsLastSibling.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanJoinDelay.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMin_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformPivot_x.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanEase.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanTransition.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMax_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanJoinInsert.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalScale_xy.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalPosition_x.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformSizeDelta_x.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\AudioSource\LeanAudioSourcePitch.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalPosition_xy.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Light\LeanLightColor.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformSizeDelta_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Image\LeanImageFillAmount.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMax_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanTimeScale.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanPlaySound.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\SpriteRenderer\LeanSpriteRendererColor.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Graphic\LeanGraphicColor.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition_x.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMin_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalScale.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanJoin.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMax_x.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Light\LeanLightIntensity.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformPivot_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalScale_x.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\AudioSource\LeanAudioSourceSpatialBlend.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMin_x.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Material\LeanMaterialColor.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanGet.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\CanvasGroup\LeanCanvasGroupBlocksRaycasts.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanEvent.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Material\LeanMaterialFloat.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\AudioSource\LeanAudioSourcePanStereo.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\CanvasGroup\LeanCanvasGroupInteractable.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformSizeDelta.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\AudioSource\LeanAudioSourceVolume.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalScale_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalPosition.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchoredPosition_x.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanDelay.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMax.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Material\LeanMaterialVector.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Extras\Scripts\LeanManualAnimation.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\CanvasGroup\LeanCanvasGroupAlpha.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchoredPosition_y.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMax.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanInsert.cs" />
-     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition_xy.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalPosition_x.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanTiming.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformRotation.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMax_x.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMax_x.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Light\LeanLightIntensity.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanState.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanPlayer.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMin_x.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMin.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanMethod.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Examples\Scripts\RepeatFromCode.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanTime.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformSizeDelta_x.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformPivot_y.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Graphic\LeanGraphicColor.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\AudioSource\LeanAudioSourcePitch.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformTranslate.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\AudioSource\LeanAudioSourcePanStereo.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalRotation.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchoredPosition.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\CanvasGroup\LeanCanvasGroupInteractable.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalScale_x.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition_x.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalPosition_z.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformSetAsLastSibling.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanStateWithTarget.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\AudioSource\LeanAudioSourceSpatialBlend.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanJoinDelay.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalPosition_xy.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMin_x.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Extras\Scripts\LeanAnimationRepeater.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMax.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMin_y.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Material\LeanMaterialVector.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition_y.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition_z.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Light\LeanLightColor.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformPivot_x.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Extras\Scripts\LeanManualAnimation.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformEulerAngles.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformSizeDelta.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMin_y.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\AudioSource\LeanAudioSourceVolume.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalScale_y.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanEase.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\GameObject\LeanGameObjectSetActive.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformSizeDelta_y.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\CanvasGroup\LeanCanvasGroupAlpha.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Scripts\LeanTransition.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalPosition.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Image\LeanImageFillAmount.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Material\LeanMaterialColor.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanGet.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMin.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Light\LeanLightRange.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalPosition_y.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanTimeScale.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalEulerAngles.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformOffsetMax_y.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalScale.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchoredPosition_x.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMax_y.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\CanvasGroup\LeanCanvasGroupBlocksRaycasts.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanJoin.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanJoinInsert.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanQueue.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanEvent.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchoredPosition_y.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformPivot.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanPlaySound.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform\LeanRectTransformAnchorMax.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalScale_xy.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanInsert.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformRotate.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformPosition_xy.cs" />
      <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform\LeanTransformLocalScale_z.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\SpriteRenderer\LeanSpriteRendererColor.cs" />
+     <Compile Include="Assets\Plugins\CW\LeanTransition\Required\Methods\LeanDelay.cs" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Graphic" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\AudioSource" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\CanvasGroup" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Light" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\SpriteRenderer" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\GameObject" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Material" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Editor\Templates" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Extras\Scripts" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Image" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\Transform" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Methods\RectTransform" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Editor" />
      <None Include="Assets\Plugins\CW\LeanTransition\package.json" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Extras\Prefabs" />
      <None Include="Assets\Plugins\CW\LeanTransition\LeanTransition.asmdef" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Examples" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Extras" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Required\Scripts" />
+     <Folder Include="Assets\Plugins\CW\LeanTransition\Examples\Scripts" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -356,25 +377,25 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Antlr3.Runtime">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="VTS_XYPlugin_Common">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\VTS_XYPlugin_Common.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\VTS_XYPlugin_Common.dll</HintPath>
      </Reference>
      <Reference Include="UnityGifDecoder">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\UnityGifDecoder.dll</HintPath>
-     </Reference>
-     <Reference Include="log4netPlastic">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
-     </Reference>
-     <Reference Include="Newtonsoft.Json">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\UnityGifDecoder.dll</HintPath>
      </Reference>
      <Reference Include="unityplastic">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@1.17.2\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+     </Reference>
+     <Reference Include="log4netPlastic">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -725,10 +746,10 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

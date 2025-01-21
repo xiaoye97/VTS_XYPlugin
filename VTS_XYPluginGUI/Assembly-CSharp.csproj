@@ -41,27 +41,36 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\UI\UIActionBindItem.cs" />
-     <Compile Include="Assets\Scripts\UI\UIPageGiftDrop.cs" />
-     <Compile Include="Assets\Scripts\XYLog.cs" />
-     <Compile Include="Assets\Scripts\UI\UIGiftItem.cs" />
-     <Compile Include="Assets\Scripts\UI\UIWindowMessageBox.cs" />
-     <Compile Include="Assets\Scripts\XYCache.cs" />
-     <Compile Include="Assets\Scripts\UI\UIHotkeyItem.cs" />
-     <Compile Include="Assets\Scripts\XYPaths.cs" />
      <Compile Include="Assets\Scripts\UI\UITextAutoSize.cs" />
      <Compile Include="Assets\Scripts\MonoSingleton.cs" />
+     <Compile Include="Assets\Scripts\UI\UIActionBindItem.cs" />
      <Compile Include="Assets\Scripts\MiscHelper.cs" />
+     <Compile Include="Assets\Scripts\UI\UIPageGiftDrop.cs" />
+     <Compile Include="Assets\Scripts\XYLog.cs" />
      <Compile Include="Assets\Scripts\FileHelper.cs" />
+     <Compile Include="Assets\Scripts\UI\UIGiftItem.cs" />
+     <Compile Include="Assets\Scripts\UI\UIWindowMessageBox.cs" />
      <Compile Include="Assets\Scripts\UI\UIPageInfo.cs" />
+     <Compile Include="Assets\Scripts\XYCache.cs" />
+     <Compile Include="Assets\Scripts\UI\UIHotkeyItem.cs" />
      <Compile Include="Assets\Scripts\XYNetClient.cs" />
      <Compile Include="Assets\Scripts\UI\UIPageConfig.cs" />
      <Compile Include="Assets\Scripts\XYPlugin.cs" />
      <Compile Include="Assets\Scripts\UI\UIWindowCreateBind.cs" />
      <Compile Include="Assets\Scripts\UI\UIPageActionBind.cs" />
      <Compile Include="Assets\Scripts\UI\UIPageSctipt.cs" />
+     <Compile Include="Assets\Scripts\XYPaths.cs" />
      <Compile Include="Assets\Scripts\UI\UIWindowCreateGift.cs" />
      <Compile Include="Assets\Scripts\UI\UINotification.cs" />
+     <Folder Include="Assets" />
+     <Folder Include="Assets\StreamingAssets" />
+     <Folder Include="Assets\Resources" />
+     <Folder Include="Assets\Scenes" />
+     <Folder Include="Assets\Scripts" />
+     <Folder Include="Assets\DLL" />
+     <Folder Include="Assets\Scripts\UI" />
+     <Folder Include="Assets\Resources\Icon" />
+     <Folder Include="Assets\Resources\Prefabs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -288,13 +297,13 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="VTS_XYPlugin_Common">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\VTS_XYPlugin_Common.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\VTS_XYPlugin_Common.dll</HintPath>
      </Reference>
      <Reference Include="UnityGifDecoder">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\UnityGifDecoder.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\DLL\UnityGifDecoder.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Assets\Plugins\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -644,110 +653,38 @@
      <Reference Include="System.Xml.XPath.XDocument">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.48f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.Animation.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.InternalAPIEngineBridge.001">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.PixelPerfect">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="PsdPlugin">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Timeline">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.TextMeshPro">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.IK.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Psdimporter.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Path.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.InternalAPIEditorBridge.001">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.Mathematics">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.IK.Runtime">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Animation.Triangle.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Editor.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.Animation.Runtime">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.2D.PixelPerfect.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+     <Reference Include="Unity.Timeline">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.Common.Runtime">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
+     <Reference Include="Unity.TextMeshPro">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.SpriteShape.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
+     <Reference Include="UnityEditor.UI">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.Common.Editor">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+     <Reference Include="Unity.PlasticSCM.Editor">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.SpriteShape.Runtime">
-     <HintPath>C:\Github\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+     <Reference Include="Unity.Rider.Editor">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.UI">
+     <HintPath>C:\GitHub\VTS_XYPlugin\VTS_XYPluginGUI\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="CW.Common.csproj">
-      <Project>{1d8744a4-2af9-b331-8726-c63919af05dd}</Project>
-      <Name>CW.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="LeanTransition.csproj">
-      <Project>{3f6b4a94-7e4b-eca8-4667-1612e6c3cb12}</Project>
-      <Name>LeanTransition</Name>
-    </ProjectReference>
-    <ProjectReference Include="LeanPool.csproj">
-      <Project>{fadf4032-0b65-fd5a-bcad-42ae633a0bdc}</Project>
-      <Name>LeanPool</Name>
-    </ProjectReference>
     <ProjectReference Include="LeanCommon.csproj">
       <Project>{c4eea734-5477-88ed-097b-88057cee21dd}</Project>
       <Name>LeanCommon</Name>
@@ -756,13 +693,25 @@
       <Project>{acac2875-6cdb-f956-1ed1-08de4eb86734}</Project>
       <Name>LeanGUI</Name>
     </ProjectReference>
+    <ProjectReference Include="LeanTransition.Editor.csproj">
+      <Project>{61e27cb5-a8cf-84bd-bd20-e7ba460f42cf}</Project>
+      <Name>LeanTransition.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="CW.Common.csproj">
+      <Project>{1d8744a4-2af9-b331-8726-c63919af05dd}</Project>
+      <Name>CW.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="LeanTransition.csproj">
+      <Project>{3f6b4a94-7e4b-eca8-4667-1612e6c3cb12}</Project>
+      <Name>LeanTransition</Name>
+    </ProjectReference>
     <ProjectReference Include="LeanGUIShapes.csproj">
       <Project>{dc208261-0b7d-5371-ccd9-f357eaaf71e5}</Project>
       <Name>LeanGUIShapes</Name>
     </ProjectReference>
-    <ProjectReference Include="LeanTransition.Editor.csproj">
-      <Project>{61e27cb5-a8cf-84bd-bd20-e7ba460f42cf}</Project>
-      <Name>LeanTransition.Editor</Name>
+    <ProjectReference Include="LeanPool.csproj">
+      <Project>{fadf4032-0b65-fd5a-bcad-42ae633a0bdc}</Project>
+      <Name>LeanPool</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

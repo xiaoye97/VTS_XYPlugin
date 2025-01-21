@@ -10,9 +10,14 @@ namespace OpenBLive.Runtime.Data
     public struct UserInfo
     {
         /// <summary>
-        /// 购买大航海的用户UID
+        /// 用户UID(已作废)
         /// </summary>
         [JsonProperty("uid")] public long uid;
+
+        /// <summary>
+        /// open_jd
+        /// </summary>
+        [JsonProperty("open_id")] public string openId;
 
         /// <summary>
         /// 购买大航海的用户昵称

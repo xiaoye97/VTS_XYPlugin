@@ -108,7 +108,7 @@ namespace VTS_XYPlugin
         {
             var message = new BGiftMessage()
             {
-                用户ID = sendGift.uid.ToString(),
+                用户ID = sendGift.openId.ToString(),
                 用户名 = sendGift.userName,
                 礼物名 = sendGift.giftName,
                 礼物数量 = (int)sendGift.giftNum,
@@ -124,7 +124,7 @@ namespace VTS_XYPlugin
         {
             var message = new BDanMuMessage()
             {
-                用户ID = dm.uid.ToString(),
+                用户ID = dm.openId.ToString(),
                 用户名 = dm.userName,
                 舰队类型 = dm.guardLevel.ToString().ToJianDuiType(),
                 粉丝牌名称 = dm.fansMedalName,
@@ -138,7 +138,7 @@ namespace VTS_XYPlugin
         {
             var message = new BSCMessage()
             {
-                用户ID = sc.uid.ToString(),
+                用户ID = sc.openId.ToString(),
                 用户名 = sc.userName,
                 金额 = (int)sc.rmb,
                 持续时间 = (int)(sc.endTime - sc.startTime),
@@ -151,7 +151,7 @@ namespace VTS_XYPlugin
         {
             var message = new BBuyJianDuiMessage()
             {
-                用户ID = guard.userInfo.uid.ToString(),
+                用户ID = guard.userInfo.openId.ToString(),
                 用户名 = guard.userInfo.userName,
                 开通类型 = guard.guardLevel.ToString().ToJianDuiType(),
                 开通数量 = (int)guard.guardNum,

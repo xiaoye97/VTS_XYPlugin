@@ -42,12 +42,12 @@ namespace VTS_XYPlugin
         public virtual void 当收到舰长(object obj)
         {
             BBuyJianDuiMessage message = (BBuyJianDuiMessage)obj;
-            XYLog.LogMessage($"收到了舰队 {message.舰长类型}");
-            var dict = XYDropManager.Instance.SearchDropItemByTriggerGift(message.舰长类型.ToString());
+            XYLog.LogMessage($"收到了舰队 {message.开通类型}");
+            var dict = XYDropManager.Instance.SearchDropItemByTriggerGift(message.开通类型.ToString());
             foreach (var kv in dict)
             {
                 var data = kv.Value;
-                XYLog.LogMessage($"因收到了舰队 {message.舰长类型} 开始掉落 {data.Name}");
+                XYLog.LogMessage($"因收到了舰队 {message.开通类型} 开始掉落 {data.Name}");
                 XYDropManager.Instance.StartDrop(data, 1, message.用户ID);
             }
         }
